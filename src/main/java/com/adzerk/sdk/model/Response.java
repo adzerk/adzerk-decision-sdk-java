@@ -12,15 +12,16 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+
+import io.swagger.annotations.ApiModelProperty;
 
 public class Response extends com.adzerk.sdk.generated.model.Response {
   private static final long serialVersionUID = 1;
 
-  public static final String SERIALIZED_NAME_DECISIONS = "decisions";
-  @SerializedName(SERIALIZED_NAME_DECISIONS)
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   public Map<String, List<Decision>> getDecisions() {
     Gson gson = new Gson();
 
@@ -48,5 +49,15 @@ public class Response extends com.adzerk.sdk.generated.model.Response {
     }
 
     return result;
+  }
+
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public Map<String, ?> getExplain() {
+    LinkedTreeMap<?, ?> explanation = (LinkedTreeMap<?, ?>) super.getExplain();
+
+    if (explanation == null) { return null; }
+
+    return (Map<String, ?>) explanation;
   }
 }
