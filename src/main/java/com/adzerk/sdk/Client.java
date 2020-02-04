@@ -6,6 +6,8 @@ import java.lang.reflect.Type;
 import com.adzerk.sdk.generated.ApiClient;
 import com.adzerk.sdk.generated.ApiException;
 import com.adzerk.sdk.generated.api.DecisionApi;
+import com.adzerk.sdk.generated.api.UserdbApi;
+import com.adzerk.sdk.generated.model.GdprConsent;
 import com.adzerk.sdk.generated.model.Request;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -19,16 +21,129 @@ import okhttp3.OkHttpClient;
 import okio.Buffer;
 
 public class Client {
-  private String path;
+  public class DecisionClient {
+    private String path;
+    private OkHttpClient httpClient;
+    private Logger logger;
+    private ApiClient apiClient;
+    private DecisionApi decisionApi;
+
+    private DecisionClient(String path, OkHttpClient httpClient, Logger logger) {
+      this.path = path;
+      this.httpClient = httpClient;
+      this.logger = logger;
+      this.apiClient = new ApiClient().setBasePath(path).setHttpClient(httpClient);
+      this.decisionApi = new DecisionApi(this.apiClient);
+    }
+
+    public com.adzerk.sdk.model.Response get(Request request) throws ApiException {
+      Gson gson = new Gson();
+      Type t = new TypeToken<com.adzerk.sdk.model.Response>(){}.getType();
+
+      this.logger.info("Fetching decisions from Adzerk API");
+      this.logger.info("Processing request: {}", gson.toJson(request));
+
+      Object response = this.decisionApi.getDecisions(request);
+
+      this.logger.info("Received response: {}", gson.toJson(response));
+
+      return gson.fromJson(gson.toJson(response), t);
+    }
+
+    public com.adzerk.sdk.model.Response getWithExplanation(Request request, String apiKey) throws ApiException {
+      Gson gson = new Gson();
+      Type t = new TypeToken<com.adzerk.sdk.model.Response>(){}.getType();
+
+      Interceptor keyInterceptor = new Interceptor() {
+        public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
+          okhttp3.Request request = chain.request().newBuilder().addHeader("X-Adzerk-Explain", apiKey).build();
+          return chain.proceed(request);
+        }
+      };
+
+      OkHttpClient httpClient = this.httpClient.newBuilder().addInterceptor(keyInterceptor).build();
+      ApiClient apiClient = new ApiClient().setBasePath(this.path).setHttpClient(httpClient);
+      DecisionApi api = new DecisionApi(apiClient);
+
+      this.logger.info("Fetching decisions from Adzerk API");
+      this.logger.info("Processing request: {}", gson.toJson(request));
+
+      Object response = api.getDecisions(request);
+
+      this.logger.info("Received response: {}", gson.toJson(response));
+
+      return gson.fromJson(gson.toJson(response), t);
+    }
+  }
+
+  public class UserDbClient {
+    private UserdbApi userDbApi;
+
+    private UserDbClient(String path, OkHttpClient httpClient, Logger logger) {
+      ApiClient apiClient = new ApiClient().setBasePath(path).setHttpClient(httpClient);
+      this.userDbApi = new UserdbApi(apiClient);
+    }
+
+    public void setUserCookie(int networkId, String userKey) throws ApiException {
+      this.userDbApi.setUserCookie(networkId, userKey);
+    }
+
+    public void addCustomProperties(int networkId, String userKey, Object properties) throws ApiException {
+      this.userDbApi.addCustomProperties(userKey, networkId, properties);
+    }
+
+    public void addInterests(int networkId, String userKey, String[] interests) throws ApiException {
+      String interestCsv = String.join(",", interests);
+      this.userDbApi.addInterests(networkId, userKey, interestCsv);
+    }
+
+    public void addRetargetingSegment(int networkId, String userKey, int advertiserId, int retargetingSegmentId) throws ApiException {
+      this.userDbApi.addRetargetingSegment(userKey, networkId, advertiserId, retargetingSegmentId);
+    }
+
+    public void forget(int networkId, String userKey) throws ApiException {
+      this.userDbApi.forget(networkId, userKey);
+    }
+
+    public void gdprConsent(int networkId, GdprConsent gdprConsent) throws ApiException {
+      this.userDbApi.gdprConsent(networkId, gdprConsent);
+    }
+
+    public void ipOverride(int networkId, String userKey, String ip) throws ApiException {
+      this.userDbApi.ipOverride(networkId, userKey, ip);
+    }
+
+    public void matchUser(int networkId, String userKey, int partnerId, int userId) throws ApiException {
+      this.userDbApi.matchUser(userKey, networkId, partnerId, userId);
+    }
+
+    public void optOut(int networkId, String userKey) throws ApiException {
+      this.userDbApi.optOut(userKey, networkId);
+    }
+
+    public Object read(int networkId, String userKey) throws ApiException {
+      return this.userDbApi.read(userKey, networkId);
+    }
+  }
+
   private Logger logger;
-  private OkHttpClient httpClient;
+  private DecisionClient decisionClient;
+  private UserDbClient userDbClient;
+
+  public DecisionClient decisions() {
+    return this.decisionClient;
+  }
+
+  public UserDbClient userDb() {
+    return this.userDbClient;
+  }
 
   public Client(ClientParameters params) {
     this.logger = LoggerFactory.getLogger(Client.class);
 
     String protocol = StringUtils.isNotBlank(params.getProtocol()) ? params.getProtocol() : "https";
     String host = StringUtils.isNotBlank(params.getHost()) ? params.getHost() : String.format("e-%s.adzerk.net", params.getNetworkId());
-    this.path = String.format("%s://%s", protocol, host);
+    String path = String.format("%s://%s", protocol, host);
 
     Interceptor requestInterceptor = new Interceptor() {
       public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
@@ -56,47 +171,8 @@ public class Client {
       }
     };
 
-    this.httpClient = new okhttp3.OkHttpClient.Builder().addInterceptor(requestInterceptor).build();
-  }
-
-  public com.adzerk.sdk.model.Response getDecisions(Request request) throws ApiException {
-    Gson gson = new Gson();
-    Type t = new TypeToken<com.adzerk.sdk.model.Response>(){}.getType();
-    ApiClient apiClient = new ApiClient().setBasePath(this.path).setHttpClient(this.httpClient);
-    DecisionApi api = new DecisionApi(apiClient);
-
-    this.logger.info("Fetching decisions from Adzerk API");
-    this.logger.info("Processing request: {}", gson.toJson(request));
-
-    Object response = api.getDecisions(request);
-
-    this.logger.info("Received response: {}", gson.toJson(response));
-
-    return gson.fromJson(gson.toJson(response), t);
-  }
-
-  public com.adzerk.sdk.model.Response getDecisionsWithExplanation(Request request, String apiKey) throws ApiException {
-    Gson gson = new Gson();
-    Type t = new TypeToken<com.adzerk.sdk.model.Response>(){}.getType();
-
-    Interceptor keyInterceptor = new Interceptor() {
-      public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
-        okhttp3.Request request = chain.request().newBuilder().addHeader("X-Adzerk-Explain", apiKey).build();
-        return chain.proceed(request);
-      }
-    };
-
-    OkHttpClient httpClient = this.httpClient.newBuilder().addInterceptor(keyInterceptor).build();
-    ApiClient apiClient = new ApiClient().setBasePath(this.path).setHttpClient(httpClient);
-    DecisionApi api = new DecisionApi(apiClient);
-
-    this.logger.info("Fetching decisions from Adzerk API");
-    this.logger.info("Processing request: {}", gson.toJson(request));
-
-    Object response = api.getDecisions(request);
-
-    this.logger.info("Received response: {}", gson.toJson(response));
-
-    return gson.fromJson(gson.toJson(response), t);
+    OkHttpClient httpClient = new okhttp3.OkHttpClient.Builder().addInterceptor(requestInterceptor).build();
+    this.decisionClient = new DecisionClient(path, httpClient, logger);
+    this.userDbClient = new UserDbClient(path, httpClient, logger);
   }
 }
