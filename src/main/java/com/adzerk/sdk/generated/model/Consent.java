@@ -26,11 +26,10 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.
+ * Consent
  */
-@ApiModel(description = "Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-04T09:29:07.265-05:00[America/New_York]")
-public class RequestConsent implements Serializable {
+public class Consent implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_GDPR = "gdpr";
@@ -38,7 +37,7 @@ public class RequestConsent implements Serializable {
   private Boolean gdpr;
 
 
-  public RequestConsent gdpr(Boolean gdpr) {
+  public Consent gdpr(Boolean gdpr) {
     
     this.gdpr = gdpr;
     return this;
@@ -69,8 +68,8 @@ public class RequestConsent implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RequestConsent requestConsent = (RequestConsent) o;
-    return Objects.equals(this.gdpr, requestConsent.gdpr);
+    Consent consent = (Consent) o;
+    return Objects.equals(this.gdpr, consent.gdpr);
   }
 
   @Override
@@ -82,7 +81,7 @@ public class RequestConsent implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RequestConsent {\n");
+    sb.append("class Consent {\n");
     sb.append("    gdpr: ").append(toIndentedString(gdpr)).append("\n");
     sb.append("}");
     return sb.toString();
