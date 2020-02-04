@@ -5,6 +5,7 @@ public class ClientParameters {
   private String protocol;
   private String host;
   private String path;
+  private String apiKey;
 
   public ClientParameters(Integer networkId) {
     this.networkId = networkId;
@@ -59,6 +60,19 @@ public class ClientParameters {
 
   public ClientParameters path(String path) {
     this.setPath(path);
+    return this;
+  }
+
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
+  }
+
+  public ClientParameters apiKey(String apiKey) {
+    this.setApiKey(apiKey);
     return this;
   }
 }
