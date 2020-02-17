@@ -29,7 +29,7 @@ import java.io.Serializable;
  * Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.
  */
 @ApiModel(description = "Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-04T09:29:07.265-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-16T21:41:20.358-05:00[America/New_York]")
 public class RequestConsent implements Serializable {
   private static final long serialVersionUID = 1L;
 

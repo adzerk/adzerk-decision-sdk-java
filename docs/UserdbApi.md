@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="addCustomProperties"></a>
 # **addCustomProperties**
-> addCustomProperties(azk, networkId, body)
+> addCustomProperties(networkId, userKey, body)
 
 
 
@@ -46,11 +46,11 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
-    String azk = "azk_example"; // String | The User's UserDB Key
     Integer networkId = 56; // Integer | Your Network Id
+    String userKey = "userKey_example"; // String | The User's UserDB Key
     Object body = null; // Object | 
     try {
-      apiInstance.addCustomProperties(azk, networkId, body);
+      apiInstance.addCustomProperties(networkId, userKey, body);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#addCustomProperties");
       System.err.println("Status code: " + e.getCode());
@@ -66,8 +66,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key |
  **networkId** | **Integer**| Your Network Id |
+ **userKey** | **String**| The User&#39;s UserDB Key |
  **body** | **Object**|  | [optional]
 
 ### Return type
@@ -155,7 +155,7 @@ No authorization required
 
 <a name="addRetargetingSegment"></a>
 # **addRetargetingSegment**
-> addRetargetingSegment(azk, networkId, advertiserId, retargetingSegmentId)
+> addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey)
 
 
 
@@ -176,12 +176,12 @@ public class Example {
     defaultClient.setBasePath("https://e-23.adzerk.net");
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
-    String azk = "azk_example"; // String | The User's UserDB Key
     Integer networkId = 56; // Integer | Your Network Id
     Integer advertiserId = 56; // Integer | The Advertiser's ID
     Integer retargetingSegmentId = 56; // Integer | The Segment's ID
+    String userKey = "userKey_example"; // String | The User's UserDB Key
     try {
-      apiInstance.addRetargetingSegment(azk, networkId, advertiserId, retargetingSegmentId);
+      apiInstance.addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#addRetargetingSegment");
       System.err.println("Status code: " + e.getCode());
@@ -197,10 +197,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key |
  **networkId** | **Integer**| Your Network Id |
  **advertiserId** | **Integer**| The Advertiser&#39;s ID |
  **retargetingSegmentId** | **Integer**| The Segment&#39;s ID |
+ **userKey** | **String**| The User&#39;s UserDB Key |
 
 ### Return type
 
@@ -362,7 +362,7 @@ null (empty response body)
 
 <a name="ipOverride"></a>
 # **ipOverride**
-> Object ipOverride(networkId, azk, ip)
+> Object ipOverride(networkId, userKey, ip)
 
 
 
@@ -384,10 +384,10 @@ public class Example {
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
     Integer networkId = 56; // Integer | Your Network Id
-    String azk = "azk_example"; // String | The User's UserDB Key
+    String userKey = "userKey_example"; // String | The User's UserDB Key
     String ip = "ip_example"; // String | This is the IP to exclude
     try {
-      Object result = apiInstance.ipOverride(networkId, azk, ip);
+      Object result = apiInstance.ipOverride(networkId, userKey, ip);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#ipOverride");
@@ -405,7 +405,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **networkId** | **Integer**| Your Network Id |
- **azk** | **String**| The User&#39;s UserDB Key |
+ **userKey** | **String**| The User&#39;s UserDB Key |
  **ip** | **String**| This is the IP to exclude |
 
 ### Return type
@@ -428,7 +428,7 @@ No authorization required
 
 <a name="matchUser"></a>
 # **matchUser**
-> matchUser(azk, networkId, partnerId, userId)
+> matchUser(networkId, userKey, partnerId, userId)
 
 
 
@@ -449,12 +449,12 @@ public class Example {
     defaultClient.setBasePath("https://e-23.adzerk.net");
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
-    String azk = "azk_example"; // String | The User's UserDB Key
     Integer networkId = 56; // Integer | Your Network Id
+    String userKey = "userKey_example"; // String | The User's UserDB Key
     Integer partnerId = 56; // Integer | The ID of the RTB provider in Adzerk. Contact Support if you don't have the ID.
     Integer userId = 56; // Integer | This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
     try {
-      apiInstance.matchUser(azk, networkId, partnerId, userId);
+      apiInstance.matchUser(networkId, userKey, partnerId, userId);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#matchUser");
       System.err.println("Status code: " + e.getCode());
@@ -470,8 +470,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key |
  **networkId** | **Integer**| Your Network Id |
+ **userKey** | **String**| The User&#39;s UserDB Key |
  **partnerId** | **Integer**| The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. |
  **userId** | **Integer**| This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. |
 
@@ -495,7 +495,7 @@ No authorization required
 
 <a name="optOut"></a>
 # **optOut**
-> optOut(azk, networkId)
+> optOut(networkId, userKey)
 
 
 
@@ -516,10 +516,10 @@ public class Example {
     defaultClient.setBasePath("https://e-23.adzerk.net");
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
-    String azk = "azk_example"; // String | The User's UserDB Key
     Integer networkId = 56; // Integer | Your Network Id
+    String userKey = "userKey_example"; // String | The User's UserDB Key
     try {
-      apiInstance.optOut(azk, networkId);
+      apiInstance.optOut(networkId, userKey);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#optOut");
       System.err.println("Status code: " + e.getCode());
@@ -535,8 +535,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key |
  **networkId** | **Integer**| Your Network Id |
+ **userKey** | **String**| The User&#39;s UserDB Key |
 
 ### Return type
 
@@ -558,7 +558,7 @@ No authorization required
 
 <a name="read"></a>
 # **read**
-> Object read(azk, networkId)
+> Object read(networkId, userKey)
 
 
 
@@ -579,10 +579,10 @@ public class Example {
     defaultClient.setBasePath("https://e-23.adzerk.net");
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
-    String azk = "azk_example"; // String | The User's UserDB Key
     Integer networkId = 56; // Integer | Your Network Id
+    String userKey = "userKey_example"; // String | The User's UserDB Key
     try {
-      Object result = apiInstance.read(azk, networkId);
+      Object result = apiInstance.read(networkId, userKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#read");
@@ -599,8 +599,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **azk** | **String**| The User&#39;s UserDB Key |
  **networkId** | **Integer**| Your Network Id |
+ **userKey** | **String**| The User&#39;s UserDB Key |
 
 ### Return type
 

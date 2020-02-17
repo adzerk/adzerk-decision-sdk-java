@@ -42,10 +42,10 @@ public class UserdbApiTest {
      */
     @Test
     public void addCustomPropertiesTest() throws ApiException {
-        String azk = null;
         Integer networkId = null;
+        String userKey = null;
         Object body = null;
-        api.addCustomProperties(azk, networkId, body);
+        api.addCustomProperties(networkId, userKey, body);
 
         // TODO: test validations
     }
@@ -78,11 +78,11 @@ public class UserdbApiTest {
      */
     @Test
     public void addRetargetingSegmentTest() throws ApiException {
-        String azk = null;
         Integer networkId = null;
         Integer advertiserId = null;
         Integer retargetingSegmentId = null;
-        api.addRetargetingSegment(azk, networkId, advertiserId, retargetingSegmentId);
+        String userKey = null;
+        api.addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey);
 
         // TODO: test validations
     }
@@ -132,9 +132,9 @@ public class UserdbApiTest {
     @Test
     public void ipOverrideTest() throws ApiException {
         Integer networkId = null;
-        String azk = null;
+        String userKey = null;
         String ip = null;
-        Object response = api.ipOverride(networkId, azk, ip);
+        Object response = api.ipOverride(networkId, userKey, ip);
 
         // TODO: test validations
     }
@@ -149,11 +149,11 @@ public class UserdbApiTest {
      */
     @Test
     public void matchUserTest() throws ApiException {
-        String azk = null;
         Integer networkId = null;
+        String userKey = null;
         Integer partnerId = null;
         Integer userId = null;
-        api.matchUser(azk, networkId, partnerId, userId);
+        api.matchUser(networkId, userKey, partnerId, userId);
 
         // TODO: test validations
     }
@@ -168,9 +168,9 @@ public class UserdbApiTest {
      */
     @Test
     public void optOutTest() throws ApiException {
-        String azk = null;
         Integer networkId = null;
-        api.optOut(azk, networkId);
+        String userKey = null;
+        api.optOut(networkId, userKey);
 
         // TODO: test validations
     }
@@ -185,9 +185,9 @@ public class UserdbApiTest {
      */
     @Test
     public void readTest() throws ApiException {
-        String azk = null;
         Integer networkId = null;
-        Object response = api.read(azk, networkId);
+        String userKey = null;
+        Object response = api.read(networkId, userKey);
 
         // TODO: test validations
     }

@@ -89,7 +89,7 @@ public class Client {
     }
 
     public void addCustomProperties(int networkId, String userKey, Object properties) throws ApiException {
-      this.userDbApi.addCustomProperties(userKey, networkId, properties);
+      this.userDbApi.addCustomProperties(networkId, userKey, properties);
     }
 
     public void addInterests(int networkId, String userKey, String[] interests) throws ApiException {
@@ -98,7 +98,7 @@ public class Client {
     }
 
     public void addRetargetingSegment(int networkId, String userKey, int advertiserId, int retargetingSegmentId) throws ApiException {
-      this.userDbApi.addRetargetingSegment(userKey, networkId, advertiserId, retargetingSegmentId);
+      this.userDbApi.addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey);
     }
 
     public void forget(int networkId, String userKey) throws ApiException {
@@ -114,15 +114,15 @@ public class Client {
     }
 
     public void matchUser(int networkId, String userKey, int partnerId, int userId) throws ApiException {
-      this.userDbApi.matchUser(userKey, networkId, partnerId, userId);
+      this.userDbApi.matchUser(networkId, userKey, partnerId, userId);
     }
 
     public void optOut(int networkId, String userKey) throws ApiException {
-      this.userDbApi.optOut(userKey, networkId);
+      this.userDbApi.optOut(networkId, userKey);
     }
 
     public Object read(int networkId, String userKey) throws ApiException {
-      return this.userDbApi.read(userKey, networkId);
+      return this.userDbApi.read(networkId, userKey);
     }
   }
 

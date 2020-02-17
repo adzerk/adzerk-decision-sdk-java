@@ -56,8 +56,8 @@ public class UserdbApi {
 
     /**
      * Build call for addCustomProperties
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -68,7 +68,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addCustomPropertiesCall(String azk, Integer networkId, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addCustomPropertiesCall(Integer networkId, String userKey, Object body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -77,12 +77,12 @@ public class UserdbApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        if (azk != null) {
-            localVarCookieParams.put("azk", localVarApiClient.parameterToString(azk));
+        if (userKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userKey", userKey));
         }
 
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -103,20 +103,20 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addCustomPropertiesValidateBeforeCall(String azk, Integer networkId, Object body, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'azk' is set
-        if (azk == null) {
-            throw new ApiException("Missing the required parameter 'azk' when calling addCustomProperties(Async)");
-        }
+    private okhttp3.Call addCustomPropertiesValidateBeforeCall(Integer networkId, String userKey, Object body, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addCustomProperties(Async)");
         }
         
+        // verify the required parameter 'userKey' is set
+        if (userKey == null) {
+            throw new ApiException("Missing the required parameter 'userKey' when calling addCustomProperties(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = addCustomPropertiesCall(azk, networkId, body, _callback);
+        okhttp3.Call localVarCall = addCustomPropertiesCall(networkId, userKey, body, _callback);
         return localVarCall;
 
     }
@@ -124,8 +124,8 @@ public class UserdbApi {
     /**
      * 
      * Add Custom Properties to a User
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -134,15 +134,15 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void addCustomProperties(String azk, Integer networkId, Object body) throws ApiException {
-        addCustomPropertiesWithHttpInfo(azk, networkId, body);
+    public void addCustomProperties(Integer networkId, String userKey, Object body) throws ApiException {
+        addCustomPropertiesWithHttpInfo(networkId, userKey, body);
     }
 
     /**
      * 
      * Add Custom Properties to a User
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -152,16 +152,16 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addCustomPropertiesWithHttpInfo(String azk, Integer networkId, Object body) throws ApiException {
-        okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(azk, networkId, body, null);
+    public ApiResponse<Void> addCustomPropertiesWithHttpInfo(Integer networkId, String userKey, Object body) throws ApiException {
+        okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(networkId, userKey, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * Add Custom Properties to a User
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -172,9 +172,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addCustomPropertiesAsync(String azk, Integer networkId, Object body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addCustomPropertiesAsync(Integer networkId, String userKey, Object body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(azk, networkId, body, _callback);
+        okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(networkId, userKey, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -313,10 +313,10 @@ public class UserdbApi {
     }
     /**
      * Build call for addRetargetingSegment
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
      * @param advertiserId The Advertiser&#39;s ID (required)
      * @param retargetingSegmentId The Segment&#39;s ID (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -326,7 +326,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addRetargetingSegmentCall(String azk, Integer networkId, Integer advertiserId, Integer retargetingSegmentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addRetargetingSegmentCall(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -337,12 +337,12 @@ public class UserdbApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        if (azk != null) {
-            localVarCookieParams.put("azk", localVarApiClient.parameterToString(azk));
+        if (userKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userKey", userKey));
         }
 
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -363,12 +363,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addRetargetingSegmentValidateBeforeCall(String azk, Integer networkId, Integer advertiserId, Integer retargetingSegmentId, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'azk' is set
-        if (azk == null) {
-            throw new ApiException("Missing the required parameter 'azk' when calling addRetargetingSegment(Async)");
-        }
+    private okhttp3.Call addRetargetingSegmentValidateBeforeCall(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
@@ -385,8 +380,13 @@ public class UserdbApi {
             throw new ApiException("Missing the required parameter 'retargetingSegmentId' when calling addRetargetingSegment(Async)");
         }
         
+        // verify the required parameter 'userKey' is set
+        if (userKey == null) {
+            throw new ApiException("Missing the required parameter 'userKey' when calling addRetargetingSegment(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = addRetargetingSegmentCall(azk, networkId, advertiserId, retargetingSegmentId, _callback);
+        okhttp3.Call localVarCall = addRetargetingSegmentCall(networkId, advertiserId, retargetingSegmentId, userKey, _callback);
         return localVarCall;
 
     }
@@ -394,10 +394,10 @@ public class UserdbApi {
     /**
      * 
      * Add User to a Retargeting Segment
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
      * @param advertiserId The Advertiser&#39;s ID (required)
      * @param retargetingSegmentId The Segment&#39;s ID (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -405,17 +405,17 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void addRetargetingSegment(String azk, Integer networkId, Integer advertiserId, Integer retargetingSegmentId) throws ApiException {
-        addRetargetingSegmentWithHttpInfo(azk, networkId, advertiserId, retargetingSegmentId);
+    public void addRetargetingSegment(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
+        addRetargetingSegmentWithHttpInfo(networkId, advertiserId, retargetingSegmentId, userKey);
     }
 
     /**
      * 
      * Add User to a Retargeting Segment
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
      * @param advertiserId The Advertiser&#39;s ID (required)
      * @param retargetingSegmentId The Segment&#39;s ID (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -424,18 +424,18 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addRetargetingSegmentWithHttpInfo(String azk, Integer networkId, Integer advertiserId, Integer retargetingSegmentId) throws ApiException {
-        okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(azk, networkId, advertiserId, retargetingSegmentId, null);
+    public ApiResponse<Void> addRetargetingSegmentWithHttpInfo(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
+        okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(networkId, advertiserId, retargetingSegmentId, userKey, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * Add User to a Retargeting Segment
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
      * @param advertiserId The Advertiser&#39;s ID (required)
      * @param retargetingSegmentId The Segment&#39;s ID (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -445,9 +445,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addRetargetingSegmentAsync(String azk, Integer networkId, Integer advertiserId, Integer retargetingSegmentId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addRetargetingSegmentAsync(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(azk, networkId, advertiserId, retargetingSegmentId, _callback);
+        okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(networkId, advertiserId, retargetingSegmentId, userKey, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -685,7 +685,7 @@ public class UserdbApi {
     /**
      * Build call for ipOverride
      * @param networkId Your Network Id (required)
-     * @param azk The User&#39;s UserDB Key (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param ip This is the IP to exclude (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -696,7 +696,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ipOverrideCall(Integer networkId, String azk, String ip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ipOverrideCall(Integer networkId, String userKey, String ip, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -705,16 +705,16 @@ public class UserdbApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (userKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userKey", userKey));
+        }
+
         if (ip != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("ip", ip));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        if (azk != null) {
-            localVarCookieParams.put("azk", localVarApiClient.parameterToString(azk));
-        }
-
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -735,16 +735,16 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ipOverrideValidateBeforeCall(Integer networkId, String azk, String ip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ipOverrideValidateBeforeCall(Integer networkId, String userKey, String ip, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling ipOverride(Async)");
         }
         
-        // verify the required parameter 'azk' is set
-        if (azk == null) {
-            throw new ApiException("Missing the required parameter 'azk' when calling ipOverride(Async)");
+        // verify the required parameter 'userKey' is set
+        if (userKey == null) {
+            throw new ApiException("Missing the required parameter 'userKey' when calling ipOverride(Async)");
         }
         
         // verify the required parameter 'ip' is set
@@ -753,7 +753,7 @@ public class UserdbApi {
         }
         
 
-        okhttp3.Call localVarCall = ipOverrideCall(networkId, azk, ip, _callback);
+        okhttp3.Call localVarCall = ipOverrideCall(networkId, userKey, ip, _callback);
         return localVarCall;
 
     }
@@ -762,7 +762,7 @@ public class UserdbApi {
      * 
      * IP Address Override
      * @param networkId Your Network Id (required)
-     * @param azk The User&#39;s UserDB Key (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param ip This is the IP to exclude (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -772,8 +772,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public Object ipOverride(Integer networkId, String azk, String ip) throws ApiException {
-        ApiResponse<Object> localVarResp = ipOverrideWithHttpInfo(networkId, azk, ip);
+    public Object ipOverride(Integer networkId, String userKey, String ip) throws ApiException {
+        ApiResponse<Object> localVarResp = ipOverrideWithHttpInfo(networkId, userKey, ip);
         return localVarResp.getData();
     }
 
@@ -781,7 +781,7 @@ public class UserdbApi {
      * 
      * IP Address Override
      * @param networkId Your Network Id (required)
-     * @param azk The User&#39;s UserDB Key (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param ip This is the IP to exclude (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -791,8 +791,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> ipOverrideWithHttpInfo(Integer networkId, String azk, String ip) throws ApiException {
-        okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, azk, ip, null);
+    public ApiResponse<Object> ipOverrideWithHttpInfo(Integer networkId, String userKey, String ip) throws ApiException {
+        okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, userKey, ip, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -801,7 +801,7 @@ public class UserdbApi {
      *  (asynchronously)
      * IP Address Override
      * @param networkId Your Network Id (required)
-     * @param azk The User&#39;s UserDB Key (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param ip This is the IP to exclude (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -812,17 +812,17 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ipOverrideAsync(Integer networkId, String azk, String ip, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call ipOverrideAsync(Integer networkId, String userKey, String ip, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, azk, ip, _callback);
+        okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, userKey, ip, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for matchUser
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param partnerId The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. (required)
      * @param userId This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. (required)
      * @param _callback Callback for upload/download progress
@@ -834,7 +834,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call matchUserCall(String azk, Integer networkId, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call matchUserCall(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -843,6 +843,10 @@ public class UserdbApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (userKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userKey", userKey));
+        }
+
         if (partnerId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("partnerId", partnerId));
         }
@@ -853,10 +857,6 @@ public class UserdbApi {
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        if (azk != null) {
-            localVarCookieParams.put("azk", localVarApiClient.parameterToString(azk));
-        }
-
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -877,16 +877,16 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call matchUserValidateBeforeCall(String azk, Integer networkId, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'azk' is set
-        if (azk == null) {
-            throw new ApiException("Missing the required parameter 'azk' when calling matchUser(Async)");
-        }
+    private okhttp3.Call matchUserValidateBeforeCall(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling matchUser(Async)");
+        }
+        
+        // verify the required parameter 'userKey' is set
+        if (userKey == null) {
+            throw new ApiException("Missing the required parameter 'userKey' when calling matchUser(Async)");
         }
         
         // verify the required parameter 'partnerId' is set
@@ -900,7 +900,7 @@ public class UserdbApi {
         }
         
 
-        okhttp3.Call localVarCall = matchUserCall(azk, networkId, partnerId, userId, _callback);
+        okhttp3.Call localVarCall = matchUserCall(networkId, userKey, partnerId, userId, _callback);
         return localVarCall;
 
     }
@@ -908,8 +908,8 @@ public class UserdbApi {
     /**
      * 
      * User Matching
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param partnerId The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. (required)
      * @param userId This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -919,15 +919,15 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void matchUser(String azk, Integer networkId, Integer partnerId, Integer userId) throws ApiException {
-        matchUserWithHttpInfo(azk, networkId, partnerId, userId);
+    public void matchUser(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
+        matchUserWithHttpInfo(networkId, userKey, partnerId, userId);
     }
 
     /**
      * 
      * User Matching
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param partnerId The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. (required)
      * @param userId This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. (required)
      * @return ApiResponse&lt;Void&gt;
@@ -938,16 +938,16 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> matchUserWithHttpInfo(String azk, Integer networkId, Integer partnerId, Integer userId) throws ApiException {
-        okhttp3.Call localVarCall = matchUserValidateBeforeCall(azk, networkId, partnerId, userId, null);
+    public ApiResponse<Void> matchUserWithHttpInfo(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
+        okhttp3.Call localVarCall = matchUserValidateBeforeCall(networkId, userKey, partnerId, userId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * User Matching
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param partnerId The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. (required)
      * @param userId This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -959,16 +959,16 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call matchUserAsync(String azk, Integer networkId, Integer partnerId, Integer userId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call matchUserAsync(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = matchUserValidateBeforeCall(azk, networkId, partnerId, userId, _callback);
+        okhttp3.Call localVarCall = matchUserValidateBeforeCall(networkId, userKey, partnerId, userId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for optOut
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -978,7 +978,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optOutCall(String azk, Integer networkId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call optOutCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -987,12 +987,12 @@ public class UserdbApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        if (azk != null) {
-            localVarCookieParams.put("azk", localVarApiClient.parameterToString(azk));
+        if (userKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userKey", userKey));
         }
 
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             
@@ -1013,20 +1013,20 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call optOutValidateBeforeCall(String azk, Integer networkId, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'azk' is set
-        if (azk == null) {
-            throw new ApiException("Missing the required parameter 'azk' when calling optOut(Async)");
-        }
+    private okhttp3.Call optOutValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling optOut(Async)");
         }
         
+        // verify the required parameter 'userKey' is set
+        if (userKey == null) {
+            throw new ApiException("Missing the required parameter 'userKey' when calling optOut(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = optOutCall(azk, networkId, _callback);
+        okhttp3.Call localVarCall = optOutCall(networkId, userKey, _callback);
         return localVarCall;
 
     }
@@ -1034,8 +1034,8 @@ public class UserdbApi {
     /**
      * 
      * Opt-Out a User
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1043,15 +1043,15 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public void optOut(String azk, Integer networkId) throws ApiException {
-        optOutWithHttpInfo(azk, networkId);
+    public void optOut(Integer networkId, String userKey) throws ApiException {
+        optOutWithHttpInfo(networkId, userKey);
     }
 
     /**
      * 
      * Opt-Out a User
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1060,16 +1060,16 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> optOutWithHttpInfo(String azk, Integer networkId) throws ApiException {
-        okhttp3.Call localVarCall = optOutValidateBeforeCall(azk, networkId, null);
+    public ApiResponse<Void> optOutWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+        okhttp3.Call localVarCall = optOutValidateBeforeCall(networkId, userKey, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * Opt-Out a User
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1079,16 +1079,16 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optOutAsync(String azk, Integer networkId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call optOutAsync(Integer networkId, String userKey, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = optOutValidateBeforeCall(azk, networkId, _callback);
+        okhttp3.Call localVarCall = optOutValidateBeforeCall(networkId, userKey, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for read
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1098,7 +1098,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readCall(String azk, Integer networkId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call readCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1107,12 +1107,12 @@ public class UserdbApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        if (azk != null) {
-            localVarCookieParams.put("azk", localVarApiClient.parameterToString(azk));
+        if (userKey != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userKey", userKey));
         }
 
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1133,20 +1133,20 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readValidateBeforeCall(String azk, Integer networkId, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'azk' is set
-        if (azk == null) {
-            throw new ApiException("Missing the required parameter 'azk' when calling read(Async)");
-        }
+    private okhttp3.Call readValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling read(Async)");
         }
         
+        // verify the required parameter 'userKey' is set
+        if (userKey == null) {
+            throw new ApiException("Missing the required parameter 'userKey' when calling read(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = readCall(azk, networkId, _callback);
+        okhttp3.Call localVarCall = readCall(networkId, userKey, _callback);
         return localVarCall;
 
     }
@@ -1154,8 +1154,8 @@ public class UserdbApi {
     /**
      * 
      * Read a User&#39;s UserDB Record
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1164,16 +1164,16 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public Object read(String azk, Integer networkId) throws ApiException {
-        ApiResponse<Object> localVarResp = readWithHttpInfo(azk, networkId);
+    public Object read(Integer networkId, String userKey) throws ApiException {
+        ApiResponse<Object> localVarResp = readWithHttpInfo(networkId, userKey);
         return localVarResp.getData();
     }
 
     /**
      * 
      * Read a User&#39;s UserDB Record
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1182,8 +1182,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> readWithHttpInfo(String azk, Integer networkId) throws ApiException {
-        okhttp3.Call localVarCall = readValidateBeforeCall(azk, networkId, null);
+    public ApiResponse<Object> readWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+        okhttp3.Call localVarCall = readValidateBeforeCall(networkId, userKey, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1191,8 +1191,8 @@ public class UserdbApi {
     /**
      *  (asynchronously)
      * Read a User&#39;s UserDB Record
-     * @param azk The User&#39;s UserDB Key (required)
      * @param networkId Your Network Id (required)
+     * @param userKey The User&#39;s UserDB Key (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1202,9 +1202,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readAsync(String azk, Integer networkId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call readAsync(Integer networkId, String userKey, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = readValidateBeforeCall(azk, networkId, _callback);
+        okhttp3.Call localVarCall = readValidateBeforeCall(networkId, userKey, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
