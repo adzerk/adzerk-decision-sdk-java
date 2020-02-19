@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import okio.Buffer;
 
 public class Client {
@@ -151,12 +152,16 @@ public class Client {
         okhttp3.Request newRequest = request.newBuilder().addHeader("X-Adzerk-Sdk-Version", "adzerk-decision-sdk-java:v1").build();
 
         long t1 = System.nanoTime();
-        Buffer buffer = new Buffer();
-        request.body().writeTo(buffer);
+        RequestBody body = request.body();
 
         logger.info("Request URL: {}", newRequest.url());
         logger.info("Request Headers: {}", newRequest.headers());
-        logger.info("Request Body: {}", buffer.readUtf8());
+
+        if (body != null) {
+          Buffer buffer = new Buffer();
+          body.writeTo(buffer);
+          logger.info("Request Body: {}", buffer.readUtf8());
+        }
 
         okhttp3.Response response = chain.proceed(newRequest);
 
