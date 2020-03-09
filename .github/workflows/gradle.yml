@@ -86,6 +86,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Update Version
-      run: sed -i -r 's/^version = \'[0-9.]+\'$/version = ${GITHUB_REF##*/}/g'
+      run: sed -i -r "s/^version = '[0-9.]+'\$/version = '${GITHUB_REF##*/}'/g" build.gradle
     - name: Publish with Gradle
       run: ./gradlew artifactoryPublish
