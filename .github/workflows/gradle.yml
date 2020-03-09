@@ -55,6 +55,7 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: properties
+        path: ./
     - name: Download Build
       uses: actions/download-artifact@v1
       with:
