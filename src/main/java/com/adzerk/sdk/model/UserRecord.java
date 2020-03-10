@@ -7,6 +7,25 @@ import java.util.Map;
 import com.google.gson.annotations.SerializedName;
 
 public class UserRecord implements Serializable {
+  public class Consent {
+    public static final String SERIALIZED_NAME_GDPR = "gdpr";
+    @SerializedName(SERIALIZED_NAME_GDPR)
+    private boolean gdpr;
+
+    public Consent gdpr(boolean gdpr) {
+      this.gdpr = gdpr;
+      return this;
+    }
+
+    public boolean getGdpr() {
+      return this.gdpr;
+    }
+
+    public void setGdpr(boolean gdpr) {
+      this.gdpr = gdpr;
+    }
+  }
+
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -124,5 +143,73 @@ public class UserRecord implements Serializable {
 
   public void setRetargetingSegments(Map<String, List<Integer>> retargetingSegments) {
     this.retargetingSegments = retargetingSegments;
+  }
+
+  public static final String SERIALIZED_NAME_CUSTOM = "custom";
+  @SerializedName(SERIALIZED_NAME_CUSTOM)
+  private Map<String, ?> custom;
+
+  public UserRecord custom(Map<String, ?> custom) {
+    this.custom = custom;
+    return this;
+  }
+
+  public Map<String, ?> getCustom() {
+    return custom;
+  }
+
+  public void setCustom(Map<String, ?> custom) {
+    this.custom = custom;
+  }
+
+  public static final String SERIALIZED_NAME_CONSENT = "consent";
+  @SerializedName(SERIALIZED_NAME_CONSENT)
+  private Consent consent;
+
+  public UserRecord consent(Consent consent) {
+    this.consent = consent;
+    return this;
+  }
+
+  public Consent getConsent() {
+    return consent;
+  }
+
+  public void setConsent(Consent consent) {
+    this.consent = consent;
+  }
+
+  public static final String SERIALIZED_NAME_OPT_OUT = "optOut";
+  @SerializedName(SERIALIZED_NAME_OPT_OUT)
+  private boolean optOut;
+
+  public UserRecord optOut(boolean optOut) {
+    this.optOut = optOut;
+    return this;
+  }
+
+  public boolean getOptOut() {
+    return optOut;
+  }
+
+  public void setOptOut(boolean optOut) {
+    this.optOut = optOut;
+  }
+
+  public static final String SERIALIZED_NAME_IP = "ip";
+  @SerializedName(SERIALIZED_NAME_IP)
+  private String ip;
+
+  public UserRecord ip(String ip) {
+    this.ip = ip;
+    return this;
+  }
+
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
   }
 }
