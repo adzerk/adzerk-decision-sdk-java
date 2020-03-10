@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-16T21:41:20.358-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-10T10:03:30.240-04:00[America/New_York]")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 

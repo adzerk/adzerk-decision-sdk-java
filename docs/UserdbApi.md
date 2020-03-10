@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="addCustomProperties"></a>
 # **addCustomProperties**
-> addCustomProperties(networkId, userKey, body)
+> File addCustomProperties(networkId, userKey, body)
 
 
 
@@ -50,7 +50,8 @@ public class Example {
     String userKey = "userKey_example"; // String | The User's UserDB Key
     Object body = null; // Object | 
     try {
-      apiInstance.addCustomProperties(networkId, userKey, body);
+      File result = apiInstance.addCustomProperties(networkId, userKey, body);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#addCustomProperties");
       System.err.println("Status code: " + e.getCode());
@@ -72,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -81,7 +82,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -90,7 +91,7 @@ null (empty response body)
 
 <a name="addInterests"></a>
 # **addInterests**
-> addInterests(networkId, userKey, interest)
+> File addInterests(networkId, userKey, interest)
 
 
 
@@ -115,7 +116,8 @@ public class Example {
     String userKey = "userKey_example"; // String | The User's UserDB Key
     String interest = "interest_example"; // String | Comma Seperated list of interests
     try {
-      apiInstance.addInterests(networkId, userKey, interest);
+      File result = apiInstance.addInterests(networkId, userKey, interest);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#addInterests");
       System.err.println("Status code: " + e.getCode());
@@ -137,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -146,7 +148,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -155,7 +157,7 @@ No authorization required
 
 <a name="addRetargetingSegment"></a>
 # **addRetargetingSegment**
-> addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey)
+> File addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey)
 
 
 
@@ -181,7 +183,8 @@ public class Example {
     Integer retargetingSegmentId = 56; // Integer | The Segment's ID
     String userKey = "userKey_example"; // String | The User's UserDB Key
     try {
-      apiInstance.addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey);
+      File result = apiInstance.addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#addRetargetingSegment");
       System.err.println("Status code: " + e.getCode());
@@ -204,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -213,7 +216,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -292,7 +295,7 @@ null (empty response body)
 
 <a name="gdprConsent"></a>
 # **gdprConsent**
-> gdprConsent(networkId, gdprConsent)
+> File gdprConsent(networkId, gdprConsent)
 
 
 
@@ -323,7 +326,8 @@ public class Example {
     Integer networkId = 56; // Integer | Your Network Id
     GdprConsent gdprConsent = new GdprConsent(); // GdprConsent | 
     try {
-      apiInstance.gdprConsent(networkId, gdprConsent);
+      File result = apiInstance.gdprConsent(networkId, gdprConsent);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#gdprConsent");
       System.err.println("Status code: " + e.getCode());
@@ -344,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -353,7 +357,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -362,7 +366,7 @@ null (empty response body)
 
 <a name="ipOverride"></a>
 # **ipOverride**
-> Object ipOverride(networkId, userKey, ip)
+> File ipOverride(networkId, userKey, ip)
 
 
 
@@ -387,7 +391,7 @@ public class Example {
     String userKey = "userKey_example"; // String | The User's UserDB Key
     String ip = "ip_example"; // String | This is the IP to exclude
     try {
-      Object result = apiInstance.ipOverride(networkId, userKey, ip);
+      File result = apiInstance.ipOverride(networkId, userKey, ip);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#ipOverride");
@@ -410,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -419,7 +423,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -428,7 +432,7 @@ No authorization required
 
 <a name="matchUser"></a>
 # **matchUser**
-> matchUser(networkId, userKey, partnerId, userId)
+> File matchUser(networkId, userKey, partnerId, userId)
 
 
 
@@ -454,7 +458,8 @@ public class Example {
     Integer partnerId = 56; // Integer | The ID of the RTB provider in Adzerk. Contact Support if you don't have the ID.
     Integer userId = 56; // Integer | This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey.
     try {
-      apiInstance.matchUser(networkId, userKey, partnerId, userId);
+      File result = apiInstance.matchUser(networkId, userKey, partnerId, userId);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#matchUser");
       System.err.println("Status code: " + e.getCode());
@@ -477,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -486,7 +491,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -495,7 +500,7 @@ No authorization required
 
 <a name="optOut"></a>
 # **optOut**
-> optOut(networkId, userKey)
+> File optOut(networkId, userKey)
 
 
 
@@ -519,7 +524,8 @@ public class Example {
     Integer networkId = 56; // Integer | Your Network Id
     String userKey = "userKey_example"; // String | The User's UserDB Key
     try {
-      apiInstance.optOut(networkId, userKey);
+      File result = apiInstance.optOut(networkId, userKey);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#optOut");
       System.err.println("Status code: " + e.getCode());
@@ -540,7 +546,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -549,7 +555,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -622,7 +628,7 @@ No authorization required
 
 <a name="setUserCookie"></a>
 # **setUserCookie**
-> setUserCookie(networkId, userKey)
+> File setUserCookie(networkId, userKey)
 
 
 
@@ -646,7 +652,8 @@ public class Example {
     Integer networkId = 56; // Integer | Your Network Id
     String userKey = "userKey_example"; // String | UserDB Id for the user
     try {
-      apiInstance.setUserCookie(networkId, userKey);
+      File result = apiInstance.setUserCookie(networkId, userKey);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#setUserCookie");
       System.err.println("Status code: " + e.getCode());
@@ -667,7 +674,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**File**](File.md)
 
 ### Authorization
 
@@ -676,7 +683,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: image/gif
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import java.io.File;
 import com.adzerk.sdk.generated.model.GdprConsent;
 
 import java.lang.reflect.Type;
@@ -85,7 +86,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -127,6 +128,7 @@ public class UserdbApi {
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
      * @param body  (optional)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -134,8 +136,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void addCustomProperties(Integer networkId, String userKey, Object body) throws ApiException {
-        addCustomPropertiesWithHttpInfo(networkId, userKey, body);
+    public File addCustomProperties(Integer networkId, String userKey, Object body) throws ApiException {
+        ApiResponse<File> localVarResp = addCustomPropertiesWithHttpInfo(networkId, userKey, body);
+        return localVarResp.getData();
     }
 
     /**
@@ -144,7 +147,7 @@ public class UserdbApi {
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -152,9 +155,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addCustomPropertiesWithHttpInfo(Integer networkId, String userKey, Object body) throws ApiException {
+    public ApiResponse<File> addCustomPropertiesWithHttpInfo(Integer networkId, String userKey, Object body) throws ApiException {
         okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(networkId, userKey, body, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -172,10 +176,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addCustomPropertiesAsync(Integer networkId, String userKey, Object body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addCustomPropertiesAsync(Integer networkId, String userKey, Object body, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(networkId, userKey, body, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -213,7 +218,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -260,6 +265,7 @@ public class UserdbApi {
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
      * @param interest Comma Seperated list of interests (required)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -267,8 +273,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void addInterests(Integer networkId, String userKey, String interest) throws ApiException {
-        addInterestsWithHttpInfo(networkId, userKey, interest);
+    public File addInterests(Integer networkId, String userKey, String interest) throws ApiException {
+        ApiResponse<File> localVarResp = addInterestsWithHttpInfo(networkId, userKey, interest);
+        return localVarResp.getData();
     }
 
     /**
@@ -277,7 +284,7 @@ public class UserdbApi {
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
      * @param interest Comma Seperated list of interests (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -285,9 +292,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addInterestsWithHttpInfo(Integer networkId, String userKey, String interest) throws ApiException {
+    public ApiResponse<File> addInterestsWithHttpInfo(Integer networkId, String userKey, String interest) throws ApiException {
         okhttp3.Call localVarCall = addInterestsValidateBeforeCall(networkId, userKey, interest, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -305,10 +313,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addInterestsAsync(Integer networkId, String userKey, String interest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addInterestsAsync(Integer networkId, String userKey, String interest, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addInterestsValidateBeforeCall(networkId, userKey, interest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -345,7 +354,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -398,6 +407,7 @@ public class UserdbApi {
      * @param advertiserId The Advertiser&#39;s ID (required)
      * @param retargetingSegmentId The Segment&#39;s ID (required)
      * @param userKey The User&#39;s UserDB Key (required)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -405,8 +415,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void addRetargetingSegment(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
-        addRetargetingSegmentWithHttpInfo(networkId, advertiserId, retargetingSegmentId, userKey);
+    public File addRetargetingSegment(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
+        ApiResponse<File> localVarResp = addRetargetingSegmentWithHttpInfo(networkId, advertiserId, retargetingSegmentId, userKey);
+        return localVarResp.getData();
     }
 
     /**
@@ -416,7 +427,7 @@ public class UserdbApi {
      * @param advertiserId The Advertiser&#39;s ID (required)
      * @param retargetingSegmentId The Segment&#39;s ID (required)
      * @param userKey The User&#39;s UserDB Key (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -424,9 +435,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> addRetargetingSegmentWithHttpInfo(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
+    public ApiResponse<File> addRetargetingSegmentWithHttpInfo(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
         okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(networkId, advertiserId, retargetingSegmentId, userKey, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -445,10 +457,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addRetargetingSegmentAsync(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call addRetargetingSegmentAsync(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(networkId, advertiserId, retargetingSegmentId, userKey, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -597,7 +610,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -633,6 +646,7 @@ public class UserdbApi {
      * GDPR Consent
      * @param networkId Your Network Id (required)
      * @param gdprConsent  (optional)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -640,8 +654,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void gdprConsent(Integer networkId, GdprConsent gdprConsent) throws ApiException {
-        gdprConsentWithHttpInfo(networkId, gdprConsent);
+    public File gdprConsent(Integer networkId, GdprConsent gdprConsent) throws ApiException {
+        ApiResponse<File> localVarResp = gdprConsentWithHttpInfo(networkId, gdprConsent);
+        return localVarResp.getData();
     }
 
     /**
@@ -649,7 +664,7 @@ public class UserdbApi {
      * GDPR Consent
      * @param networkId Your Network Id (required)
      * @param gdprConsent  (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -657,9 +672,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> gdprConsentWithHttpInfo(Integer networkId, GdprConsent gdprConsent) throws ApiException {
+    public ApiResponse<File> gdprConsentWithHttpInfo(Integer networkId, GdprConsent gdprConsent) throws ApiException {
         okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, gdprConsent, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -676,10 +692,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gdprConsentAsync(Integer networkId, GdprConsent gdprConsent, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call gdprConsentAsync(Integer networkId, GdprConsent gdprConsent, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, gdprConsent, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -717,7 +734,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -764,7 +781,7 @@ public class UserdbApi {
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
      * @param ip This is the IP to exclude (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -772,8 +789,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public Object ipOverride(Integer networkId, String userKey, String ip) throws ApiException {
-        ApiResponse<Object> localVarResp = ipOverrideWithHttpInfo(networkId, userKey, ip);
+    public File ipOverride(Integer networkId, String userKey, String ip) throws ApiException {
+        ApiResponse<File> localVarResp = ipOverrideWithHttpInfo(networkId, userKey, ip);
         return localVarResp.getData();
     }
 
@@ -783,7 +800,7 @@ public class UserdbApi {
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
      * @param ip This is the IP to exclude (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -791,9 +808,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> ipOverrideWithHttpInfo(Integer networkId, String userKey, String ip) throws ApiException {
+    public ApiResponse<File> ipOverrideWithHttpInfo(Integer networkId, String userKey, String ip) throws ApiException {
         okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, userKey, ip, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -812,10 +829,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ipOverrideAsync(Integer networkId, String userKey, String ip, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call ipOverrideAsync(Integer networkId, String userKey, String ip, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, userKey, ip, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -859,7 +876,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -912,6 +929,7 @@ public class UserdbApi {
      * @param userKey The User&#39;s UserDB Key (required)
      * @param partnerId The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. (required)
      * @param userId This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. (required)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -919,8 +937,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void matchUser(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
-        matchUserWithHttpInfo(networkId, userKey, partnerId, userId);
+    public File matchUser(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
+        ApiResponse<File> localVarResp = matchUserWithHttpInfo(networkId, userKey, partnerId, userId);
+        return localVarResp.getData();
     }
 
     /**
@@ -930,7 +949,7 @@ public class UserdbApi {
      * @param userKey The User&#39;s UserDB Key (required)
      * @param partnerId The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. (required)
      * @param userId This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -938,9 +957,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> matchUserWithHttpInfo(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
+    public ApiResponse<File> matchUserWithHttpInfo(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
         okhttp3.Call localVarCall = matchUserValidateBeforeCall(networkId, userKey, partnerId, userId, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -959,10 +979,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call matchUserAsync(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call matchUserAsync(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = matchUserValidateBeforeCall(networkId, userKey, partnerId, userId, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -995,7 +1016,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1036,6 +1057,7 @@ public class UserdbApi {
      * Opt-Out a User
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1043,8 +1065,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public void optOut(Integer networkId, String userKey) throws ApiException {
-        optOutWithHttpInfo(networkId, userKey);
+    public File optOut(Integer networkId, String userKey) throws ApiException {
+        ApiResponse<File> localVarResp = optOutWithHttpInfo(networkId, userKey);
+        return localVarResp.getData();
     }
 
     /**
@@ -1052,7 +1075,7 @@ public class UserdbApi {
      * Opt-Out a User
      * @param networkId Your Network Id (required)
      * @param userKey The User&#39;s UserDB Key (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1060,9 +1083,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> optOutWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+    public ApiResponse<File> optOutWithHttpInfo(Integer networkId, String userKey) throws ApiException {
         okhttp3.Call localVarCall = optOutValidateBeforeCall(networkId, userKey, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -1079,10 +1103,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optOutAsync(Integer networkId, String userKey, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call optOutAsync(Integer networkId, String userKey, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = optOutValidateBeforeCall(networkId, userKey, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1239,7 +1264,7 @@ public class UserdbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "image/gif"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1280,6 +1305,7 @@ public class UserdbApi {
      * Set User Cookie
      * @param networkId Your Network Id (required)
      * @param userKey UserDB Id for the user (required)
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1287,8 +1313,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void setUserCookie(Integer networkId, String userKey) throws ApiException {
-        setUserCookieWithHttpInfo(networkId, userKey);
+    public File setUserCookie(Integer networkId, String userKey) throws ApiException {
+        ApiResponse<File> localVarResp = setUserCookieWithHttpInfo(networkId, userKey);
+        return localVarResp.getData();
     }
 
     /**
@@ -1296,7 +1323,7 @@ public class UserdbApi {
      * Set User Cookie
      * @param networkId Your Network Id (required)
      * @param userKey UserDB Id for the user (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1304,9 +1331,10 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> setUserCookieWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+    public ApiResponse<File> setUserCookieWithHttpInfo(Integer networkId, String userKey) throws ApiException {
         okhttp3.Call localVarCall = setUserCookieValidateBeforeCall(networkId, userKey, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -1323,10 +1351,11 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setUserCookieAsync(Integer networkId, String userKey, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call setUserCookieAsync(Integer networkId, String userKey, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = setUserCookieValidateBeforeCall(networkId, userKey, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 }

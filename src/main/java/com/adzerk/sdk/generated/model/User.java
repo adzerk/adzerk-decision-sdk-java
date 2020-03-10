@@ -29,7 +29,7 @@ import java.io.Serializable;
  * Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)
  */
 @ApiModel(description = "Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-16T21:41:20.358-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-10T10:03:30.240-04:00[America/New_York]")
 public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 
