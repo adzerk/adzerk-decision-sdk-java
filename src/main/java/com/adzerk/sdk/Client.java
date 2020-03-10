@@ -9,6 +9,7 @@ import com.adzerk.sdk.generated.api.DecisionApi;
 import com.adzerk.sdk.generated.api.UserdbApi;
 import com.adzerk.sdk.generated.model.GdprConsent;
 import com.adzerk.sdk.generated.model.Request;
+import com.adzerk.sdk.model.UserRecord;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -122,8 +123,11 @@ public class Client {
       this.userDbApi.optOut(networkId, userKey);
     }
 
-    public Object read(int networkId, String userKey) throws ApiException {
-      return this.userDbApi.read(networkId, userKey);
+    public UserRecord read(int networkId, String userKey) throws ApiException {
+      Gson gson = new Gson();
+      Object user = this.userDbApi.read(networkId, userKey);
+      Type t = new TypeToken<UserRecord>(){}.getType();
+      return gson.fromJson(gson.toJson(user), t);
     }
   }
 
