@@ -94,9 +94,8 @@ public class Client {
       this.userDbApi.addCustomProperties(networkId, userKey, properties);
     }
 
-    public void addInterests(int networkId, String userKey, String[] interests) throws ApiException {
-      String interestCsv = String.join(",", interests);
-      this.userDbApi.addInterests(networkId, userKey, interestCsv);
+    public void addInterest(int networkId, String userKey, String interest) throws ApiException {
+      this.userDbApi.addInterests(networkId, userKey, interest);
     }
 
     public void addRetargetingSegment(int networkId, String userKey, int advertiserId, int retargetingSegmentId) throws ApiException {
@@ -155,7 +154,13 @@ public class Client {
         okhttp3.Request request = chain.request();
         okhttp3.Request.Builder builder = request.newBuilder().addHeader("X-Adzerk-Sdk-Version", "adzerk-decision-sdk-java:v1");
 
+        System.out.println("Getting ready to check content type");
+        System.out.println(request.header("content-type"));
+        System.out.println(request.header("content-encoding"));
+
         if (request.header("content-type").equals("application/json; charset=utf-8")) {
+          System.out.println("Replacing content-type...");
+          builder.removeHeader("content-type");
           builder.addHeader("content-type", "application/json");
         }
 
