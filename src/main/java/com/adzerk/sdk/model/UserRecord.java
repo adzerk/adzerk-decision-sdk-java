@@ -92,20 +92,37 @@ public class UserRecord implements Serializable {
     this.flightViewTimes = flightViewTimes;
   }
 
-  public static final String SERIALIZED_NAME_SITE_VIEW_TIMES = "siteViewTimes";
-  @SerializedName(SERIALIZED_NAME_SITE_VIEW_TIMES)
-  private Map<String, List<String>> siteViewTimes;
+  public static final String SERIALIZED_NAME_PARTNER_USER_IDS = "partnerUserIds";
+  @SerializedName(SERIALIZED_NAME_PARTNER_USER_IDS)
+  private Map<String, List<String>> partnerUserIds;
 
-  public UserRecord siteViewTimes(Map<String, List<String>> siteViewTimes) {
-    this.siteViewTimes = siteViewTimes;
+  public UserRecord partnerUserIds(Map<String, List<String>> partnerUserIds) {
+    this.partnerUserIds = partnerUserIds;
     return this;
   }
 
-  public Map<String, List<String>> getSiteViewTimes() {
-    return siteViewTimes;
+  public Map<String, List<String>> getPartnerUserIds() {
+    return partnerUserIds;
   }
 
-  public void setSiteViewTimes(Map<String, List<String>> siteViewTimes) {
-    this.siteViewTimes = siteViewTimes;
+  public void setPartnerUserIds(Map<String, List<String>> partnerUserIds) {
+    this.partnerUserIds = partnerUserIds;
+  }
+
+  public static final String SERIALIZED_NAME_RETARGETING_SEGMENTS = "retargetingSegments";
+  @SerializedName(SERIALIZED_NAME_RETARGETING_SEGMENTS)
+  private Map<String, List<Integer>> retargetingSegments;
+
+  public UserRecord retargetingSegments(Map<String, List<Integer>> retargetingSegments) {
+    this.retargetingSegments = retargetingSegments;
+    return this;
+  }
+
+  public Map<String, List<Integer>> getRetargetingSegments() {
+    return retargetingSegments;
+  }
+
+  public void setRetargetingSegments(Map<String, List<Integer>> retargetingSegments) {
+    this.retargetingSegments = retargetingSegments;
   }
 }
