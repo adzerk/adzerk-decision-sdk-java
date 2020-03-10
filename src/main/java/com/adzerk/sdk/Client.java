@@ -81,8 +81,9 @@ public class Client {
   public class UserDbClient {
     private UserdbApi userDbApi;
 
-    private UserDbClient(String path, OkHttpClient httpClient, Logger logger) {
+    private UserDbClient(String path, OkHttpClient httpClient, Logger logger, String apiKey) {
       ApiClient apiClient = new ApiClient().setBasePath(path).setHttpClient(httpClient);
+      apiClient.setApiKey(apiKey);
       this.userDbApi = new UserdbApi(apiClient);
     }
 
@@ -193,6 +194,6 @@ public class Client {
 
     OkHttpClient httpClient = new okhttp3.OkHttpClient.Builder().addInterceptor(requestInterceptor).build();
     this.decisionClient = new DecisionClient(path, httpClient, logger);
-    this.userDbClient = new UserDbClient(path, httpClient, logger);
+    this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey());
   }
 }
