@@ -153,7 +153,7 @@ public class Client {
     Interceptor requestInterceptor = new Interceptor() {
       public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
         okhttp3.Request request = chain.request();
-        // okhttp3.Request.Builder builder = request.newBuilder().addHeader("X-Adzerk-Sdk-Version", "adzerk-decision-sdk-java:v1");
+        okhttp3.Request.Builder builder = request.newBuilder(); //.addHeader("X-Adzerk-Sdk-Version", "adzerk-decision-sdk-java:v1");
 
         System.out.println("Getting ready to check content type");
         System.out.println(request.header("content-type"));
