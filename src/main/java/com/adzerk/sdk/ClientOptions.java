@@ -1,13 +1,14 @@
 package com.adzerk.sdk;
 
-public class ClientParameters {
+public class ClientOptions {
   private Integer networkId;
+  private Integer siteId;
   private String protocol;
   private String host;
   private String path;
   private String apiKey;
 
-  public ClientParameters(Integer networkId) {
+  public ClientOptions(Integer networkId) {
     this.networkId = networkId;
   }
 
@@ -19,8 +20,21 @@ public class ClientParameters {
     this.networkId = networkId;
   }
 
-  public ClientParameters networkId(Integer networkId) {
+  public ClientOptions networkId(Integer networkId) {
     this.setNetworkId(networkId);
+    return this;
+  }
+
+  public Integer getSiteId() {
+    return siteId;
+  }
+
+  public void setSiteId(Integer siteId) {
+    this.siteId = siteId;
+  }
+
+  public ClientOptions siteId(Integer siteId) {
+    this.siteId = siteId;
     return this;
   }
 
@@ -32,7 +46,7 @@ public class ClientParameters {
     this.protocol = protocol;
   }
 
-  public ClientParameters protocol(String protocol) {
+  public ClientOptions protocol(String protocol) {
     this.setProtocol(protocol);
     return this;
   }
@@ -45,7 +59,7 @@ public class ClientParameters {
     this.host = host;
   }
 
-  public ClientParameters host(String host) {
+  public ClientOptions host(String host) {
     this.setHost(host);
     return this;
   }
@@ -58,7 +72,7 @@ public class ClientParameters {
     this.path = path;
   }
 
-  public ClientParameters path(String path) {
+  public ClientOptions path(String path) {
     this.setPath(path);
     return this;
   }
@@ -71,7 +85,7 @@ public class ClientParameters {
     this.apiKey = apiKey;
   }
 
-  public ClientParameters apiKey(String apiKey) {
+  public ClientOptions apiKey(String apiKey) {
     this.setApiKey(apiKey);
     return this;
   }
