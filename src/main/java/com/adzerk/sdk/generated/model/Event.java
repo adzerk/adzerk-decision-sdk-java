@@ -29,7 +29,7 @@ import java.io.Serializable;
 /**
  * Event
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-10T10:03:30.240-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-13T12:24:36.097-04:00[America/New_York]")
 public class Event implements Serializable {
   private static final long serialVersionUID = 1L;
 

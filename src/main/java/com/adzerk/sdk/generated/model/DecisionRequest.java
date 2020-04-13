@@ -16,7 +16,6 @@ package com.adzerk.sdk.generated.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adzerk.sdk.generated.model.Placement;
-import com.adzerk.sdk.generated.model.RequestConsent;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,10 +30,10 @@ import java.util.List;
 import java.io.Serializable;
 
 /**
- * Request
+ * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-10T10:03:30.240-04:00[America/New_York]")
-public class Request implements Serializable {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-13T12:24:36.097-04:00[America/New_York]")
+public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_PLACEMENTS = "placements";
@@ -87,20 +86,20 @@ public class Request implements Serializable {
 
   public static final String SERIALIZED_NAME_CONSENT = "consent";
   @SerializedName(SERIALIZED_NAME_CONSENT)
-  private RequestConsent consent;
+  private Object consent;
 
   public static final String SERIALIZED_NAME_DEVICE_I_D = "deviceID";
   @SerializedName(SERIALIZED_NAME_DEVICE_I_D)
   private String deviceID;
 
 
-  public Request placements(List<Placement> placements) {
+  public DecisionRequest placements(List<Placement> placements) {
     
     this.placements = placements;
     return this;
   }
 
-  public Request addPlacementsItem(Placement placementsItem) {
+  public DecisionRequest addPlacementsItem(Placement placementsItem) {
     this.placements.add(placementsItem);
     return this;
   }
@@ -121,7 +120,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request user(User user) {
+  public DecisionRequest user(User user) {
     
     this.user = user;
     return this;
@@ -144,13 +143,13 @@ public class Request implements Serializable {
   }
 
 
-  public Request keywords(List<String> keywords) {
+  public DecisionRequest keywords(List<String> keywords) {
     
     this.keywords = keywords;
     return this;
   }
 
-  public Request addKeywordsItem(String keywordsItem) {
+  public DecisionRequest addKeywordsItem(String keywordsItem) {
     if (this.keywords == null) {
       this.keywords = new ArrayList<String>();
     }
@@ -175,7 +174,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request url(String url) {
+  public DecisionRequest url(String url) {
     
     this.url = url;
     return this;
@@ -198,7 +197,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request referrer(String referrer) {
+  public DecisionRequest referrer(String referrer) {
     
     this.referrer = referrer;
     return this;
@@ -221,7 +220,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request ip(String ip) {
+  public DecisionRequest ip(String ip) {
     
     this.ip = ip;
     return this;
@@ -244,13 +243,13 @@ public class Request implements Serializable {
   }
 
 
-  public Request blockedCreatives(List<Integer> blockedCreatives) {
+  public DecisionRequest blockedCreatives(List<Integer> blockedCreatives) {
     
     this.blockedCreatives = blockedCreatives;
     return this;
   }
 
-  public Request addBlockedCreativesItem(Integer blockedCreativesItem) {
+  public DecisionRequest addBlockedCreativesItem(Integer blockedCreativesItem) {
     if (this.blockedCreatives == null) {
       this.blockedCreatives = new ArrayList<Integer>();
     }
@@ -275,7 +274,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request isMobile(Boolean isMobile) {
+  public DecisionRequest isMobile(Boolean isMobile) {
     
     this.isMobile = isMobile;
     return this;
@@ -298,7 +297,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request includePricingData(Boolean includePricingData) {
+  public DecisionRequest includePricingData(Boolean includePricingData) {
     
     this.includePricingData = includePricingData;
     return this;
@@ -321,7 +320,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request notrack(Boolean notrack) {
+  public DecisionRequest notrack(Boolean notrack) {
     
     this.notrack = notrack;
     return this;
@@ -344,7 +343,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request enableBotFiltering(Boolean enableBotFiltering) {
+  public DecisionRequest enableBotFiltering(Boolean enableBotFiltering) {
     
     this.enableBotFiltering = enableBotFiltering;
     return this;
@@ -367,7 +366,7 @@ public class Request implements Serializable {
   }
 
 
-  public Request enableUserDBIP(Boolean enableUserDBIP) {
+  public DecisionRequest enableUserDBIP(Boolean enableUserDBIP) {
     
     this.enableUserDBIP = enableUserDBIP;
     return this;
@@ -390,30 +389,30 @@ public class Request implements Serializable {
   }
 
 
-  public Request consent(RequestConsent consent) {
+  public DecisionRequest consent(Object consent) {
     
     this.consent = consent;
     return this;
   }
 
    /**
-   * Get consent
+   * Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.
    * @return consent
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.")
 
-  public RequestConsent getConsent() {
+  public Object getConsent() {
     return consent;
   }
 
 
-  public void setConsent(RequestConsent consent) {
+  public void setConsent(Object consent) {
     this.consent = consent;
   }
 
 
-  public Request deviceID(String deviceID) {
+  public DecisionRequest deviceID(String deviceID) {
     
     this.deviceID = deviceID;
     return this;
@@ -444,21 +443,21 @@ public class Request implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Request request = (Request) o;
-    return Objects.equals(this.placements, request.placements) &&
-        Objects.equals(this.user, request.user) &&
-        Objects.equals(this.keywords, request.keywords) &&
-        Objects.equals(this.url, request.url) &&
-        Objects.equals(this.referrer, request.referrer) &&
-        Objects.equals(this.ip, request.ip) &&
-        Objects.equals(this.blockedCreatives, request.blockedCreatives) &&
-        Objects.equals(this.isMobile, request.isMobile) &&
-        Objects.equals(this.includePricingData, request.includePricingData) &&
-        Objects.equals(this.notrack, request.notrack) &&
-        Objects.equals(this.enableBotFiltering, request.enableBotFiltering) &&
-        Objects.equals(this.enableUserDBIP, request.enableUserDBIP) &&
-        Objects.equals(this.consent, request.consent) &&
-        Objects.equals(this.deviceID, request.deviceID);
+    DecisionRequest decisionRequest = (DecisionRequest) o;
+    return Objects.equals(this.placements, decisionRequest.placements) &&
+        Objects.equals(this.user, decisionRequest.user) &&
+        Objects.equals(this.keywords, decisionRequest.keywords) &&
+        Objects.equals(this.url, decisionRequest.url) &&
+        Objects.equals(this.referrer, decisionRequest.referrer) &&
+        Objects.equals(this.ip, decisionRequest.ip) &&
+        Objects.equals(this.blockedCreatives, decisionRequest.blockedCreatives) &&
+        Objects.equals(this.isMobile, decisionRequest.isMobile) &&
+        Objects.equals(this.includePricingData, decisionRequest.includePricingData) &&
+        Objects.equals(this.notrack, decisionRequest.notrack) &&
+        Objects.equals(this.enableBotFiltering, decisionRequest.enableBotFiltering) &&
+        Objects.equals(this.enableUserDBIP, decisionRequest.enableUserDBIP) &&
+        Objects.equals(this.consent, decisionRequest.consent) &&
+        Objects.equals(this.deviceID, decisionRequest.deviceID);
   }
 
   @Override
@@ -470,7 +469,7 @@ public class Request implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Request {\n");
+    sb.append("class DecisionRequest {\n");
     sb.append("    placements: ").append(toIndentedString(placements)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");

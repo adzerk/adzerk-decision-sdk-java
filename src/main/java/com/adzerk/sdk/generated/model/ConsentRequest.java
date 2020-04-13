@@ -15,7 +15,6 @@ package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adzerk.sdk.generated.model.Consent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,10 +26,10 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * GdprConsent
+ * ConsentRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-10T10:03:30.240-04:00[America/New_York]")
-public class GdprConsent implements Serializable {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-13T12:24:36.097-04:00[America/New_York]")
+public class ConsentRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_USER_KEY = "userKey";
@@ -39,10 +38,10 @@ public class GdprConsent implements Serializable {
 
   public static final String SERIALIZED_NAME_CONSENT = "consent";
   @SerializedName(SERIALIZED_NAME_CONSENT)
-  private Consent consent;
+  private Object consent;
 
 
-  public GdprConsent userKey(String userKey) {
+  public ConsentRequest userKey(String userKey) {
     
     this.userKey = userKey;
     return this;
@@ -65,7 +64,7 @@ public class GdprConsent implements Serializable {
   }
 
 
-  public GdprConsent consent(Consent consent) {
+  public ConsentRequest consent(Object consent) {
     
     this.consent = consent;
     return this;
@@ -78,12 +77,12 @@ public class GdprConsent implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Consent getConsent() {
+  public Object getConsent() {
     return consent;
   }
 
 
-  public void setConsent(Consent consent) {
+  public void setConsent(Object consent) {
     this.consent = consent;
   }
 
@@ -96,9 +95,9 @@ public class GdprConsent implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GdprConsent gdprConsent = (GdprConsent) o;
-    return Objects.equals(this.userKey, gdprConsent.userKey) &&
-        Objects.equals(this.consent, gdprConsent.consent);
+    ConsentRequest consentRequest = (ConsentRequest) o;
+    return Objects.equals(this.userKey, consentRequest.userKey) &&
+        Objects.equals(this.consent, consentRequest.consent);
   }
 
   @Override
@@ -110,7 +109,7 @@ public class GdprConsent implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GdprConsent {\n");
+    sb.append("class ConsentRequest {\n");
     sb.append("    userKey: ").append(toIndentedString(userKey)).append("\n");
     sb.append("    consent: ").append(toIndentedString(consent)).append("\n");
     sb.append("}");

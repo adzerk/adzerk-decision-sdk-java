@@ -27,10 +27,10 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Response
+ * DecisionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-10T10:03:30.240-04:00[America/New_York]")
-public class Response implements Serializable {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-13T12:24:36.097-04:00[America/New_York]")
+public class DecisionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_USER = "user";
@@ -46,7 +46,7 @@ public class Response implements Serializable {
   private Object explain;
 
 
-  public Response user(User user) {
+  public DecisionResponse user(User user) {
     
     this.user = user;
     return this;
@@ -69,7 +69,7 @@ public class Response implements Serializable {
   }
 
 
-  public Response decisions(Object decisions) {
+  public DecisionResponse decisions(Object decisions) {
     
     this.decisions = decisions;
     return this;
@@ -92,7 +92,7 @@ public class Response implements Serializable {
   }
 
 
-  public Response explain(Object explain) {
+  public DecisionResponse explain(Object explain) {
     
     this.explain = explain;
     return this;
@@ -123,10 +123,10 @@ public class Response implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Response response = (Response) o;
-    return Objects.equals(this.user, response.user) &&
-        Objects.equals(this.decisions, response.decisions) &&
-        Objects.equals(this.explain, response.explain);
+    DecisionResponse decisionResponse = (DecisionResponse) o;
+    return Objects.equals(this.user, decisionResponse.user) &&
+        Objects.equals(this.decisions, decisionResponse.decisions) &&
+        Objects.equals(this.explain, decisionResponse.explain);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class Response implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Response {\n");
+    sb.append("class DecisionResponse {\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    decisions: ").append(toIndentedString(decisions)).append("\n");
     sb.append("    explain: ").append(toIndentedString(explain)).append("\n");
