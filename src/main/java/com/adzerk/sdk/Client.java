@@ -289,7 +289,7 @@ public class Client {
 
     OkHttpClient httpClient = new okhttp3.OkHttpClient.Builder().addInterceptor(requestInterceptor).build();
     this.decisionClient = new DecisionClient(path, httpClient, logger, params.getNetworkId(), params.getSiteId());
-    this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey(), params.getSiteId());
+    this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey(), params.getNetworkId());
     this.pixelClient = new PixelClient(httpClient);
   }
 }
