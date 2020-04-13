@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getDecisions"></a>
 # **getDecisions**
-> Response getDecisions(body)
+> DecisionResponse getDecisions(decisionRequest)
 
 
 
@@ -30,9 +30,9 @@ public class Example {
     defaultClient.setBasePath("https://e-23.adzerk.net");
 
     DecisionApi apiInstance = new DecisionApi(defaultClient);
-    Object body = {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] }; // Object | 
+    DecisionRequest decisionRequest = {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] }; // DecisionRequest | 
     try {
-      Response result = apiInstance.getDecisions(body);
+      DecisionResponse result = apiInstance.getDecisions(decisionRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DecisionApi#getDecisions");
@@ -49,11 +49,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **Object**|  | [optional]
+ **decisionRequest** | [**DecisionRequest**](DecisionRequest.md)|  | [optional]
 
 ### Return type
 
-[**Response**](Response.md)
+[**DecisionResponse**](DecisionResponse.md)
 
 ### Authorization
 
