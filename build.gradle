@@ -134,7 +134,7 @@ if(hasProperty('target') && target == 'android') {
 
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'adzerk-sdk'
+            pom.artifactId = 'adzerk-decision-sdk'
         }
     }
 

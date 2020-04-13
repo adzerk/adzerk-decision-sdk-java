@@ -9,7 +9,7 @@
       "name": "CodeLens (Launch) - Program",
       "request": "launch",
       "mainClass": "com.adzerk.cli.Program",
-      "projectName": "adzerk-sdk"
+      "projectName": "adzerk-decision-sdk"
     },
     {
       "type": "java",

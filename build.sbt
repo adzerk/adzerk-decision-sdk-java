@@ -1,7 +1,7 @@
 lazy val root = (project in file(".")).
   settings(
     organization := "com.adzerk",
-    name := "adzerk-sdk",
+    name := "adzerk-decision-sdk",
     version := "1.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
