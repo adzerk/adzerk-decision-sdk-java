@@ -111,47 +111,89 @@ public class Client {
 
   public class UserDbClient {
     private UserdbApi userDbApi;
+    private Integer networkId;
 
-    private UserDbClient(String path, OkHttpClient httpClient, Logger logger, String apiKey) {
+    private UserDbClient(String path, OkHttpClient httpClient, Logger logger, String apiKey, Integer networkId) {
       ApiClient apiClient = new ApiClient().setBasePath(path).setHttpClient(httpClient);
       apiClient.setApiKey(apiKey);
       this.userDbApi = new UserdbApi(apiClient);
+      this.networkId = networkId;
+    }
+
+    public void setUserCookie(String userKey) throws ApiException {
+      this.setUserCookie(this.networkId, userKey);
     }
 
     public void setUserCookie(int networkId, String userKey) throws ApiException {
       this.userDbApi.setUserCookie(networkId, userKey);
     }
 
+    public void addCustomProperties(String userKey, Object properties) throws ApiException {
+      this.addCustomProperties(this.networkId, userKey, properties);
+    }
+
     public void addCustomProperties(int networkId, String userKey, Object properties) throws ApiException {
       this.userDbApi.addCustomProperties(networkId, userKey, properties);
+    }
+
+    public void addInterest(String userKey, String interest) throws ApiException {
+      this.addInterest(this.networkId, userKey, interest);
     }
 
     public void addInterest(int networkId, String userKey, String interest) throws ApiException {
       this.userDbApi.addInterests(networkId, userKey, interest);
     }
 
+    public void addRetargetingSegment(String userKey, int advertiserId, int retargetingSegmentId) throws ApiException {
+      this.addRetargetingSegment(this.networkId, userKey, advertiserId, retargetingSegmentId);
+    }
+
     public void addRetargetingSegment(int networkId, String userKey, int advertiserId, int retargetingSegmentId) throws ApiException {
       this.userDbApi.addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey);
+    }
+
+    public void forget(String userKey) throws ApiException {
+      this.forget(this.networkId, userKey);
     }
 
     public void forget(int networkId, String userKey) throws ApiException {
       this.userDbApi.forget(networkId, userKey);
     }
 
-    public void gdprConsent(int networkId, ConsentRequest gdprConsent) throws ApiException {
-      this.userDbApi.gdprConsent(networkId, gdprConsent);
+    public void gdprConsent(ConsentRequest consentRequest) throws ApiException {
+      this.gdprConsent(this.networkId, consentRequest);
+    }
+
+    public void gdprConsent(int networkId, ConsentRequest consentRequest) throws ApiException {
+      this.userDbApi.gdprConsent(networkId, consentRequest);
+    }
+
+    public void ipOverride(String userKey, String ip) throws ApiException {
+      this.ipOverride(this.networkId, userKey, ip);
     }
 
     public void ipOverride(int networkId, String userKey, String ip) throws ApiException {
       this.userDbApi.ipOverride(networkId, userKey, ip);
     }
 
+    public void matchUser(String userKey, int partnerId, int userId) throws ApiException {
+      this.matchUser(this.networkId, userKey, partnerId, userId);
+    }
+
     public void matchUser(int networkId, String userKey, int partnerId, int userId) throws ApiException {
       this.userDbApi.matchUser(networkId, userKey, partnerId, userId);
     }
 
+    public void optOut(String userKey) throws ApiException {
+      this.optOut(this.networkId, userKey);
+    }
+
     public void optOut(int networkId, String userKey) throws ApiException {
       this.userDbApi.optOut(networkId, userKey);
+    }
+
+    public UserRecord read(String userKey) throws ApiException {
+      return this.read(this.networkId, userKey);
     }
 
     public UserRecord read(int networkId, String userKey) throws ApiException {
@@ -247,7 +289,7 @@ public class Client {
 
     OkHttpClient httpClient = new okhttp3.OkHttpClient.Builder().addInterceptor(requestInterceptor).build();
     this.decisionClient = new DecisionClient(path, httpClient, logger, params.getNetworkId(), params.getSiteId());
-    this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey());
+    this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey(), params.getSiteId());
     this.pixelClient = new PixelClient(httpClient);
   }
 }
