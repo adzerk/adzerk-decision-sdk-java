@@ -27,7 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.adzerk.sdk.generated.model.Response;
+import com.adzerk.sdk.generated.model.DecisionRequest;
+import com.adzerk.sdk.generated.model.DecisionResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class DecisionApi {
 
     /**
      * Build call for getDecisions
-     * @param body  (optional)
+     * @param decisionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -67,8 +68,8 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecisionsCall(Object body, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = body;
+    public okhttp3.Call getDecisionsCall(DecisionRequest decisionRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = decisionRequest;
 
         // create path and map variables
         String localVarPath = "/api/v2";
@@ -97,10 +98,10 @@ public class DecisionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDecisionsValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDecisionsValidateBeforeCall(DecisionRequest decisionRequest, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getDecisionsCall(body, _callback);
+        okhttp3.Call localVarCall = getDecisionsCall(decisionRequest, _callback);
         return localVarCall;
 
     }
@@ -108,8 +109,8 @@ public class DecisionApi {
     /**
      * 
      * Request Decision(s)
-     * @param body  (optional)
-     * @return Response
+     * @param decisionRequest  (optional)
+     * @return DecisionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -118,16 +119,16 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public Response getDecisions(Object body) throws ApiException {
-        ApiResponse<Response> localVarResp = getDecisionsWithHttpInfo(body);
+    public DecisionResponse getDecisions(DecisionRequest decisionRequest) throws ApiException {
+        ApiResponse<DecisionResponse> localVarResp = getDecisionsWithHttpInfo(decisionRequest);
         return localVarResp.getData();
     }
 
     /**
      * 
      * Request Decision(s)
-     * @param body  (optional)
-     * @return ApiResponse&lt;Response&gt;
+     * @param decisionRequest  (optional)
+     * @return ApiResponse&lt;DecisionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -136,16 +137,16 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Response> getDecisionsWithHttpInfo(Object body) throws ApiException {
-        okhttp3.Call localVarCall = getDecisionsValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+    public ApiResponse<DecisionResponse> getDecisionsWithHttpInfo(DecisionRequest decisionRequest) throws ApiException {
+        okhttp3.Call localVarCall = getDecisionsValidateBeforeCall(decisionRequest, null);
+        Type localVarReturnType = new TypeToken<DecisionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * Request Decision(s)
-     * @param body  (optional)
+     * @param decisionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -156,10 +157,10 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecisionsAsync(Object body, final ApiCallback<Response> _callback) throws ApiException {
+    public okhttp3.Call getDecisionsAsync(DecisionRequest decisionRequest, final ApiCallback<DecisionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDecisionsValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        okhttp3.Call localVarCall = getDecisionsValidateBeforeCall(decisionRequest, _callback);
+        Type localVarReturnType = new TypeToken<DecisionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

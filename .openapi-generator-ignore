@@ -24,3 +24,4 @@
 
 .gitignore
 build.gradle
+src/test/**

@@ -295,7 +295,7 @@ null (empty response body)
 
 <a name="gdprConsent"></a>
 # **gdprConsent**
-> File gdprConsent(networkId, gdprConsent)
+> File gdprConsent(networkId, consentRequest)
 
 
 
@@ -324,9 +324,9 @@ public class Example {
 
     UserdbApi apiInstance = new UserdbApi(defaultClient);
     Integer networkId = 56; // Integer | Your Network Id
-    GdprConsent gdprConsent = new GdprConsent(); // GdprConsent | 
+    ConsentRequest consentRequest = new ConsentRequest(); // ConsentRequest | 
     try {
-      File result = apiInstance.gdprConsent(networkId, gdprConsent);
+      File result = apiInstance.gdprConsent(networkId, consentRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserdbApi#gdprConsent");
@@ -344,7 +344,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **networkId** | **Integer**| Your Network Id |
- **gdprConsent** | [**GdprConsent**](GdprConsent.md)|  | [optional]
+ **consentRequest** | [**ConsentRequest**](ConsentRequest.md)|  | [optional]
 
 ### Return type
 

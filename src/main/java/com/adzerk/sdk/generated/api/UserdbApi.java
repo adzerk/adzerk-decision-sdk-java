@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.adzerk.sdk.generated.model.ConsentRequest;
 import java.io.File;
-import com.adzerk.sdk.generated.model.GdprConsent;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -587,7 +587,7 @@ public class UserdbApi {
     /**
      * Build call for gdprConsent
      * @param networkId Your Network Id (required)
-     * @param gdprConsent  (optional)
+     * @param consentRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -597,8 +597,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gdprConsentCall(Integer networkId, GdprConsent gdprConsent, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = gdprConsent;
+    public okhttp3.Call gdprConsentCall(Integer networkId, ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = consentRequest;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/consent"
@@ -628,7 +628,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gdprConsentValidateBeforeCall(Integer networkId, GdprConsent gdprConsent, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gdprConsentValidateBeforeCall(Integer networkId, ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
@@ -636,7 +636,7 @@ public class UserdbApi {
         }
         
 
-        okhttp3.Call localVarCall = gdprConsentCall(networkId, gdprConsent, _callback);
+        okhttp3.Call localVarCall = gdprConsentCall(networkId, consentRequest, _callback);
         return localVarCall;
 
     }
@@ -645,7 +645,7 @@ public class UserdbApi {
      * 
      * GDPR Consent
      * @param networkId Your Network Id (required)
-     * @param gdprConsent  (optional)
+     * @param consentRequest  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -654,8 +654,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public File gdprConsent(Integer networkId, GdprConsent gdprConsent) throws ApiException {
-        ApiResponse<File> localVarResp = gdprConsentWithHttpInfo(networkId, gdprConsent);
+    public File gdprConsent(Integer networkId, ConsentRequest consentRequest) throws ApiException {
+        ApiResponse<File> localVarResp = gdprConsentWithHttpInfo(networkId, consentRequest);
         return localVarResp.getData();
     }
 
@@ -663,7 +663,7 @@ public class UserdbApi {
      * 
      * GDPR Consent
      * @param networkId Your Network Id (required)
-     * @param gdprConsent  (optional)
+     * @param consentRequest  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -672,8 +672,8 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> gdprConsentWithHttpInfo(Integer networkId, GdprConsent gdprConsent) throws ApiException {
-        okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, gdprConsent, null);
+    public ApiResponse<File> gdprConsentWithHttpInfo(Integer networkId, ConsentRequest consentRequest) throws ApiException {
+        okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, consentRequest, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -682,7 +682,7 @@ public class UserdbApi {
      *  (asynchronously)
      * GDPR Consent
      * @param networkId Your Network Id (required)
-     * @param gdprConsent  (optional)
+     * @param consentRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -692,9 +692,9 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gdprConsentAsync(Integer networkId, GdprConsent gdprConsent, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call gdprConsentAsync(Integer networkId, ConsentRequest consentRequest, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, gdprConsent, _callback);
+        okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, consentRequest, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

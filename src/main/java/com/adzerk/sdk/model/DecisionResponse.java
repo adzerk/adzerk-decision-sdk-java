@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class Response extends com.adzerk.sdk.generated.model.Response {
+public class DecisionResponse extends com.adzerk.sdk.generated.model.DecisionResponse {
   private static final long serialVersionUID = 1;
 
   @javax.annotation.Nullable
