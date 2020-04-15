@@ -211,6 +211,10 @@ public class Client {
       this.httpClient = httpClient;
     }
 
+    public boolean fire(PixelFireOptions opts) throws IOException {
+      return this.fire(opts, new AdditionalOptions());
+    }
+
     public boolean fire(PixelFireOptions opts, AdditionalOptions additionalOpts) throws IOException {
       HttpUrl.Builder urlBuilder = HttpUrl.parse(opts.getUrl()).newBuilder();
       if (opts.getRevenueOverride() != null) {
