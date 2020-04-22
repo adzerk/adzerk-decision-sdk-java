@@ -24,23 +24,6 @@ public class UserRecord implements Serializable {
     this.key = key;
   }
 
-  public static final String SERIALIZED_NAME_IS_NEW = "isNew";
-  @SerializedName(SERIALIZED_NAME_IS_NEW)
-  private boolean isNew;
-
-  public UserRecord isNew(boolean isNew) {
-    this.isNew = isNew;
-    return this;
-  }
-
-  public boolean getIsNew() {
-    return isNew;
-  }
-
-  public void setIsNew(boolean isNew) {
-    this.isNew = isNew;
-  }
-
   public static final String SERIALIZED_NAME_INTERESTS = "interests";
   @SerializedName(SERIALIZED_NAME_INTERESTS)
   private List<String> interests;
@@ -73,23 +56,6 @@ public class UserRecord implements Serializable {
 
   public void setBlockedItems(Map<String, List<Integer>> blockedItems) {
     this.blockedItems = blockedItems;
-  }
-
-  public static final String SERIALIZED_NAME_FLIGHT_VIEW_TIMES = "flightViewTimes";
-  @SerializedName(SERIALIZED_NAME_FLIGHT_VIEW_TIMES)
-  private Map<String, List<String>> flightViewTimes;
-
-  public UserRecord flightViewTimes(Map<String, List<String>> flightViewTimes) {
-    this.flightViewTimes = flightViewTimes;
-    return this;
-  }
-
-  public Map<String, List<String>> getFlightViewTimes() {
-    return flightViewTimes;
-  }
-
-  public void setFlightViewTimes(Map<String, List<String>> flightViewTimes) {
-    this.flightViewTimes = flightViewTimes;
   }
 
   public static final String SERIALIZED_NAME_PARTNER_USER_IDS = "partnerUserIds";
