@@ -7,25 +7,6 @@ import java.util.Map;
 import com.google.gson.annotations.SerializedName;
 
 public class UserRecord implements Serializable {
-  public class Consent {
-    public static final String SERIALIZED_NAME_GDPR = "gdpr";
-    @SerializedName(SERIALIZED_NAME_GDPR)
-    private boolean gdpr;
-
-    public Consent gdpr(boolean gdpr) {
-      this.gdpr = gdpr;
-      return this;
-    }
-
-    public boolean getGdpr() {
-      return this.gdpr;
-    }
-
-    public void setGdpr(boolean gdpr) {
-      this.gdpr = gdpr;
-    }
-  }
-
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
@@ -164,18 +145,18 @@ public class UserRecord implements Serializable {
 
   public static final String SERIALIZED_NAME_CONSENT = "consent";
   @SerializedName(SERIALIZED_NAME_CONSENT)
-  private Consent consent;
+  private Map<String, Boolean> consent;
 
-  public UserRecord consent(Consent consent) {
+  public UserRecord consent(Map<String, Boolean> consent) {
     this.consent = consent;
     return this;
   }
 
-  public Consent getConsent() {
+  public Map<String, Boolean> getConsent() {
     return consent;
   }
 
-  public void setConsent(Consent consent) {
+  public void setConsent(Map<String, Boolean> consent) {
     this.consent = consent;
   }
 
