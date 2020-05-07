@@ -211,11 +211,11 @@ public class Client {
       this.httpClient = httpClient;
     }
 
-    public boolean fire(PixelFireOptions opts) throws IOException {
+    public PixelFireResponse fire(PixelFireOptions opts) throws IOException {
       return this.fire(opts, new AdditionalOptions());
     }
 
-    public boolean fire(PixelFireOptions opts, AdditionalOptions additionalOpts) throws IOException {
+    public PixelFireResponse fire(PixelFireOptions opts, AdditionalOptions additionalOpts) throws IOException {
       HttpUrl.Builder urlBuilder = HttpUrl.parse(opts.getUrl()).newBuilder();
       if (opts.getRevenueOverride() != null) {
         urlBuilder.addQueryParameter("override", opts.getRevenueOverride().toString());
@@ -231,7 +231,8 @@ public class Client {
         .build();
 
       Response response = httpClient.newCall(request).execute();
-      return response.code() == 200;
+
+      return new PixelFireResponse().statusCode(response.code()).location(response.headers().get("location"));
     }
   }
 
@@ -291,7 +292,13 @@ public class Client {
       }
     };
 
-    OkHttpClient httpClient = new okhttp3.OkHttpClient.Builder().addInterceptor(requestInterceptor).build();
+    OkHttpClient httpClient = new okhttp3
+      .OkHttpClient
+      .Builder()
+      .followRedirects(false)
+      .addInterceptor(requestInterceptor)
+      .build();
+
     this.decisionClient = new DecisionClient(path, httpClient, logger, params.getNetworkId(), params.getSiteId());
     this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey(), params.getNetworkId());
     this.pixelClient = new PixelClient(httpClient);
