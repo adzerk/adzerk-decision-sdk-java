@@ -58,6 +58,11 @@ public class Client {
       Type t = new TypeToken<DecisionResponse>(){}.getType();
 
       List<Placement> placements = request.getPlacements();
+
+      if (placements.size() == 0) {
+        throw new ApiException("At least one placement is required for a Decision Request");
+      }
+
       for (int i = 0; i < placements.size(); i++) {
         Placement p = placements.get(i);
         if (p.getDivName() == null) { p.setDivName(String.format("div%s", i)); }
