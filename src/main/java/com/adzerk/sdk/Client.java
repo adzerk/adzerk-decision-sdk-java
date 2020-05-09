@@ -133,8 +133,8 @@ public class Client {
       this.userDbApi.setUserCookie(networkId, userKey);
     }
 
-    public void addCustomProperties(String userKey, Object properties) throws ApiException {
-      this.addCustomProperties(this.networkId, userKey, properties);
+    public void setCustomProperties(String userKey, Object properties) throws ApiException {
+      this.setCustomProperties(this.networkId, userKey, properties);
     }
 
     public void setCustomProperties(int networkId, String userKey, Object properties) throws ApiException {
