@@ -137,7 +137,7 @@ public class Client {
       this.addCustomProperties(this.networkId, userKey, properties);
     }
 
-    public void addCustomProperties(int networkId, String userKey, Object properties) throws ApiException {
+    public void setCustomProperties(int networkId, String userKey, Object properties) throws ApiException {
       this.userDbApi.addCustomProperties(networkId, userKey, properties);
     }
 
