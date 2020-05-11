@@ -77,12 +77,18 @@ public class Client {
       DecisionApi api = this.decisionApi;
 
       if (opts != null && opts.hasValues()) {
+        DecisionClient that = this;
+        this.logger.info("Found additional options. Building...");
         Interceptor optsInterceptor = new Interceptor() {
           public okhttp3.Response intercept(Interceptor.Chain chain) throws IOException {
             Builder builder = chain.request().newBuilder();
             String userAgent = opts.getUserAgent();
-            if (userAgent != null) { builder.addHeader("User-Agent", userAgent); }
+            if (userAgent != null) {
+              that.logger.info("Setting User-Agent to: {}", userAgent);
+              builder.addHeader("User-Agent", userAgent);
+            }
             if (opts.getIncludeExplanation()) {
+              that.logger.info("Setting X-Adzerk-Explain.");
               builder.addHeader("X-Adzerk-Explain", opts.getApiKey());
             }
             Request request = builder.build();
