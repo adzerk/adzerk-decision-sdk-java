@@ -45,6 +45,6 @@ public class AdditionalOptions {
   }
 
   public Boolean hasValues() {
-    return (this.includeExplanation != null && !this.includeExplanation) || this.userAgent != null;
+    return (this.includeExplanation != null && this.includeExplanation) || this.userAgent != null;
   }
 }
