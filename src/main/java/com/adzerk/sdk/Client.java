@@ -88,7 +88,7 @@ public class Client {
               builder.removeHeader("User-Agent");
               builder.addHeader("User-Agent", userAgent);
             }
-            if (opts.getIncludeExplanation()) {
+            if (opts.getIncludeExplanation() != null && opts.getIncludeExplanation()) {
               that.logger.info("Setting X-Adzerk-Explain.");
               builder.addHeader("X-Adzerk-Explain", opts.getApiKey());
             }
