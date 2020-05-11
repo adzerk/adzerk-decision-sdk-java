@@ -97,7 +97,7 @@ public class Client {
           }
         };
 
-        if (opts.getIncludeExplanation()) {
+        if (opts.getIncludeExplanation() != null && opts.getIncludeExplanation()) {
           this.logger.info("--------------------------------------------------------------");
           this.logger.info("              !!! WARNING - WARNING - WARNING !!!             ");
           this.logger.info("");
