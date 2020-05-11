@@ -85,6 +85,7 @@ public class Client {
             String userAgent = opts.getUserAgent();
             if (userAgent != null) {
               that.logger.info("Setting User-Agent to: {}", userAgent);
+              builder.removeHeader("User-Agent");
               builder.addHeader("User-Agent", userAgent);
             }
             if (opts.getIncludeExplanation()) {
