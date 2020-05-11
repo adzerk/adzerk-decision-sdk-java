@@ -101,7 +101,7 @@ public class Client {
           this.logger.info("              !!! WARNING - WARNING - WARNING !!!             ");
           this.logger.info("");
           this.logger.info("You have opted to include explainer details with this request!");
-          this.logger.info("This can cause performance degredation and should not be done");
+          this.logger.info("This will cause performance degradation and should not be done");
           this.logger.info("in production environments.");
           this.logger.info("--------------------------------------------------------------");
         }
