@@ -59,12 +59,13 @@ public class Client {
 
       List<Placement> placements = request.getPlacements();
 
-      if (placements.size() == 0) {
-        throw new ApiException("At least one placement is required for a Decision Request");
-      }
-
       for (int i = 0; i < placements.size(); i++) {
         Placement p = placements.get(i);
+
+        if (p.getAdTypes() == null || p.getAdTypes().size() == 0) {
+          throw new ApiException("Each placement requires at least one ad type");
+        }
+
         if (p.getDivName() == null) { p.setDivName(String.format("div%s", i)); }
         if (p.getNetworkId() == null) { p.setNetworkId(this.networkId); }
         if (p.getSiteId() == null) { p.setSiteId(this.siteId); }
