@@ -63,30 +63,41 @@ public class FetchAds {
 ### UserDB: Reading User Record
 
 ```java
-// import adzerk_decision_sdk
-//
-// # Demo network ID; find your own via the Adzerk UI!
-// client = adzerk_decision_sdk.Client(23)
-// record = client.user_db.read("abc")
-// print(record)
+import com.adzerk.sdk.*;
+import com.adzerk.sdk.generated.ApiException;
+import com.adzerk.sdk.model.UserRecord;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+public class FetchUserDb {
+  public static void main(String[] argv) throws ApiException {
+    // Demo network ID; find your own via the Adzerk UI!    
+    Client client = new Client(new ClientOptions(23));
+    UserRecord record = client.userDb().read("abc");
+    System.out.println(ToStringBuilder.reflectionToString(record));
+  }  
+}
 ```
 
 ### UserDB: Setting Custom Properties
 
 ```java
-// import adzerk_decision_sdk
-// import os
-//
-// # Demo network ID and API key; find your own via the Adzerk UI!
-// client = adzerk_decision_sdk.Client(23, api_key="YOUR_API_KEY")
-//
-// props = {
-//   "favoriteColor": "blue",
-//   "favoriteNumber": 42,
-//   "favoriteFoods": ["strawberries", "chocolate"],
-// }
-//
-// client.user_db.set_custom_properties("abc", props)
+import java.util.*;
+import com.adzerk.sdk.*;
+import com.adzerk.sdk.generated.ApiException;
+
+public class SetUserDb {
+  public static void main(String[] argv) throws ApiException {
+    // Demo network ID and API key; find your own via the Adzerk UI!
+    Client client = new Client(new ClientOptions(23).apiKey("YOUR-API-KEY"));
+
+    Map props = Map.of(
+      "favoriteColor", "blue",
+      "favoriteNumber", 42,
+      "favoriteFoods", new String[] {"strawberries", "chocolate"});
+
+    client.userDb().setCustomProperties("abc", props);
+  }
+}
 ```
 
 <!-- ### Logging Example
@@ -98,48 +109,50 @@ TBD: ....... -->
 ### Fetching an Ad Decision
 
 ```clojure
-// import adzerk_decision_sdk
-//
-// # Demo network, site, and ad type IDs; find your own via the Adzerk UI!
-// client = adzerk_decision_sdk.Client(23, site_id=667480)
-//
-// request = {
-//   "placements": [{"adTypes": [5]}],
-//   "user": {"key": "abc"},
-//   "keywords": ["keyword1", "keyword2"],
-// }
-//
-// response = client.decisions.get(request)
-// print(response)
+(ns readme-ad-request
+  (:import (com.adzerk.sdk Client ClientOptions)
+           (com.adzerk.sdk.generated.model DecisionRequest Placement User)))
+
+(defn -main []
+  ; Demo network, site, and ad type IDs; find your own via the Adzerk UI!
+  (let [client (Client. (doto (ClientOptions. (int 23)) (.siteId (int 667480))))
+        request (doto (DecisionRequest.)
+                      (.placements [(doto (Placement.) (.adTypes [5]))])
+                      (.keywords ["keyword1" "keyword2"])
+                      (.user (doto (User.) (.key "abc"))))
+        response (-> client (.decisions) (.get request))]
+
+    (println response)))
 ```
 
 ### UserDB: Reading User Record
 
 ```clojure
-// import adzerk_decision_sdk
-//
-// # Demo network ID; find your own via the Adzerk UI!
-// client = adzerk_decision_sdk.Client(23)
-// record = client.user_db.read("abc")
-// print(record)
+(ns readme-read-userdb
+  (:use clojure.pprint)
+  (:import (com.adzerk.sdk Client ClientOptions)))
+
+(defn -main []
+  ; Demo network ID; find your own via the Adzerk UI!
+  (let [params (doto (ClientOptions. (int 23)))
+        client (.userDb (Client. params))]
+    (pprint (bean (.read client "abc")))))
 ```
 
 ### UserDB: Setting Custom Properties
 
 ```clojure
-// import adzerk_decision_sdk
-// import os
-//
-// # Demo network ID and API key; find your own via the Adzerk UI!
-// client = adzerk_decision_sdk.Client(23, api_key="YOUR_API_KEY")
-//
-// props = {
-//   "favoriteColor": "blue",
-//   "favoriteNumber": 42,
-//   "favoriteFoods": ["strawberries", "chocolate"],
-// }
-//
-// client.user_db.set_custom_properties("abc", props)
+(ns readme-set-userdb
+  (:import (com.adzerk.sdk Client ClientOptions)))
+
+(defn -main []
+  ; Demo network ID and API key; find your own via the Adzerk UI!
+  (let [params (doto (ClientOptions. (int 23)) (.apiKey "YOUR-API-KEY"))
+        client (.userDb (Client. params))]
+
+    (.setCustomProperties client "abc" {"favoriteColor" "blue"
+                                        "favoriteNumber" 42
+                                        "favoriteFoods" ["strawberries", "chocolate"]})))
 ```
 
 ## Documentation
