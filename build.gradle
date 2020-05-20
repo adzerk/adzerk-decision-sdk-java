@@ -38,6 +38,15 @@ publishing {
     }
 }
 
+jar {
+    manifest {
+        attributes(
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.version
+        )
+    }
+}
+
 artifactory {
     contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
