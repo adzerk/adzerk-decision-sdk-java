@@ -61,6 +61,10 @@ public class Client {
 
       if (request.getEnableBotFiltering() == null) { request.setEnableBotFiltering(false); }
 
+      if (placements == null || placements.size() == 0) {
+        throw new ApiException("Each request requires at least one placement");
+      }
+
       for (int i = 0; i < placements.size(); i++) {
         Placement p = placements.get(i);
 
