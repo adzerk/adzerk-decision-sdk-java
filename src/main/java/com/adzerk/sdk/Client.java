@@ -59,6 +59,8 @@ public class Client {
 
       List<Placement> placements = request.getPlacements();
 
+      if (request.getEnableBotFiltering() == null) { request.setEnableBotFiltering(false); }
+
       for (int i = 0; i < placements.size(); i++) {
         Placement p = placements.get(i);
 
