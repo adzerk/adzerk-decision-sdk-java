@@ -105,13 +105,13 @@ public class Client {
         };
 
         if (opts.getIncludeExplanation() != null && opts.getIncludeExplanation()) {
-          this.logger.info("--------------------------------------------------------------");
-          this.logger.info("              !!! WARNING - WARNING - WARNING !!!             ");
-          this.logger.info("");
-          this.logger.info("You have opted to include explainer details with this request!");
-          this.logger.info("This will cause performance degradation and should not be done");
-          this.logger.info("in production environments.");
-          this.logger.info("--------------------------------------------------------------");
+          this.logger.warn("--------------------------------------------------------------");
+          this.logger.warn("              !!! WARNING - WARNING - WARNING !!!             ");
+          this.logger.warn("");
+          this.logger.warn("You have opted to include explainer details with this request!");
+          this.logger.warn("This will cause performance degradation and should not be done");
+          this.logger.warn("in production environments.");
+          this.logger.warn("--------------------------------------------------------------");
         }
 
         OkHttpClient httpClient = this.httpClient.newBuilder().addInterceptor(optsInterceptor).build();
