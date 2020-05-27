@@ -6,21 +6,29 @@ Java Software Development Kit for Adzerk Decision & UserDB APIs
 
 Requires [Java SE 8](https://en.wikipedia.org/wiki/Java_version_history) or higher.
 
+[Maven Package](https://search.maven.org/artifact/com.adzerk/adzerk-decision-sdk)
+
 Add to your `pom.xml` file:
 
 ```xml
 <dependency>
     <groupId>com.adzerk</groupId>
     <artifactId>adzerk-decision-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.1</version>
 </dependency>
+```
+
+Or `build.gradle` file:
+
+```gradle
+implementation 'com.adzerk:adzerk-decision-sdk:1.0.0-beta.1'
 ```
 
 Or, if using Clojure, add to your `deps.edn` file:
 
 ```clojure
 {:deps
-  {com.adzerk/adzerk-decision-sdk {:mvn/version "1.0.0"}}}
+  {com.adzerk/adzerk-decision-sdk {:mvn/version "1.0.0-beta.1"}}}
 ```
 
 ## Examples
