@@ -158,15 +158,16 @@ TBD: ....... -->
 Use with the fetch ad example above.
 
 ```clojure
+; Impression pixel; fire when user sees the ad
 (-> client (.pixels) (.fire (doto (PixelFireOptions.) (.url (.toString (.getImpressionUrl decision))))))
-(println "Fired!")
 
-(println "Firing click pixel...")
+; Click pixel; fire when user clicks on the ad
+; status: HTTP status code
+; location: click target URL
 (let [decision-url (.toString (.getClickUrl decision))
       pixel-results (-> client (.pixels) (.fire (doto (PixelFireOptions.) (.url decision-url))))]
   (println (str "Fired! status: " (.getStatusCode pixel-results)
                 "; location: " (.getLocation pixel-results))))))
-
 ```
 
 ### UserDB: Reading User Record
