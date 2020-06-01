@@ -68,6 +68,26 @@ public class FetchAds {
 }
 ```
 
+### Recording Impression & Clicks
+
+Use with the fetch ad example above.
+
+```java
+// Impression pixel; fire when user sees the ad
+client.pixels().fire(new PixelFireOptions()
+    .url(decision.getImpressionUrl().toString()));
+
+// Click pixel; fire when user clicks on the ad
+// status: HTTP status code
+// location: click target URL
+PixelFireResponse clickResponse = client.pixels().fire(new PixelFireOptions()
+    .url(decision.getClickUrl().toString()));
+System.out.println("Fired! status: "
+    + clickResponse.getStatusCode()
+    + "; location: "
+    + clickResponse.getLocation());
+```
+
 ### UserDB: Reading User Record
 
 ```java
@@ -131,6 +151,22 @@ TBD: ....... -->
         response (-> client (.decisions) (.get request))]
 
     (println response)))
+```
+
+### Recording Impression & Clicks
+
+Use with the fetch ad example above.
+
+```clojure
+(-> client (.pixels) (.fire (doto (PixelFireOptions.) (.url (.toString (.getImpressionUrl decision))))))
+(println "Fired!")
+
+(println "Firing click pixel...")
+(let [decision-url (.toString (.getClickUrl decision))
+      pixel-results (-> client (.pixels) (.fire (doto (PixelFireOptions.) (.url decision-url))))]
+  (println (str "Fired! status: " (.getStatusCode pixel-results)
+                "; location: " (.getLocation pixel-results))))))
+
 ```
 
 ### UserDB: Reading User Record
