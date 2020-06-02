@@ -22,7 +22,7 @@ jobs:
         ${{ secrets.GPG_KEY }}
         EOF
         gpg --import --batch ./key.gpg
-        gpg --export-secret-keys A47EDDB49D1CC789 > /home/runner/.gnupg/secring.gpg
+        gpg --pinentry-mode --passphrase ${{ secrets.GPG_PASSWORD}} --export-secret-keys A47EDDB49D1CC789 > /home/runner/.gnupg/secring.gpg
     - name: Generate Gradle Properties
       run: |
         cat << EOF > ./gradle.properties
