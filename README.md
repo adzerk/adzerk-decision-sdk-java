@@ -127,7 +127,7 @@ public class SetUserDb {
 }
 ```
 
-## UserDB Forgetting User Record
+### UserDB: Forgetting User Record
 
 ```java
 import com.adzerk.sdk.*;
