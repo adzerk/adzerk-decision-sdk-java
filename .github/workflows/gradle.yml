@@ -22,6 +22,7 @@ jobs:
         ${{ secrets.GPG_KEY }}
         EOF
         gpg --import --batch ./key.gpg
+        gpg --export-secret-keys > /home/runner/.gnupg/secring.gpg
     - name: Generate Gradle Properties
       run: |
         cat << EOF > ./gradle.properties
