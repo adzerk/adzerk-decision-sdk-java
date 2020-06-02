@@ -16,6 +16,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Import Signing Key
+      run: gpg --import --batch ${{ secrets.GPG_KEY }}
     - name: Generate Gradle Properties
       run: |
         cat << EOF > ./gradle.properties
