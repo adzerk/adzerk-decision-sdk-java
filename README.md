@@ -74,18 +74,17 @@ Use with the fetch ad example above.
 
 ```java
 // Impression pixel; fire when user sees the ad
-client.pixels().fire(new PixelFireOptions()
-    .url(decision.getImpressionUrl().toString()));
+String impUrl = decision.getImpressionUrl().toString();
+client.pixels().fire(new PixelFireOptions().url(impUrl));
 
 // Click pixel; fire when user clicks on the ad
 // status: HTTP status code
 // location: click target URL
-PixelFireResponse clickResponse = client.pixels().fire(new PixelFireOptions()
-    .url(decision.getClickUrl().toString()));
-System.out.println("Fired! status: "
-    + clickResponse.getStatusCode()
-    + "; location: "
-    + clickResponse.getLocation());
+String clickUrl = decision.getClickUrl().toString();
+PixelFireResponse clickResponse = client.pixels().fire(new PixelFireOptions() .url(clickUrl));
+System.out.println("Fired! " +
+    "status: " + clickResponse.getStatusCode() + " " +
+    "location: " + clickResponse.getLocation());
 ```
 
 ### UserDB: Reading User Record
