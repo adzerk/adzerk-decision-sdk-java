@@ -115,8 +115,8 @@ import com.adzerk.sdk.generated.ApiException;
 
 public class SetUserDb {
   public static void main(String[] argv) throws ApiException {
-    // Demo network ID and API key; find your own via the Adzerk UI!
-    Client client = new Client(new ClientOptions(23).apiKey("YOUR-API-KEY"));
+    // Demo network ID; find your own via the Adzerk UI!
+    Client client = new Client(new ClientOptions(23));
 
     Map props = Map.of(
       "favoriteColor", "blue",
@@ -124,6 +124,21 @@ public class SetUserDb {
       "favoriteFoods", new String[] {"strawberries", "chocolate"});
 
     client.userDb().setCustomProperties("abc", props);
+  }
+}
+```
+
+## UserDB Forgetting User Record
+
+```java
+import com.adzerk.sdk.*;
+import com.adzerk.sdk.generated.ApiException;
+
+public class ForgetUserDb {
+  public static void main(String[] argv) throws ApiException {
+    // Demo network ID and API key; find your own via the Adzerk UI!
+    Client client = new Client(new ClientOptions(23).apiKey("YOUR-API-KEY"));
+    client.userDb().forget("abc");
   }
 }
 ```
@@ -147,10 +162,8 @@ TBD: ....... -->
         request (doto (DecisionRequest.)
                       (.placements [(doto (Placement.) (.adTypes [5]))])
                       (.keywords ["keyword1" "keyword2"])
-                      (.user (doto (User.) (.key "abc"))))
-        response (-> client (.decisions) (.get request))]
-
-    (println response)))
+                      (.user (doto (User.) (.key "abc"))))]
+    (print (-> client (.decisions) (.get request)))))
 ```
 
 ### Recording Impression & Clicks
@@ -179,9 +192,8 @@ Use with the fetch ad example above.
 
 (defn -main []
   ; Demo network ID; find your own via the Adzerk UI!
-  (let [params (doto (ClientOptions. (int 23)))
-        client (.userDb (Client. params))]
-    (pprint (bean (.read client "abc")))))
+  (let [client (Client. (doto (ClientOptions. (int 23))))]
+    (pprint (bean (-> client (.userDb) (.read "abc"))))))
 ```
 
 ### UserDB: Setting Custom Properties
@@ -191,13 +203,24 @@ Use with the fetch ad example above.
   (:import (com.adzerk.sdk Client ClientOptions)))
 
 (defn -main []
-  ; Demo network ID and API key; find your own via the Adzerk UI!
-  (let [params (doto (ClientOptions. (int 23)) (.apiKey "YOUR-API-KEY"))
-        client (.userDb (Client. params))]
+  ; Demo network ID; find your own via the Adzerk UI!
+  (let [client (Client. (doto (ClientOptions. (int 23))))
+        props {"favoriteColor" "blue"
+               "favoriteNumber" 42
+               "favoriteFoods" ["strawberries", "chocolate"]}]
+    (-> client (.userDb) (.setCustomProperties "abc" props))))
+```
 
-    (.setCustomProperties client "abc" {"favoriteColor" "blue"
-                                        "favoriteNumber" 42
-                                        "favoriteFoods" ["strawberries", "chocolate"]})))
+### UserDB: Forgetting User Record
+
+```clojure
+(ns readme-forget-userdb
+  (:import (com.adzerk.sdk Client ClientOptions)))
+
+(defn -main []
+  ; Demo network ID and API key; find your own via the Adzerk UI!
+  (let [client (Client. (doto (ClientOptions. (int 23)) (.apiKey "YOUR-API-KEY")))]
+    (-> client (.userDb) (.forget "abc"))))
 ```
 
 ## Documentation
