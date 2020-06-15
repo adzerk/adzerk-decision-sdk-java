@@ -22,4 +22,8 @@ Name | Type | Description | Notes
 **deviceID** | **String** | RTB requests only - sets an Identifier for Advertisers (IFA or IDFA) |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

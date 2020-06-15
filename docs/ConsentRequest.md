@@ -10,4 +10,8 @@ Name | Type | Description | Notes
 **consent** | [**Object**](.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

@@ -34,7 +34,7 @@ import java.io.Serializable;
 /**
  * Decision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-13T12:24:36.097-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-15T11:03:16.382-04:00[America/New_York]")
 public class Decision implements Serializable {
   private static final long serialVersionUID = 1L;
 

@@ -29,13 +29,17 @@ import java.io.Serializable;
 /**
  * DecisionData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-04-13T12:24:36.097-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-15T11:03:16.382-04:00[America/New_York]")
 public class DecisionData implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_IMAGE_U_R_L = "imageURL";
-  @SerializedName(SERIALIZED_NAME_IMAGE_U_R_L)
-  private URI imageURL;
+  public static final String SERIALIZED_NAME_IMAGE_URL = "imageUrl";
+  @SerializedName(SERIALIZED_NAME_IMAGE_URL)
+  private URI imageUrl;
+
+  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
+  @SerializedName(SERIALIZED_NAME_FILE_NAME)
+  private String fileName;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -54,26 +58,49 @@ public class DecisionData implements Serializable {
   private Object customData;
 
 
-  public DecisionData imageURL(URI imageURL) {
+  public DecisionData imageUrl(URI imageUrl) {
     
-    this.imageURL = imageURL;
+    this.imageUrl = imageUrl;
     return this;
   }
 
    /**
-   * Get imageURL
-   * @return imageURL
+   * Get imageUrl
+   * @return imageUrl
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public URI getImageURL() {
-    return imageURL;
+  public URI getImageUrl() {
+    return imageUrl;
   }
 
 
-  public void setImageURL(URI imageURL) {
-    this.imageURL = imageURL;
+  public void setImageUrl(URI imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+
+  public DecisionData fileName(String fileName) {
+    
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Get fileName
+   * @return fileName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getFileName() {
+    return fileName;
+  }
+
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
   }
 
 
@@ -178,7 +205,8 @@ public class DecisionData implements Serializable {
       return false;
     }
     DecisionData decisionData = (DecisionData) o;
-    return Objects.equals(this.imageURL, decisionData.imageURL) &&
+    return Objects.equals(this.imageUrl, decisionData.imageUrl) &&
+        Objects.equals(this.fileName, decisionData.fileName) &&
         Objects.equals(this.title, decisionData.title) &&
         Objects.equals(this.width, decisionData.width) &&
         Objects.equals(this.height, decisionData.height) &&
@@ -187,7 +215,7 @@ public class DecisionData implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageURL, title, width, height, customData);
+    return Objects.hash(imageUrl, fileName, title, width, height, customData);
   }
 
 
@@ -195,7 +223,8 @@ public class DecisionData implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecisionData {\n");
-    sb.append("    imageURL: ").append(toIndentedString(imageURL)).append("\n");
+    sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");

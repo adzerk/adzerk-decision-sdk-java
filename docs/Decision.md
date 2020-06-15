@@ -18,4 +18,8 @@ Name | Type | Description | Notes
 **pricing** | [**PricingData**](PricingData.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 
