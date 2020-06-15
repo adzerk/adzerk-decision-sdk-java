@@ -10,4 +10,8 @@ Name | Type | Description | Notes
 **key** | **String** | The UserKey used for UserDB Targeting |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

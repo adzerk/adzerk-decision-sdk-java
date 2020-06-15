@@ -24,4 +24,8 @@ Name | Type | Description | Notes
 **ecpmPartition** | **String** | (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

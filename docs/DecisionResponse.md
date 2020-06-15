@@ -11,4 +11,8 @@ Name | Type | Description | Notes
 **explain** | [**Object**](.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

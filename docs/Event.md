@@ -10,4 +10,8 @@ Name | Type | Description | Notes
 **url** | [**URI**](URI.md) |  |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 
