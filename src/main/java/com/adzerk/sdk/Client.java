@@ -139,14 +139,6 @@ public class Client {
       this.networkId = networkId;
     }
 
-    public void setUserCookie(String userKey) throws ApiException {
-      this.setUserCookie(this.networkId, userKey);
-    }
-
-    public void setUserCookie(int networkId, String userKey) throws ApiException {
-      this.userDbApi.setUserCookie(networkId, userKey);
-    }
-
     public void setCustomProperties(String userKey, Object properties) throws ApiException {
       this.setCustomProperties(this.networkId, userKey, properties);
     }
