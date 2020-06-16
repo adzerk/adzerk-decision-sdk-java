@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **eCPM** | **Float** |  |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 

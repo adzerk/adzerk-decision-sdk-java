@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**matchUser**](UserdbApi.md#matchUser) | **GET** /udb/{networkId}/sync/i.gif | 
 [**optOut**](UserdbApi.md#optOut) | **GET** /udb/{networkId}/optout/i.gif | 
 [**read**](UserdbApi.md#read) | **GET** /udb/{networkId}/read | 
-[**setUserCookie**](UserdbApi.md#setUserCookie) | **GET** /udb/{networkId}/set/i.gif | 
 
 
 <a name="addCustomProperties"></a>
@@ -625,68 +624,4 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The UserDB record |  -  |
-
-<a name="setUserCookie"></a>
-# **setUserCookie**
-> File setUserCookie(networkId, userKey)
-
-
-
-Set User Cookie
-
-### Example
-```java
-// Import classes:
-import com.adzerk.sdk.generated.ApiClient;
-import com.adzerk.sdk.generated.ApiException;
-import com.adzerk.sdk.generated.Configuration;
-import com.adzerk.sdk.generated.models.*;
-import com.adzerk.sdk.generated.api.UserdbApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://e-23.adzerk.net");
-
-    UserdbApi apiInstance = new UserdbApi(defaultClient);
-    Integer networkId = 56; // Integer | Your Network Id
-    String userKey = "userKey_example"; // String | UserDB Id for the user
-    try {
-      File result = apiInstance.setUserCookie(networkId, userKey);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling UserdbApi#setUserCookie");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| UserDB Id for the user |
-
-### Return type
-
-[**File**](File.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/gif
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
 

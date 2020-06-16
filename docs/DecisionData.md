@@ -6,11 +6,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**imageURL** | [**URI**](URI.md) |  |  [optional]
+**imageUrl** | [**URI**](URI.md) |  |  [optional]
+**fileName** | **String** |  |  [optional]
 **title** | **String** |  |  [optional]
 **width** | **Integer** |  |  [optional]
 **height** | **Integer** |  |  [optional]
 **customData** | [**Object**](.md) |  |  [optional]
 
+
+## Implemented Interfaces
+
+* Serializable
 
 

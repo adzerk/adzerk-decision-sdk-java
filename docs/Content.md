@@ -13,4 +13,8 @@ Name | Type | Description | Notes
 **body** | **String** |  |  [optional]
 
 
+## Implemented Interfaces
+
+* Serializable
+
 
