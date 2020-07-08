@@ -25,3 +25,4 @@
 .gitignore
 build.gradle
 src/test/**
+api/**
