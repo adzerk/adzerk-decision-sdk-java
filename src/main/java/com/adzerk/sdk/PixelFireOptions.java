@@ -6,6 +6,7 @@ public class PixelFireOptions {
   private String url;
   private BigDecimal revenueOverride;
   private BigDecimal additionalRevenue;
+  private Integer eventMultiplier;
 
   public String getUrl() {
     return this.url;
@@ -43,6 +44,19 @@ public class PixelFireOptions {
 
   public PixelFireOptions additionalRevenue(BigDecimal additionalRevenue) {
     this.additionalRevenue = additionalRevenue;
+    return this;
+  }
+
+  public Integer getEventMultiplier() {
+    return this.eventMultiplier;
+  }
+
+  public void setEventMultiplier(Integer eventMultiplier) {
+    this.eventMultiplier = eventMultiplier;
+  }
+
+  public PixelFireOptions eventMultiplier(Integer eventMultiplier) {
+    this.eventMultiplier = eventMultiplier;
     return this;
   }
 }
