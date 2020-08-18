@@ -234,6 +234,9 @@ public class Client {
       if (opts.getAdditionalRevenue() != null) {
         urlBuilder.addQueryParameter("additional", opts.getAdditionalRevenue().toString());
       }
+      if (opts.getEventMultiplier() != null) {
+        urlBuilder.addQueryParameter("eventMultiplier", opts.getEventMultiplier().toString());
+      }
 
       HttpUrl url = urlBuilder.build();
       Request request = new okhttp3.Request.Builder()
