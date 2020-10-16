@@ -23,68 +23,67 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.net.URI;
 import java.io.Serializable;
 
 /**
- * Event
+ * RequestLocation
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
-public class Event implements Serializable {
+public class RequestLocation implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_LATITUDE = "latitude";
+  @SerializedName(SERIALIZED_NAME_LATITUDE)
+  private String latitude;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private URI url;
+  public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
+  @SerializedName(SERIALIZED_NAME_LONGITUDE)
+  private String longitude;
 
 
-  public Event id(Integer id) {
+  public RequestLocation latitude(String latitude) {
     
-    this.id = id;
+    this.latitude = latitude;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get latitude
+   * @return latitude
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getId() {
-    return id;
+  public String getLatitude() {
+    return latitude;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setLatitude(String latitude) {
+    this.latitude = latitude;
   }
 
 
-  public Event url(URI url) {
+  public RequestLocation longitude(String longitude) {
     
-    this.url = url;
+    this.longitude = longitude;
     return this;
   }
 
    /**
-   * Get url
-   * @return url
+   * Get longitude
+   * @return longitude
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public URI getUrl() {
-    return url;
+  public String getLongitude() {
+    return longitude;
   }
 
 
-  public void setUrl(URI url) {
-    this.url = url;
+  public void setLongitude(String longitude) {
+    this.longitude = longitude;
   }
 
 
@@ -96,23 +95,23 @@ public class Event implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Event event = (Event) o;
-    return Objects.equals(this.id, event.id) &&
-        Objects.equals(this.url, event.url);
+    RequestLocation requestLocation = (RequestLocation) o;
+    return Objects.equals(this.latitude, requestLocation.latitude) &&
+        Objects.equals(this.longitude, requestLocation.longitude);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url);
+    return Objects.hash(latitude, longitude);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Event {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("class RequestLocation {\n");
+    sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
+    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("}");
     return sb.toString();
   }

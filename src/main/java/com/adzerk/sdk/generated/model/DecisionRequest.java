@@ -16,6 +16,7 @@ package com.adzerk.sdk.generated.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adzerk.sdk.generated.model.Placement;
+import com.adzerk.sdk.generated.model.RequestLocation;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -32,7 +33,7 @@ import java.io.Serializable;
 /**
  * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-06T10:57:47.782-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
 public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,6 +92,26 @@ public class DecisionRequest implements Serializable {
   public static final String SERIALIZED_NAME_DEVICE_I_D = "deviceID";
   @SerializedName(SERIALIZED_NAME_DEVICE_I_D)
   private String deviceID;
+
+  public static final String SERIALIZED_NAME_PARALLEL = "parallel";
+  @SerializedName(SERIALIZED_NAME_PARALLEL)
+  private Boolean parallel;
+
+  public static final String SERIALIZED_NAME_INTENDED_LATITUDE = "intendedLatitude";
+  @SerializedName(SERIALIZED_NAME_INTENDED_LATITUDE)
+  private String intendedLatitude;
+
+  public static final String SERIALIZED_NAME_INTENDED_LONGITUDE = "intendedLongitude";
+  @SerializedName(SERIALIZED_NAME_INTENDED_LONGITUDE)
+  private String intendedLongitude;
+
+  public static final String SERIALIZED_NAME_INCLUDE_MATCHED_POINTS = "includeMatchedPoints";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_MATCHED_POINTS)
+  private Boolean includeMatchedPoints;
+
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
+  private RequestLocation location;
 
 
   public DecisionRequest placements(List<Placement> placements) {
@@ -435,6 +456,121 @@ public class DecisionRequest implements Serializable {
   }
 
 
+  public DecisionRequest parallel(Boolean parallel) {
+    
+    this.parallel = parallel;
+    return this;
+  }
+
+   /**
+   * Get parallel
+   * @return parallel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getParallel() {
+    return parallel;
+  }
+
+
+  public void setParallel(Boolean parallel) {
+    this.parallel = parallel;
+  }
+
+
+  public DecisionRequest intendedLatitude(String intendedLatitude) {
+    
+    this.intendedLatitude = intendedLatitude;
+    return this;
+  }
+
+   /**
+   * Get intendedLatitude
+   * @return intendedLatitude
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getIntendedLatitude() {
+    return intendedLatitude;
+  }
+
+
+  public void setIntendedLatitude(String intendedLatitude) {
+    this.intendedLatitude = intendedLatitude;
+  }
+
+
+  public DecisionRequest intendedLongitude(String intendedLongitude) {
+    
+    this.intendedLongitude = intendedLongitude;
+    return this;
+  }
+
+   /**
+   * Get intendedLongitude
+   * @return intendedLongitude
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getIntendedLongitude() {
+    return intendedLongitude;
+  }
+
+
+  public void setIntendedLongitude(String intendedLongitude) {
+    this.intendedLongitude = intendedLongitude;
+  }
+
+
+  public DecisionRequest includeMatchedPoints(Boolean includeMatchedPoints) {
+    
+    this.includeMatchedPoints = includeMatchedPoints;
+    return this;
+  }
+
+   /**
+   * Get includeMatchedPoints
+   * @return includeMatchedPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIncludeMatchedPoints() {
+    return includeMatchedPoints;
+  }
+
+
+  public void setIncludeMatchedPoints(Boolean includeMatchedPoints) {
+    this.includeMatchedPoints = includeMatchedPoints;
+  }
+
+
+  public DecisionRequest location(RequestLocation location) {
+    
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Get location
+   * @return location
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public RequestLocation getLocation() {
+    return location;
+  }
+
+
+  public void setLocation(RequestLocation location) {
+    this.location = location;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -457,12 +593,17 @@ public class DecisionRequest implements Serializable {
         Objects.equals(this.enableBotFiltering, decisionRequest.enableBotFiltering) &&
         Objects.equals(this.enableUserDBIP, decisionRequest.enableUserDBIP) &&
         Objects.equals(this.consent, decisionRequest.consent) &&
-        Objects.equals(this.deviceID, decisionRequest.deviceID);
+        Objects.equals(this.deviceID, decisionRequest.deviceID) &&
+        Objects.equals(this.parallel, decisionRequest.parallel) &&
+        Objects.equals(this.intendedLatitude, decisionRequest.intendedLatitude) &&
+        Objects.equals(this.intendedLongitude, decisionRequest.intendedLongitude) &&
+        Objects.equals(this.includeMatchedPoints, decisionRequest.includeMatchedPoints) &&
+        Objects.equals(this.location, decisionRequest.location);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID);
+    return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, includeMatchedPoints, location);
   }
 
 
@@ -484,6 +625,11 @@ public class DecisionRequest implements Serializable {
     sb.append("    enableUserDBIP: ").append(toIndentedString(enableUserDBIP)).append("\n");
     sb.append("    consent: ").append(toIndentedString(consent)).append("\n");
     sb.append("    deviceID: ").append(toIndentedString(deviceID)).append("\n");
+    sb.append("    parallel: ").append(toIndentedString(parallel)).append("\n");
+    sb.append("    intendedLatitude: ").append(toIndentedString(intendedLatitude)).append("\n");
+    sb.append("    intendedLongitude: ").append(toIndentedString(intendedLongitude)).append("\n");
+    sb.append("    includeMatchedPoints: ").append(toIndentedString(includeMatchedPoints)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("}");
     return sb.toString();
   }

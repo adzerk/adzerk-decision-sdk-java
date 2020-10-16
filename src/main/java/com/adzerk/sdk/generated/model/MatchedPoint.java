@@ -23,68 +23,67 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.net.URI;
 import java.io.Serializable;
 
 /**
- * Event
+ * MatchedPoint
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
-public class Event implements Serializable {
+public class MatchedPoint implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private Integer id;
+  public static final String SERIALIZED_NAME_LAT = "lat";
+  @SerializedName(SERIALIZED_NAME_LAT)
+  private String lat;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private URI url;
+  public static final String SERIALIZED_NAME_LONG = "long";
+  @SerializedName(SERIALIZED_NAME_LONG)
+  private String _long;
 
 
-  public Event id(Integer id) {
+  public MatchedPoint lat(String lat) {
     
-    this.id = id;
+    this.lat = lat;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get lat
+   * @return lat
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getId() {
-    return id;
+  public String getLat() {
+    return lat;
   }
 
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setLat(String lat) {
+    this.lat = lat;
   }
 
 
-  public Event url(URI url) {
+  public MatchedPoint _long(String _long) {
     
-    this.url = url;
+    this._long = _long;
     return this;
   }
 
    /**
-   * Get url
-   * @return url
+   * Get _long
+   * @return _long
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public URI getUrl() {
-    return url;
+  public String getLong() {
+    return _long;
   }
 
 
-  public void setUrl(URI url) {
-    this.url = url;
+  public void setLong(String _long) {
+    this._long = _long;
   }
 
 
@@ -96,23 +95,23 @@ public class Event implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Event event = (Event) o;
-    return Objects.equals(this.id, event.id) &&
-        Objects.equals(this.url, event.url);
+    MatchedPoint matchedPoint = (MatchedPoint) o;
+    return Objects.equals(this.lat, matchedPoint.lat) &&
+        Objects.equals(this._long, matchedPoint._long);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url);
+    return Objects.hash(lat, _long);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Event {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("class MatchedPoint {\n");
+    sb.append("    lat: ").append(toIndentedString(lat)).append("\n");
+    sb.append("    _long: ").append(toIndentedString(_long)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.io.Serializable;
 /**
  * ConsentRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-06T10:57:47.782-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
 public class ConsentRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 

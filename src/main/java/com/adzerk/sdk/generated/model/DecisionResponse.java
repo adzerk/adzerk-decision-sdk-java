@@ -15,6 +15,7 @@ package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adzerk.sdk.generated.model.MatchedPoint;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -24,12 +25,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
  * DecisionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-06T10:57:47.782-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
 public class DecisionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -44,6 +47,10 @@ public class DecisionResponse implements Serializable {
   public static final String SERIALIZED_NAME_EXPLAIN = "explain";
   @SerializedName(SERIALIZED_NAME_EXPLAIN)
   private Object explain;
+
+  public static final String SERIALIZED_NAME_MATCHED_POINTS = "matchedPoints";
+  @SerializedName(SERIALIZED_NAME_MATCHED_POINTS)
+  private List<MatchedPoint> matchedPoints = null;
 
 
   public DecisionResponse user(User user) {
@@ -115,6 +122,37 @@ public class DecisionResponse implements Serializable {
   }
 
 
+  public DecisionResponse matchedPoints(List<MatchedPoint> matchedPoints) {
+    
+    this.matchedPoints = matchedPoints;
+    return this;
+  }
+
+  public DecisionResponse addMatchedPointsItem(MatchedPoint matchedPointsItem) {
+    if (this.matchedPoints == null) {
+      this.matchedPoints = new ArrayList<MatchedPoint>();
+    }
+    this.matchedPoints.add(matchedPointsItem);
+    return this;
+  }
+
+   /**
+   * Get matchedPoints
+   * @return matchedPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<MatchedPoint> getMatchedPoints() {
+    return matchedPoints;
+  }
+
+
+  public void setMatchedPoints(List<MatchedPoint> matchedPoints) {
+    this.matchedPoints = matchedPoints;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -126,12 +164,13 @@ public class DecisionResponse implements Serializable {
     DecisionResponse decisionResponse = (DecisionResponse) o;
     return Objects.equals(this.user, decisionResponse.user) &&
         Objects.equals(this.decisions, decisionResponse.decisions) &&
-        Objects.equals(this.explain, decisionResponse.explain);
+        Objects.equals(this.explain, decisionResponse.explain) &&
+        Objects.equals(this.matchedPoints, decisionResponse.matchedPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, decisions, explain);
+    return Objects.hash(user, decisions, explain, matchedPoints);
   }
 
 
@@ -142,6 +181,7 @@ public class DecisionResponse implements Serializable {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    decisions: ").append(toIndentedString(decisions)).append("\n");
     sb.append("    explain: ").append(toIndentedString(explain)).append("\n");
+    sb.append("    matchedPoints: ").append(toIndentedString(matchedPoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }
