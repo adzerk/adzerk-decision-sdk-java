@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.adzerk.sdk.generated.model.Content;
 import com.adzerk.sdk.generated.model.Event;
+import com.adzerk.sdk.generated.model.MatchedPoint;
 import com.adzerk.sdk.generated.model.PricingData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -34,7 +35,7 @@ import java.io.Serializable;
 /**
  * Decision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-22T11:29:51.483-04:00[America/New_York]")
 public class Decision implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -73,6 +74,10 @@ public class Decision implements Serializable {
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
   private List<Event> events = null;
+
+  public static final String SERIALIZED_NAME_MATCHED_POINTS = "matchedPoints";
+  @SerializedName(SERIALIZED_NAME_MATCHED_POINTS)
+  private List<MatchedPoint> matchedPoints = null;
 
   public static final String SERIALIZED_NAME_PRICING = "pricing";
   @SerializedName(SERIALIZED_NAME_PRICING)
@@ -302,6 +307,37 @@ public class Decision implements Serializable {
   }
 
 
+  public Decision matchedPoints(List<MatchedPoint> matchedPoints) {
+    
+    this.matchedPoints = matchedPoints;
+    return this;
+  }
+
+  public Decision addMatchedPointsItem(MatchedPoint matchedPointsItem) {
+    if (this.matchedPoints == null) {
+      this.matchedPoints = new ArrayList<MatchedPoint>();
+    }
+    this.matchedPoints.add(matchedPointsItem);
+    return this;
+  }
+
+   /**
+   * Get matchedPoints
+   * @return matchedPoints
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<MatchedPoint> getMatchedPoints() {
+    return matchedPoints;
+  }
+
+
+  public void setMatchedPoints(List<MatchedPoint> matchedPoints) {
+    this.matchedPoints = matchedPoints;
+  }
+
+
   public Decision pricing(PricingData pricing) {
     
     this.pricing = pricing;
@@ -343,12 +379,13 @@ public class Decision implements Serializable {
         Objects.equals(this.contents, decision.contents) &&
         Objects.equals(this.impressionUrl, decision.impressionUrl) &&
         Objects.equals(this.events, decision.events) &&
+        Objects.equals(this.matchedPoints, decision.matchedPoints) &&
         Objects.equals(this.pricing, decision.pricing);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adId, creativeId, flightId, campaignId, priorityId, clickUrl, contents, impressionUrl, events, pricing);
+    return Objects.hash(adId, creativeId, flightId, campaignId, priorityId, clickUrl, contents, impressionUrl, events, matchedPoints, pricing);
   }
 
 
@@ -365,6 +402,7 @@ public class Decision implements Serializable {
     sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
     sb.append("    impressionUrl: ").append(toIndentedString(impressionUrl)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    matchedPoints: ").append(toIndentedString(matchedPoints)).append("\n");
     sb.append("    pricing: ").append(toIndentedString(pricing)).append("\n");
     sb.append("}");
     return sb.toString();

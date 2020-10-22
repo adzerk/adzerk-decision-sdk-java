@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **intendedLatitude** | **String** |  |  [optional]
 **intendedLongitude** | **String** |  |  [optional]
 **includeMatchedPoints** | **Boolean** |  |  [optional]
-**location** | [**RequestLocation**](RequestLocation.md) |  |  [optional]
 
 
 ## Implemented Interfaces
