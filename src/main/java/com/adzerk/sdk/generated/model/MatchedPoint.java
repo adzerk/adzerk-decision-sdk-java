@@ -28,7 +28,7 @@ import java.io.Serializable;
 /**
  * MatchedPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-22T11:29:51.483-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
 public class MatchedPoint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -36,9 +36,9 @@ public class MatchedPoint implements Serializable {
   @SerializedName(SERIALIZED_NAME_LAT)
   private String lat;
 
-  public static final String SERIALIZED_NAME_LONG = "long";
-  @SerializedName(SERIALIZED_NAME_LONG)
-  private String _long;
+  public static final String SERIALIZED_NAME_LON = "lon";
+  @SerializedName(SERIALIZED_NAME_LON)
+  private String lon;
 
 
   public MatchedPoint lat(String lat) {
@@ -64,26 +64,26 @@ public class MatchedPoint implements Serializable {
   }
 
 
-  public MatchedPoint _long(String _long) {
+  public MatchedPoint lon(String lon) {
     
-    this._long = _long;
+    this.lon = lon;
     return this;
   }
 
    /**
-   * Get _long
-   * @return _long
+   * Get lon
+   * @return lon
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getLong() {
-    return _long;
+  public String getLon() {
+    return lon;
   }
 
 
-  public void setLong(String _long) {
-    this._long = _long;
+  public void setLon(String lon) {
+    this.lon = lon;
   }
 
 
@@ -97,12 +97,12 @@ public class MatchedPoint implements Serializable {
     }
     MatchedPoint matchedPoint = (MatchedPoint) o;
     return Objects.equals(this.lat, matchedPoint.lat) &&
-        Objects.equals(this._long, matchedPoint._long);
+        Objects.equals(this.lon, matchedPoint.lon);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lat, _long);
+    return Objects.hash(lat, lon);
   }
 
 
@@ -111,7 +111,7 @@ public class MatchedPoint implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class MatchedPoint {\n");
     sb.append("    lat: ").append(toIndentedString(lat)).append("\n");
-    sb.append("    _long: ").append(toIndentedString(_long)).append("\n");
+    sb.append("    lon: ").append(toIndentedString(lon)).append("\n");
     sb.append("}");
     return sb.toString();
   }
