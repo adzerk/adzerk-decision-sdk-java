@@ -15,7 +15,6 @@ package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adzerk.sdk.generated.model.DecisionData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.io.Serializable;
 /**
  * Content
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-06T10:57:47.782-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
 public class Content implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -47,7 +46,7 @@ public class Content implements Serializable {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private DecisionData data;
+  private Object data;
 
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
@@ -123,7 +122,7 @@ public class Content implements Serializable {
   }
 
 
-  public Content data(DecisionData data) {
+  public Content data(Object data) {
     
     this.data = data;
     return this;
@@ -136,12 +135,12 @@ public class Content implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public DecisionData getData() {
+  public Object getData() {
     return data;
   }
 
 
-  public void setData(DecisionData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

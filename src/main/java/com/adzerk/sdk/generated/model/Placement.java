@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-06T10:57:47.782-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -103,6 +103,10 @@ public class Placement implements Serializable {
   public static final String SERIALIZED_NAME_EVENT_MULTIPLIER = "eventMultiplier";
   @SerializedName(SERIALIZED_NAME_EVENT_MULTIPLIER)
   private Integer eventMultiplier;
+
+  public static final String SERIALIZED_NAME_SKIP_SELECTION = "skipSelection";
+  @SerializedName(SERIALIZED_NAME_SKIP_SELECTION)
+  private Boolean skipSelection;
 
 
   public Placement divName(String divName) {
@@ -530,6 +534,29 @@ public class Placement implements Serializable {
   }
 
 
+  public Placement skipSelection(Boolean skipSelection) {
+    
+    this.skipSelection = skipSelection;
+    return this;
+  }
+
+   /**
+   * Get skipSelection
+   * @return skipSelection
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSkipSelection() {
+    return skipSelection;
+  }
+
+
+  public void setSkipSelection(Boolean skipSelection) {
+    this.skipSelection = skipSelection;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -555,12 +582,13 @@ public class Placement implements Serializable {
         Objects.equals(this.count, placement.count) &&
         Objects.equals(this.proportionality, placement.proportionality) &&
         Objects.equals(this.ecpmPartition, placement.ecpmPartition) &&
-        Objects.equals(this.eventMultiplier, placement.eventMultiplier);
+        Objects.equals(this.eventMultiplier, placement.eventMultiplier) &&
+        Objects.equals(this.skipSelection, placement.skipSelection);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, eventMultiplier);
+    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, eventMultiplier, skipSelection);
   }
 
 
@@ -585,6 +613,7 @@ public class Placement implements Serializable {
     sb.append("    proportionality: ").append(toIndentedString(proportionality)).append("\n");
     sb.append("    ecpmPartition: ").append(toIndentedString(ecpmPartition)).append("\n");
     sb.append("    eventMultiplier: ").append(toIndentedString(eventMultiplier)).append("\n");
+    sb.append("    skipSelection: ").append(toIndentedString(skipSelection)).append("\n");
     sb.append("}");
     return sb.toString();
   }

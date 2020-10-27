@@ -26,64 +26,64 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * ConsentRequest
+ * MatchedPoint
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
-public class ConsentRequest implements Serializable {
+public class MatchedPoint implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_USER_KEY = "userKey";
-  @SerializedName(SERIALIZED_NAME_USER_KEY)
-  private String userKey;
+  public static final String SERIALIZED_NAME_LAT = "lat";
+  @SerializedName(SERIALIZED_NAME_LAT)
+  private String lat;
 
-  public static final String SERIALIZED_NAME_CONSENT = "consent";
-  @SerializedName(SERIALIZED_NAME_CONSENT)
-  private Object consent;
+  public static final String SERIALIZED_NAME_LON = "lon";
+  @SerializedName(SERIALIZED_NAME_LON)
+  private String lon;
 
 
-  public ConsentRequest userKey(String userKey) {
+  public MatchedPoint lat(String lat) {
     
-    this.userKey = userKey;
+    this.lat = lat;
     return this;
   }
 
    /**
-   * Get userKey
-   * @return userKey
+   * Get lat
+   * @return lat
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getUserKey() {
-    return userKey;
+  public String getLat() {
+    return lat;
   }
 
 
-  public void setUserKey(String userKey) {
-    this.userKey = userKey;
+  public void setLat(String lat) {
+    this.lat = lat;
   }
 
 
-  public ConsentRequest consent(Object consent) {
+  public MatchedPoint lon(String lon) {
     
-    this.consent = consent;
+    this.lon = lon;
     return this;
   }
 
    /**
-   * Get consent
-   * @return consent
+   * Get lon
+   * @return lon
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getConsent() {
-    return consent;
+  public String getLon() {
+    return lon;
   }
 
 
-  public void setConsent(Object consent) {
-    this.consent = consent;
+  public void setLon(String lon) {
+    this.lon = lon;
   }
 
 
@@ -95,23 +95,23 @@ public class ConsentRequest implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConsentRequest consentRequest = (ConsentRequest) o;
-    return Objects.equals(this.userKey, consentRequest.userKey) &&
-        Objects.equals(this.consent, consentRequest.consent);
+    MatchedPoint matchedPoint = (MatchedPoint) o;
+    return Objects.equals(this.lat, matchedPoint.lat) &&
+        Objects.equals(this.lon, matchedPoint.lon);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userKey, consent);
+    return Objects.hash(lat, lon);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConsentRequest {\n");
-    sb.append("    userKey: ").append(toIndentedString(userKey)).append("\n");
-    sb.append("    consent: ").append(toIndentedString(consent)).append("\n");
+    sb.append("class MatchedPoint {\n");
+    sb.append("    lat: ").append(toIndentedString(lat)).append("\n");
+    sb.append("    lon: ").append(toIndentedString(lon)).append("\n");
     sb.append("}");
     return sb.toString();
   }
