@@ -13,7 +13,7 @@
 
 package com.adzerk.sdk.generated;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-06T10:57:47.782-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
 public class Pair {
     private String name = "";
     private String value = "";
