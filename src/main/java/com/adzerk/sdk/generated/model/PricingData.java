@@ -28,7 +28,7 @@ import java.io.Serializable;
 /**
  * PricingData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-15T12:36:13.873-05:00[America/New_York]")
 public class PricingData implements Serializable {
   private static final long serialVersionUID = 1L;
 
