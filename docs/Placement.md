@@ -22,8 +22,10 @@ Name | Type | Description | Notes
 **count** | **Integer** | (BETA) The number of ads to return per placement. Integer between 1 and 20 |  [optional]
 **proportionality** | **Boolean** | (BETA) If true, fills ads in a multi-winner placement in proportion to the flight&#39;s goals |  [optional]
 **ecpmPartition** | **String** | (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions |  [optional]
+**ecpmPartitions** | **List&lt;String&gt;** | (BETA) The names of the eCPM Partitions that should be used to source eCPM data for auctions |  [optional]
 **eventMultiplier** | **Integer** |  |  [optional]
 **skipSelection** | **Boolean** |  |  [optional]
+**adQuery** | [**Object**](.md) |  |  [optional]
 
 
 ## Implemented Interfaces
