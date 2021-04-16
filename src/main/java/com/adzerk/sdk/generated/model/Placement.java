@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-04-16T09:33:53.061021-05:00[America/Chicago]")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -100,6 +100,10 @@ public class Placement implements Serializable {
   @SerializedName(SERIALIZED_NAME_ECPM_PARTITION)
   private String ecpmPartition;
 
+  public static final String SERIALIZED_NAME_ECPM_PARTITIONS = "ecpmPartitions";
+  @SerializedName(SERIALIZED_NAME_ECPM_PARTITIONS)
+  private List<String> ecpmPartitions = null;
+
   public static final String SERIALIZED_NAME_EVENT_MULTIPLIER = "eventMultiplier";
   @SerializedName(SERIALIZED_NAME_EVENT_MULTIPLIER)
   private Integer eventMultiplier;
@@ -107,6 +111,10 @@ public class Placement implements Serializable {
   public static final String SERIALIZED_NAME_SKIP_SELECTION = "skipSelection";
   @SerializedName(SERIALIZED_NAME_SKIP_SELECTION)
   private Boolean skipSelection;
+
+  public static final String SERIALIZED_NAME_AD_QUERY = "adQuery";
+  @SerializedName(SERIALIZED_NAME_AD_QUERY)
+  private Object adQuery;
 
 
   public Placement divName(String divName) {
@@ -509,6 +517,37 @@ public class Placement implements Serializable {
   }
 
 
+  public Placement ecpmPartitions(List<String> ecpmPartitions) {
+    
+    this.ecpmPartitions = ecpmPartitions;
+    return this;
+  }
+
+  public Placement addEcpmPartitionsItem(String ecpmPartitionsItem) {
+    if (this.ecpmPartitions == null) {
+      this.ecpmPartitions = new ArrayList<String>();
+    }
+    this.ecpmPartitions.add(ecpmPartitionsItem);
+    return this;
+  }
+
+   /**
+   * (BETA) The names of the eCPM Partitions that should be used to source eCPM data for auctions
+   * @return ecpmPartitions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(BETA) The names of the eCPM Partitions that should be used to source eCPM data for auctions")
+
+  public List<String> getEcpmPartitions() {
+    return ecpmPartitions;
+  }
+
+
+  public void setEcpmPartitions(List<String> ecpmPartitions) {
+    this.ecpmPartitions = ecpmPartitions;
+  }
+
+
   public Placement eventMultiplier(Integer eventMultiplier) {
     
     this.eventMultiplier = eventMultiplier;
@@ -557,8 +596,31 @@ public class Placement implements Serializable {
   }
 
 
+  public Placement adQuery(Object adQuery) {
+    
+    this.adQuery = adQuery;
+    return this;
+  }
+
+   /**
+   * Get adQuery
+   * @return adQuery
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getAdQuery() {
+    return adQuery;
+  }
+
+
+  public void setAdQuery(Object adQuery) {
+    this.adQuery = adQuery;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -582,15 +644,16 @@ public class Placement implements Serializable {
         Objects.equals(this.count, placement.count) &&
         Objects.equals(this.proportionality, placement.proportionality) &&
         Objects.equals(this.ecpmPartition, placement.ecpmPartition) &&
+        Objects.equals(this.ecpmPartitions, placement.ecpmPartitions) &&
         Objects.equals(this.eventMultiplier, placement.eventMultiplier) &&
-        Objects.equals(this.skipSelection, placement.skipSelection);
+        Objects.equals(this.skipSelection, placement.skipSelection) &&
+        Objects.equals(this.adQuery, placement.adQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, eventMultiplier, skipSelection);
+    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, ecpmPartitions, eventMultiplier, skipSelection, adQuery);
   }
-
 
   @Override
   public String toString() {
@@ -612,8 +675,10 @@ public class Placement implements Serializable {
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    proportionality: ").append(toIndentedString(proportionality)).append("\n");
     sb.append("    ecpmPartition: ").append(toIndentedString(ecpmPartition)).append("\n");
+    sb.append("    ecpmPartitions: ").append(toIndentedString(ecpmPartitions)).append("\n");
     sb.append("    eventMultiplier: ").append(toIndentedString(eventMultiplier)).append("\n");
     sb.append("    skipSelection: ").append(toIndentedString(skipSelection)).append("\n");
+    sb.append("    adQuery: ").append(toIndentedString(adQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -622,7 +687,7 @@ public class Placement implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

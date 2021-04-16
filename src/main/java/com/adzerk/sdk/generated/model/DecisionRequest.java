@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-25T21:13:51.475-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-04-16T09:33:53.061021-05:00[America/Chicago]")
 public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -98,11 +98,15 @@ public class DecisionRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_INTENDED_LATITUDE = "intendedLatitude";
   @SerializedName(SERIALIZED_NAME_INTENDED_LATITUDE)
-  private String intendedLatitude;
+  private Float intendedLatitude;
 
   public static final String SERIALIZED_NAME_INTENDED_LONGITUDE = "intendedLongitude";
   @SerializedName(SERIALIZED_NAME_INTENDED_LONGITUDE)
-  private String intendedLongitude;
+  private Float intendedLongitude;
+
+  public static final String SERIALIZED_NAME_RADIUS = "radius";
+  @SerializedName(SERIALIZED_NAME_RADIUS)
+  private Float radius;
 
   public static final String SERIALIZED_NAME_INCLUDE_MATCHED_POINTS = "includeMatchedPoints";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MATCHED_POINTS)
@@ -474,7 +478,7 @@ public class DecisionRequest implements Serializable {
   }
 
 
-  public DecisionRequest intendedLatitude(String intendedLatitude) {
+  public DecisionRequest intendedLatitude(Float intendedLatitude) {
     
     this.intendedLatitude = intendedLatitude;
     return this;
@@ -487,17 +491,17 @@ public class DecisionRequest implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getIntendedLatitude() {
+  public Float getIntendedLatitude() {
     return intendedLatitude;
   }
 
 
-  public void setIntendedLatitude(String intendedLatitude) {
+  public void setIntendedLatitude(Float intendedLatitude) {
     this.intendedLatitude = intendedLatitude;
   }
 
 
-  public DecisionRequest intendedLongitude(String intendedLongitude) {
+  public DecisionRequest intendedLongitude(Float intendedLongitude) {
     
     this.intendedLongitude = intendedLongitude;
     return this;
@@ -510,13 +514,36 @@ public class DecisionRequest implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getIntendedLongitude() {
+  public Float getIntendedLongitude() {
     return intendedLongitude;
   }
 
 
-  public void setIntendedLongitude(String intendedLongitude) {
+  public void setIntendedLongitude(Float intendedLongitude) {
     this.intendedLongitude = intendedLongitude;
+  }
+
+
+  public DecisionRequest radius(Float radius) {
+    
+    this.radius = radius;
+    return this;
+  }
+
+   /**
+   * Get radius
+   * @return radius
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Float getRadius() {
+    return radius;
+  }
+
+
+  public void setRadius(Float radius) {
+    this.radius = radius;
   }
 
 
@@ -544,7 +571,7 @@ public class DecisionRequest implements Serializable {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -569,14 +596,14 @@ public class DecisionRequest implements Serializable {
         Objects.equals(this.parallel, decisionRequest.parallel) &&
         Objects.equals(this.intendedLatitude, decisionRequest.intendedLatitude) &&
         Objects.equals(this.intendedLongitude, decisionRequest.intendedLongitude) &&
+        Objects.equals(this.radius, decisionRequest.radius) &&
         Objects.equals(this.includeMatchedPoints, decisionRequest.includeMatchedPoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, includeMatchedPoints);
+    return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, radius, includeMatchedPoints);
   }
-
 
   @Override
   public String toString() {
@@ -599,6 +626,7 @@ public class DecisionRequest implements Serializable {
     sb.append("    parallel: ").append(toIndentedString(parallel)).append("\n");
     sb.append("    intendedLatitude: ").append(toIndentedString(intendedLatitude)).append("\n");
     sb.append("    intendedLongitude: ").append(toIndentedString(intendedLongitude)).append("\n");
+    sb.append("    radius: ").append(toIndentedString(radius)).append("\n");
     sb.append("    includeMatchedPoints: ").append(toIndentedString(includeMatchedPoints)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -608,7 +636,7 @@ public class DecisionRequest implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
