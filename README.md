@@ -142,6 +142,57 @@ public class ForgetUserDb {
 }
 ```
 
+### Decision Explainer
+
+The Decision Explainer is a feature that returns information on a Decision API request explaining why each candidate ad was or was not chosen. 
+
+
+```java
+import java.util.*;
+import com.adzerk.sdk.*;
+import com.adzerk.sdk.generated.ApiException;
+import com.adzerk.sdk.generated.model.*;
+import com.adzerk.sdk.model.DecisionResponse;
+
+public class FetchAds {
+  public static void main(String[] args) throws ApiException {
+    // Demo network, site, and ad type IDs; find your own via the Adzerk UI!
+    Client client = new Client(new ClientOptions(23).siteId(667480));
+    Placement placement = new Placement().adTypes(Arrays.asList(5));
+    User user = new User().key("abc");
+
+    DecisionRequest request = new DecisionRequest()
+      .placements(Arrays.asList(placement))
+      .keywords(Arrays.asList("keyword1", "keyword2"))
+      .user(user);
+
+    AdditionalOptions options = new AdditionalOptions()
+      .includeExplanation(true)
+      .apiKey("API_KEY");
+
+    DecisionResponse response = client.decisions().get(request, options);
+    System.out.println(response.toString());
+  }  
+}
+```
+
+The response returns a decision object with placement, buckets, rtb logs, and result information.
+``` json
+{
+  "div0": {
+    "placement": {},
+    "buckets": [],
+    "rtb_log": [],
+    "results": []
+  }
+}
+```
+
+The "placement" object represents a decision in which an ad may be served. A Explainer Request can have multiple placements in the request.
+The "buckets" array contains channel and priority information.
+The "rtb_logs" array contains information about Real Time Bidding.
+The "results" array contains the list of candidate ads that did and did not serve, along with a brief explanation.
+
 <!-- ### Logging Example
 
 TBD: ....... -->
