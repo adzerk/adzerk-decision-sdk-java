@@ -35,7 +35,7 @@ import java.io.Serializable;
 /**
  * Decision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-04-16T09:33:53.061021-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-02T11:38:40.512-04:00[America/New_York]")
 public class Decision implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -362,7 +362,7 @@ public class Decision implements Serializable {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -388,6 +388,7 @@ public class Decision implements Serializable {
     return Objects.hash(adId, creativeId, flightId, campaignId, priorityId, clickUrl, contents, impressionUrl, events, matchedPoints, pricing);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -411,7 +412,7 @@ public class Decision implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

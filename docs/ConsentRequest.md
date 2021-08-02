@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userKey** | **String** |  |  [optional]
-**consent** | **Object** |  |  [optional]
+**consent** | [**Object**](.md) |  |  [optional]
 
 
 ## Implemented Interfaces
