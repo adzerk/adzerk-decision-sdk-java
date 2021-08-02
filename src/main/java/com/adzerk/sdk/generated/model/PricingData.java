@@ -28,7 +28,7 @@ import java.io.Serializable;
 /**
  * PricingData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-04-16T09:33:53.061021-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-02T11:38:40.512-04:00[America/New_York]")
 public class PricingData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -169,7 +169,7 @@ public class PricingData implements Serializable {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -189,6 +189,7 @@ public class PricingData implements Serializable {
     return Objects.hash(price, clearPrice, revenue, rateType, eCPM);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -206,7 +207,7 @@ public class PricingData implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

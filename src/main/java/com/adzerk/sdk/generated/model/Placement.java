@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-04-16T09:33:53.061021-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-02T11:38:40.512-04:00[America/New_York]")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -115,6 +115,14 @@ public class Placement implements Serializable {
   public static final String SERIALIZED_NAME_AD_QUERY = "adQuery";
   @SerializedName(SERIALIZED_NAME_AD_QUERY)
   private Object adQuery;
+
+  public static final String SERIALIZED_NAME_FLOOR_PRICE = "floorPrice";
+  @SerializedName(SERIALIZED_NAME_FLOOR_PRICE)
+  private Float floorPrice;
+
+  public static final String SERIALIZED_NAME_FLOOR_CPC = "floorCpc";
+  @SerializedName(SERIALIZED_NAME_FLOOR_CPC)
+  private Float floorCpc;
 
 
   public Placement divName(String divName) {
@@ -619,8 +627,54 @@ public class Placement implements Serializable {
   }
 
 
+  public Placement floorPrice(Float floorPrice) {
+    
+    this.floorPrice = floorPrice;
+    return this;
+  }
+
+   /**
+   * Get floorPrice
+   * @return floorPrice
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Float getFloorPrice() {
+    return floorPrice;
+  }
+
+
+  public void setFloorPrice(Float floorPrice) {
+    this.floorPrice = floorPrice;
+  }
+
+
+  public Placement floorCpc(Float floorCpc) {
+    
+    this.floorCpc = floorCpc;
+    return this;
+  }
+
+   /**
+   * Get floorCpc
+   * @return floorCpc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Float getFloorCpc() {
+    return floorCpc;
+  }
+
+
+  public void setFloorCpc(Float floorCpc) {
+    this.floorCpc = floorCpc;
+  }
+
+
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -647,13 +701,16 @@ public class Placement implements Serializable {
         Objects.equals(this.ecpmPartitions, placement.ecpmPartitions) &&
         Objects.equals(this.eventMultiplier, placement.eventMultiplier) &&
         Objects.equals(this.skipSelection, placement.skipSelection) &&
-        Objects.equals(this.adQuery, placement.adQuery);
+        Objects.equals(this.adQuery, placement.adQuery) &&
+        Objects.equals(this.floorPrice, placement.floorPrice) &&
+        Objects.equals(this.floorCpc, placement.floorCpc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, ecpmPartitions, eventMultiplier, skipSelection, adQuery);
+    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, ecpmPartitions, eventMultiplier, skipSelection, adQuery, floorPrice, floorCpc);
   }
+
 
   @Override
   public String toString() {
@@ -679,6 +736,8 @@ public class Placement implements Serializable {
     sb.append("    eventMultiplier: ").append(toIndentedString(eventMultiplier)).append("\n");
     sb.append("    skipSelection: ").append(toIndentedString(skipSelection)).append("\n");
     sb.append("    adQuery: ").append(toIndentedString(adQuery)).append("\n");
+    sb.append("    floorPrice: ").append(toIndentedString(floorPrice)).append("\n");
+    sb.append("    floorCpc: ").append(toIndentedString(floorCpc)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -687,7 +746,7 @@ public class Placement implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

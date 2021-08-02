@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  |  [optional]
-**url** | **URI** |  |  [optional]
+**url** | [**URI**](URI.md) |  |  [optional]
 
 
 ## Implemented Interfaces

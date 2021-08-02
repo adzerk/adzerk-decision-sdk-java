@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **type** | **String** |  |  [optional]
 **template** | **String** |  |  [optional]
 **customTemplate** | **String** |  |  [optional]
-**data** | **Object** |  |  [optional]
+**data** | [**Object**](.md) |  |  [optional]
 **body** | **String** |  |  [optional]
 
 
