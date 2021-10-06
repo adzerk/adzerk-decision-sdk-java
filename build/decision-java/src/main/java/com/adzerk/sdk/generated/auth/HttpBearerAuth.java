@@ -18,7 +18,7 @@ import com.adzerk.sdk.generated.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-06T13:03:56.667382-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-06T13:45:12.044579-05:00[America/Chicago]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private String bearerToken;

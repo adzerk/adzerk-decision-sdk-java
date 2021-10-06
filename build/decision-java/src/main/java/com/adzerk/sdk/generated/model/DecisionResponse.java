@@ -29,7 +29,7 @@ import java.io.Serializable;
 /**
  * DecisionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-06T13:03:56.667382-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-06T13:45:12.044579-05:00[America/Chicago]")
 public class DecisionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 

@@ -16,7 +16,7 @@ package com.adzerk.sdk.generated;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-06T13:03:56.667382-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-06T13:45:12.044579-05:00[America/Chicago]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

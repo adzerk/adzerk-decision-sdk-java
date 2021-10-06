@@ -2,7 +2,7 @@
 
 Adzerk Decision API
 - API version: 1.0
-  - Build date: 2021-10-06T13:03:56.667382-05:00[America/Chicago]
+  - Build date: 2021-10-06T13:45:12.044579-05:00[America/Chicago]
 
 Adzerk Decision API
 
