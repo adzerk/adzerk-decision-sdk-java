@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **adId** | **Integer** |  |  [optional]
+**advertiserId** | **Integer** |  |  [optional]
 **creativeId** | **Integer** |  |  [optional]
 **flightId** | **Integer** |  |  [optional]
 **campaignId** | **Integer** |  |  [optional]
