@@ -35,13 +35,17 @@ import java.io.Serializable;
 /**
  * Decision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-08-02T11:38:40.512-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-07T11:28:36.052926-05:00[America/Chicago]")
 public class Decision implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_AD_ID = "adId";
   @SerializedName(SERIALIZED_NAME_AD_ID)
   private Integer adId;
+
+  public static final String SERIALIZED_NAME_ADVERTISER_ID = "advertiserId";
+  @SerializedName(SERIALIZED_NAME_ADVERTISER_ID)
+  private Integer advertiserId;
 
   public static final String SERIALIZED_NAME_CREATIVE_ID = "creativeId";
   @SerializedName(SERIALIZED_NAME_CREATIVE_ID)
@@ -104,6 +108,29 @@ public class Decision implements Serializable {
 
   public void setAdId(Integer adId) {
     this.adId = adId;
+  }
+
+
+  public Decision advertiserId(Integer advertiserId) {
+    
+    this.advertiserId = advertiserId;
+    return this;
+  }
+
+   /**
+   * Get advertiserId
+   * @return advertiserId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getAdvertiserId() {
+    return advertiserId;
+  }
+
+
+  public void setAdvertiserId(Integer advertiserId) {
+    this.advertiserId = advertiserId;
   }
 
 
@@ -371,6 +398,7 @@ public class Decision implements Serializable {
     }
     Decision decision = (Decision) o;
     return Objects.equals(this.adId, decision.adId) &&
+        Objects.equals(this.advertiserId, decision.advertiserId) &&
         Objects.equals(this.creativeId, decision.creativeId) &&
         Objects.equals(this.flightId, decision.flightId) &&
         Objects.equals(this.campaignId, decision.campaignId) &&
@@ -385,7 +413,7 @@ public class Decision implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adId, creativeId, flightId, campaignId, priorityId, clickUrl, contents, impressionUrl, events, matchedPoints, pricing);
+    return Objects.hash(adId, advertiserId, creativeId, flightId, campaignId, priorityId, clickUrl, contents, impressionUrl, events, matchedPoints, pricing);
   }
 
 
@@ -394,6 +422,7 @@ public class Decision implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class Decision {\n");
     sb.append("    adId: ").append(toIndentedString(adId)).append("\n");
+    sb.append("    advertiserId: ").append(toIndentedString(advertiserId)).append("\n");
     sb.append("    creativeId: ").append(toIndentedString(creativeId)).append("\n");
     sb.append("    flightId: ").append(toIndentedString(flightId)).append("\n");
     sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
