@@ -97,6 +97,23 @@ public class Client {
             }
             if (opts.getIncludeExplanation() != null && opts.getIncludeExplanation()) {
               that.logger.info("Setting X-Adzerk-Explain.");
+
+              if (opts.desiredAds()) {
+                JSONObject headerObject = {
+                  this.apiKey = opts.getApiKey(),
+                  this.desiredAds = opts.desiredAds()
+                };
+                builder.addHeader("X-Adzerk-Explain", headerObject.toString());
+              }
+
+              if (opts.desiredAdMap()) {
+                JSONObject headerObject = {
+                  this.apiKey = opts.getApiKey(),
+                  this.desiredAdMap = opts.desiredAdMap()
+                };
+                builder.addHeader("X-Adzerk-Explain", headerObject.toString());
+              }
+
               builder.addHeader("X-Adzerk-Explain", opts.getApiKey());
             }
             Request request = builder.build();
