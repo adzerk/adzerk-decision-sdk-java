@@ -53,6 +53,26 @@ public class Client {
       return this.get(request, new AdditionalOptions());
     }
 
+    class DesiredAdsObj {
+      private String apiKey;
+      private String desiredAds[];
+
+      DesiredAdsObj(String apiKey, String desiredAds[]) {
+        this.apiKey = apiKey;
+        this.desiredAds = desiredAds;
+      };
+    }
+
+    class DesiredAdMapObj {
+      private String apiKey;
+      private Object desiredAdMap;
+
+      DesiredAdMapObj(String apiKey, Object desiredAdMap) {
+        this.apiKey = apiKey;
+        this.desiredAdMap = desiredAdMap;
+      };
+    }
+
     public DecisionResponse get(DecisionRequest request, final AdditionalOptions opts) throws ApiException {
       Gson gson = new Gson();
       Type t = new TypeToken<DecisionResponse>(){}.getType();
@@ -97,23 +117,14 @@ public class Client {
             }
             if (opts.getIncludeExplanation() != null && opts.getIncludeExplanation()) {
               that.logger.info("Setting X-Adzerk-Explain.");
-
-              if (opts.desiredAds()) {
-                JSONObject headerObject = {
-                  this.apiKey = opts.getApiKey(),
-                  this.desiredAds = opts.desiredAds()
-                };
-                builder.addHeader("X-Adzerk-Explain", headerObject.toString());
+              if (opts.getDesiredAds() != null) {
+                DesiredAdsObj desiredAdsObj= new DesiredAdsObj(opts.getApiKey(), opts.getDesiredAds());
+                builder.addHeader("X-Adzerk-Explain", desiredAdsObj.toString());
               }
-
-              if (opts.desiredAdMap()) {
-                JSONObject headerObject = {
-                  this.apiKey = opts.getApiKey(),
-                  this.desiredAdMap = opts.desiredAdMap()
-                };
-                builder.addHeader("X-Adzerk-Explain", headerObject.toString());
+              if (opts.getDesiredAdMap() != null) {
+                DesiredAdMapObj desiredAdMapObj= new DesiredAdMapObj(opts.getApiKey(), opts.getDesiredAdMap());
+                builder.addHeader("X-Adzerk-Explain", desiredAdMapObj.toString());
               }
-
               builder.addHeader("X-Adzerk-Explain", opts.getApiKey());
             }
             Request request = builder.build();
