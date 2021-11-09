@@ -237,6 +237,9 @@ public class Client {
       if (opts.getEventMultiplier() != null) {
         urlBuilder.addQueryParameter("eventMultiplier", opts.getEventMultiplier().toString());
       }
+      if (opts.getGrossMerchandiseValue() != null) {
+        urlBuilder.addQueryParameter("gmv", opts.getGrossMerchandiseValue().toString());
+      }
 
       HttpUrl url = urlBuilder.build();
       Request request = new okhttp3.Request.Builder()
