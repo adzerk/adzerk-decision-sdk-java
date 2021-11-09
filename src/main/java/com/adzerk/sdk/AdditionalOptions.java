@@ -4,7 +4,7 @@ public class AdditionalOptions {
   private String userAgent;
   private Boolean includeExplanation;
   private String apiKey;
-  private Array desiredAds;
+  private String desiredAds[];
   private Object desiredAdMap; 
 
   public String getUserAgent() {
@@ -46,12 +46,20 @@ public class AdditionalOptions {
     return this;
   }
 
-  public AdditionalOptions desiredAds(String desiredAds) {
+  public String[] getDesiredAds() {
+    return this.desiredAds;
+  }
+
+  public AdditionalOptions desiredAds(String desiredAds[]) {
     this.desiredAds = desiredAds;
     return this;
   }
 
-  public AdditionalOptions desiredAdMap(String desiredAdMap) {
+  public Object getDesiredAdMap() {
+    return this.desiredAdMap;
+  }
+
+  public AdditionalOptions desiredAdMap(Object desiredAdMap) {
     this.desiredAdMap = desiredAdMap;
     return this;
   }
