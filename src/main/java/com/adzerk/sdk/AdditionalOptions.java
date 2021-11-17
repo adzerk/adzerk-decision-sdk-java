@@ -1,11 +1,14 @@
 package com.adzerk.sdk;
 
+import java.util.List;
+import java.util.Map;
+
 public class AdditionalOptions {
   private String userAgent;
   private Boolean includeExplanation;
   private String apiKey;
-  private String desiredAds[];
-  private Object desiredAdMap; 
+  private List<String> desiredAds;
+  private Map<String, List<Integer>> desiredAdMap; 
 
   public String getUserAgent() {
     return this.userAgent;
@@ -46,22 +49,30 @@ public class AdditionalOptions {
     return this;
   }
 
-  public String[] getDesiredAds() {
-    return this.desiredAds;
-  }
-
-  public AdditionalOptions desiredAds(String desiredAds[]) {
+  public AdditionalOptions desiredAds(List<String> desiredAds) {
     this.desiredAds = desiredAds;
     return this;
   }
 
-  public Object getDesiredAdMap() {
-    return this.desiredAdMap;
+  public List<String> getDesiredAds() {
+    return desiredAds;
   }
 
-  public AdditionalOptions desiredAdMap(Object desiredAdMap) {
+  public void setDesiredAds(List<String> desiredAds) {
+    this.desiredAds = desiredAds;
+  }
+
+  public AdditionalOptions desiredAdMap(Map<String, List<Integer>> desiredAdMap) {
     this.desiredAdMap = desiredAdMap;
     return this;
+  }
+
+  public Map<String, List<Integer>> getDesiredAdMap() {
+    return desiredAdMap;
+  }
+
+  public void setDesiredAdMap(Map<String, List<Integer>> desiredAdMap) {
+    this.desiredAdMap = desiredAdMap;
   }
 
   public Boolean hasValues() {
