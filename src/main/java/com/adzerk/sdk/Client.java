@@ -3,6 +3,7 @@ package com.adzerk.sdk;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 import com.adzerk.sdk.generated.ApiClient;
 import com.adzerk.sdk.generated.ApiException;
@@ -55,9 +56,9 @@ public class Client {
 
     class DesiredAdsObj {
       private String apiKey;
-      private String desiredAds[];
+      private List<String> desiredAds;
 
-      DesiredAdsObj(String apiKey, String desiredAds[]) {
+      DesiredAdsObj(String apiKey, List<String> desiredAds) {
         this.apiKey = apiKey;
         this.desiredAds = desiredAds;
       };
@@ -65,9 +66,9 @@ public class Client {
 
     class DesiredAdMapObj {
       private String apiKey;
-      private Object desiredAdMap;
+      private Map<String, List<Integer>> desiredAdMap;
 
-      DesiredAdMapObj(String apiKey, Object desiredAdMap) {
+      DesiredAdMapObj(String apiKey, Map<String, List<Integer>> desiredAdMap) {
         this.apiKey = apiKey;
         this.desiredAdMap = desiredAdMap;
       };
@@ -119,11 +120,11 @@ public class Client {
               that.logger.info("Setting X-Adzerk-Explain.");
               if (opts.getDesiredAds() != null) {
                 DesiredAdsObj desiredAdsObj= new DesiredAdsObj(opts.getApiKey(), opts.getDesiredAds());
-                builder.addHeader("X-Adzerk-Explain", desiredAdsObj.toString());
+                builder.addHeader("X-Adzerk-Explain", gson.toJson(desiredAdsObj));
               }
               if (opts.getDesiredAdMap() != null) {
                 DesiredAdMapObj desiredAdMapObj= new DesiredAdMapObj(opts.getApiKey(), opts.getDesiredAdMap());
-                builder.addHeader("X-Adzerk-Explain", desiredAdMapObj.toString());
+                builder.addHeader("X-Adzerk-Explain", gson.toJson(desiredAdMapObj));
               }
               builder.addHeader("X-Adzerk-Explain", opts.getApiKey());
             }
