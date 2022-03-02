@@ -39,8 +39,9 @@ public class Client {
     private DecisionApi decisionApi;
     private Integer networkId;
     private Integer siteId;
+    private String apiKey;
 
-    private DecisionClient(String path, OkHttpClient httpClient, Logger logger, int networkId, Integer siteId) {
+    private DecisionClient(String path, OkHttpClient httpClient, Logger logger, int networkId, Integer siteId, String apiKey) {
       this.path = path;
       this.httpClient = httpClient;
       this.logger = logger;
@@ -48,6 +49,7 @@ public class Client {
       this.decisionApi = new DecisionApi(this.apiClient);
       this.networkId = networkId;
       this.siteId = siteId;
+      this.apiKey = apiKey;
     }
 
     public DecisionResponse get(DecisionRequest request) throws ApiException {
@@ -311,6 +313,10 @@ public class Client {
         okhttp3.Request request = chain.request();
         String version = this.getClass().getPackage().getImplementationVersion();
         okhttp3.Request.Builder builder = request.newBuilder().addHeader("X-Adzerk-Sdk-Version", "adzerk-decision-sdk-java:" + version);
+        String apiKey = params.getApiKey();
+        if (apiKey != null) {
+          builder = builder.addHeader("X-Adzerk-ApiKey", apiKey);
+        }
 
         okhttp3.Request newRequest = builder.build();
 
@@ -346,7 +352,7 @@ public class Client {
       .addInterceptor(requestInterceptor)
       .build();
 
-    this.decisionClient = new DecisionClient(path, httpClient, logger, params.getNetworkId(), params.getSiteId());
+    this.decisionClient = new DecisionClient(path, httpClient, logger, params.getNetworkId(), params.getSiteId(), params.getApiKey());
     this.userDbClient = new UserDbClient(path, httpClient, logger, params.getApiKey(), params.getNetworkId());
     this.pixelClient = new PixelClient(httpClient);
   }
