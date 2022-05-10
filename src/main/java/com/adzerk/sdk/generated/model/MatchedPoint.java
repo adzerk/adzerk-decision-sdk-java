@@ -28,7 +28,7 @@ import java.io.Serializable;
 /**
  * MatchedPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-07T11:28:36.052926-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-10T10:43:20.511205-05:00[America/Chicago]")
 public class MatchedPoint implements Serializable {
   private static final long serialVersionUID = 1L;
 

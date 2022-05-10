@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-10-07T11:28:36.052926-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-10T10:43:20.511205-05:00[America/Chicago]")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,7 +86,7 @@ public class Placement implements Serializable {
 
   public static final String SERIALIZED_NAME_CONTENT_KEYS = "contentKeys";
   @SerializedName(SERIALIZED_NAME_CONTENT_KEYS)
-  private Map<String, Integer> contentKeys = null;
+  private Map<String, String> contentKeys = null;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
@@ -425,15 +425,15 @@ public class Placement implements Serializable {
   }
 
 
-  public Placement contentKeys(Map<String, Integer> contentKeys) {
+  public Placement contentKeys(Map<String, String> contentKeys) {
     
     this.contentKeys = contentKeys;
     return this;
   }
 
-  public Placement putContentKeysItem(String key, Integer contentKeysItem) {
+  public Placement putContentKeysItem(String key, String contentKeysItem) {
     if (this.contentKeys == null) {
-      this.contentKeys = new HashMap<String, Integer>();
+      this.contentKeys = new HashMap<String, String>();
     }
     this.contentKeys.put(key, contentKeysItem);
     return this;
@@ -446,12 +446,12 @@ public class Placement implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A map of key/value pairs used with [ContentDB](https://dev.adzerk.com/docs/contentdb-1). The format is `\"contentKeys\": {\"schema\": \"contentKey\"}`")
 
-  public Map<String, Integer> getContentKeys() {
+  public Map<String, String> getContentKeys() {
     return contentKeys;
   }
 
 
-  public void setContentKeys(Map<String, Integer> contentKeys) {
+  public void setContentKeys(Map<String, String> contentKeys) {
     this.contentKeys = contentKeys;
   }
 
