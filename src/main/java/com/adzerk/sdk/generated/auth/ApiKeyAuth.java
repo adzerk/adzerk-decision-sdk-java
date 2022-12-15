@@ -18,7 +18,7 @@ import com.adzerk.sdk.generated.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-10T10:43:20.511205-05:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
