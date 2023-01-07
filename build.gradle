@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'com.adzerk'
-version = '1.0.0-beta.10'
+version = '1.0.0-beta.11'
 
 buildscript {
     repositories {
