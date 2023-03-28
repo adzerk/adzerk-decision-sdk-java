@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.adzerk.sdk.generated.ApiClient;
 import com.adzerk.sdk.generated.ApiException;
+import com.adzerk.sdk.generated.ApiResponse;
 import com.adzerk.sdk.generated.api.DecisionApi;
 import com.adzerk.sdk.generated.api.UserdbApi;
 import com.adzerk.sdk.generated.model.ConsentRequest;
@@ -153,9 +154,16 @@ public class Client {
       this.logger.info("Fetching decisions from Adzerk API");
       this.logger.info("Processing request: {}", gson.toJson(request));
 
-      Object response = api.getDecisions(request);
-      this.logger.info("Received response: {}", gson.toJson(response));
-      return gson.fromJson(gson.toJson(response), t);
+      ApiResponse<com.adzerk.sdk.generated.model.DecisionResponse> apiResponse =
+        api.getDecisionsWithHttpInfo(request);
+      if (apiResponse.getStatusCode() >= 200 && apiResponse.getStatusCode() < 300) {
+        Object response = apiResponse.getData();
+        this.logger.info("Received response: {}", gson.toJson(response));
+        return gson.fromJson(gson.toJson(response), t);
+      } else {
+        this.logger.info("Response status code: {}", apiResponse.getStatusCode());
+        throw new ApiException("Bad response with status code: " + apiResponse.getStatusCode());
+      }
     }
   }
 
