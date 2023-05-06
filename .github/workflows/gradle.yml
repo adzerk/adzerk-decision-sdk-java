@@ -27,7 +27,7 @@ jobs:
       run: |
         cat << EOF > ./gradle.properties
         artifactory_user=github
-        artifactory_password=${{ secrets.ARTIFACTORY_PASSWORD }}
+        artifactory_password=${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
         artifactory_contextUrl=https://adzerkps.jfrog.io/artifactory
         nexusUsername=test
         nexusPassword=placeholder
