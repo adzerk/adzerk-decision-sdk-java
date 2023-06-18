@@ -26,9 +26,6 @@ jobs:
     - name: Generate Gradle Properties
       run: |
         cat << EOF > ./gradle.properties
-        artifactory_user=github
-        artifactory_password=${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
-        artifactory_contextUrl=https://adzerkps.jfrog.io/artifactory
         nexusUsername=test
         nexusPassword=placeholder
         signing.keyId=9D1CC789
@@ -98,8 +95,6 @@ jobs:
       run: chmod +x gradlew
     - name: Update Version
       run: sed -i -r "s/^version = '[0-9a-z.-]+'\$/version = '${GITHUB_REF##*/}-${GITHUB_SHA:0:8}'/g" build.gradle
-    # - name: Publish with Gradle
-    #   run: ./gradlew artifactoryPublish
     - name: Publish package
       uses: gradle/gradle-build-action@v2
       with:
