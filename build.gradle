@@ -10,24 +10,25 @@ buildscript {
         mavenCentral()
         jcenter()
         maven {
-            url 'https://adzerkps.jfrog.io/artifactory/libs-release'
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/adzerk/adzerk-decision-sdk-java"
             credentials {
-                username = "${artifactory_user}"
-                password = "${artifactory_password}"
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+        // classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
     }
 }
 
 allprojects {
     apply plugin: "maven"
     apply plugin: "maven-publish"
-    apply plugin: "com.jfrog.artifactory"
+    // apply plugin: "com.jfrog.artifactory"
     apply plugin: "signing"
 }
 
@@ -124,30 +125,30 @@ jar {
     }
 }
 
-artifactory {
-    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
-    publish {
-        repository {
-            repoKey = 'libs-release-local'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
+// artifactory {
+//     contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+//     publish {
+//         repository {
+//             repoKey = 'libs-release-local'
+//             username = "${artifactory_user}"
+//             password = "${artifactory_password}"
+//             maven = true
 
-        }
-        defaults {
-            publications ('mavenJava')
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'libs-release'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
+//         }
+//         defaults {
+//             publications ('mavenJava')
+//         }
+//     }
+//     resolve {
+//         repository {
+//             repoKey = 'libs-release'
+//             username = "${artifactory_user}"
+//             password = "${artifactory_password}"
+//             maven = true
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 repositories {
     jcenter()
