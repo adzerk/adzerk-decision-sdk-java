@@ -57,12 +57,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Download gradle.properties
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4.1.7
       with:
         name: properties
         path: ./
     - name: Download Build
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4.1.7
       with:
         name: build
     - name: Grant execute permission for gradlew
@@ -83,12 +83,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Download gradle.properties
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4.1.7
       with:
         name: properties
         path: ./
     - name: Download Build
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4.1.7
       with:
         name: build
     - name: Grant execute permission for gradlew
