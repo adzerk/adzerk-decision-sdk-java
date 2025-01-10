@@ -37,12 +37,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Upload gradle.properties
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: properties
         path: gradle.properties
     - name: Upload Build
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: build
         path: build
@@ -57,12 +57,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Download gradle.properties
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: properties
         path: ./
     - name: Download Build
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: build
     - name: Grant execute permission for gradlew
@@ -83,12 +83,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Download gradle.properties
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: properties
         path: ./
     - name: Download Build
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
         name: build
     - name: Grant execute permission for gradlew
