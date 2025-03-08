@@ -1,9 +1,6 @@
 apply plugin: 'eclipse'
 apply plugin: 'java'
 
-group = 'com.adzerk'
-version = '1.0.0-beta.12'
-
 buildscript {
     repositories {
         mavenCentral()
@@ -11,64 +8,80 @@ buildscript {
 }
 
 allprojects {
-    //apply plugin: "maven"
-    //apply plugin: "maven-publish"
-    //apply plugin: "signing"
+    apply plugin: "maven-publish"
+    apply plugin: "signing"
 }
 
-//publishing {
-//    publications {
-//        mavenJava(MavenPublication) {
-//            artifactId = 'adzerk-decision-sdk'
-//            from components.java
-//            pom {
-//                name = 'Adzerk Decision SDK'
-//                description = 'Adzerk Decision SDK'
-//                url = 'https://github.com/adzerk/adzerk-decision-sdk-java'
-//
-//                licenses {
-//                    license {
-//                        name = 'The Apache License, Version 2.0'
-//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    }
-//                }
-//                developers {
-//                    developer {
-//                        id = 'CrshOverride'
-//                        name = 'Justin Niessner'
-//                        email = 'engineering@adzerk.com'
-//                    }
-//                }
-//                scm {
-//                    connection = 'scm:git:git://github.com/adzerk/adzerk-decision-sdk-java.git'
-//                    developerConnection = 'scm:git:ssh://github.com/adzerk/adzerk-decision-sdk-java.git'
-//                    url = 'http://github.com/adzerk/adzerk-decision-sdk-java/'
-//                }
-//            }
-//        }
-//    }
-//    repositories {
-//        maven {
-//            def releasesRepoUrl = "$buildDir/repos/releases"
-//            def snapshotsRepoUrl = "$buildDir/repos/snapshots"
-//            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-//        }
-//        maven {
-//            name = "GitHubPackages"
-//            url = "https://maven.pkg.github.com/adzerk/adzerk-decision-sdk-java"
-//            credentials {
-//                username = System.getenv("GITHUB_ACTOR")
-//                password = System.getenv("GITHUB_TOKEN")
-//            }
-//        }
-//    }
-//}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifactId = 'adzerk-decision-sdk'
+            group = 'com.adzerk'
+            version = '1.0.0-beta.14'
+
+            pom {
+                name = 'Adzerk Decision SDK'
+                description = 'Adzerk Decision SDK'
+                url = 'https://github.com/adzerk/adzerk-decision-sdk-java'
+
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'CrshOverride'
+                        name = 'Justin Niessner'
+                        email = 'engineering@adzerk.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/adzerk/adzerk-decision-sdk-java.git'
+                    developerConnection = 'scm:git:ssh://github.com/adzerk/adzerk-decision-sdk-java.git'
+                    url = 'http://github.com/adzerk/adzerk-decision-sdk-java/'
+                }
+            }
+
+            signing {
+                sign publishing.publications.mavenJava
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "$buildDir/repos/releases"
+            def snapshotsRepoUrl = "$buildDir/repos/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/adzerk/adzerk-decision-sdk-java"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            name = "sonatype"
+            url = uri(version.endsWith("SNAPSHOT")
+                ? "https://oss.sonatype.org/content/repositories/snapshots/"
+                : "https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+
+            credentials {
+                username = findProperty("nexusUsername") ?: System.getenv("NEXUS_USERNAME")
+                password = findProperty("nexusPassword") ?: System.getenv("NEXUS_PASSWORD")
+            }
+        }
+    }
+}
 
 //uploadArchives {
 //    repositories {
 //        mavenDeployer {
-//            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-//
 //            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
 //                authentication(userName: nexusUsername, password: nexusPassword)
 //            }
@@ -118,23 +131,14 @@ jar {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 sourceSets {
     main.java.srcDirs = ['src/main/java']
 }
 
-apply plugin: 'java'
-//apply plugin: 'maven'
-
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
-
-//install {
-//    repositories.mavenInstaller {
-//        pom.artifactId = 'adzerk-decision-sdk'
-//    }
-//}
 
 task execute(type:JavaExec) {
    main = System.getProperty('mainClass')
@@ -142,12 +146,14 @@ task execute(type:JavaExec) {
 }
 
 task javadocJar(type: Jar) {
-    classifier = 'javadoc'
+    //classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
     from javadoc
 }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
+    //classifier = 'sources'
+    archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
@@ -172,6 +178,3 @@ javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]
 }
 
-//signing {
-//    sign configurations.archives
-//}
