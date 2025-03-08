@@ -79,48 +79,6 @@ publishing {
     }
 }
 
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-//                authentication(userName: nexusUsername, password: nexusPassword)
-//            }
-//
-//            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-//                authentication(userName: nexusUsername, password: nexusPassword)
-//            }
-//
-//            pom.project {
-//                name 'Adzerk Decision SDK'
-//                packaging 'jar'
-//                description 'Adzerk Decision SDK'
-//                url 'https://github.com/adzerk/adzerk-decision-sdk-java'
-//
-//                scm {
-//                    connection 'scm:git:git://github.com/adzerk/adzerk-decision-sdk-java.git'
-//                    developerConnection 'scm:git:ssh://github.com/adzerk/adzerk-decision-sdk-java.git'
-//                    url 'http://github.com/adzerk/adzerk-decision-sdk-java/'
-//                }
-//
-//                licenses {
-//                    license {
-//                        name = 'The Apache License, Version 2.0'
-//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    }
-//                }
-//
-//                developers {
-//                    developer {
-//                        id 'CrshOverride'
-//                        name 'Justin Niessner'
-//                        email = 'engineering@adzerk.com'
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-
 jar {
     manifest {
         attributes(
@@ -146,13 +104,11 @@ task execute(type:JavaExec) {
 }
 
 task javadocJar(type: Jar) {
-    //classifier = 'javadoc'
     archiveClassifier.set('javadoc')
     from javadoc
 }
 
 task sourcesJar(type: Jar) {
-    //classifier = 'sources'
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
