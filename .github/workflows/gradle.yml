@@ -110,7 +110,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Update Version
-      run: sed -i -r "s/^version = '[0-9a-z.-]+'\$/version = '${GITHUB_REF##*/}-${GITHUB_SHA:0:8}'/g" build.gradle
+      run: sed -i -r "s/version = '[0-9a-z.-]+'\$/version = '${GITHUB_REF##*/}-${GITHUB_SHA:0:8}'/g" build.gradle
     - name: Publish package
       uses: gradle/gradle-build-action@v2
       with:
