@@ -92,8 +92,8 @@ jobs:
     - name: Generate Gradle Properties
       run: |
         cat << EOF > ./gradle.properties
-        nexusUsername=test
-        nexusPassword=placeholder
+        _nexusUsername=test
+        _nexusPassword=placeholder
         signing.keyId=9D1CC789
         signing.password=${{ secrets.GPG_PASSWORD }}
         signing.secretKeyRingFile=/home/runner/.gnupg/secring.gpg
