@@ -56,11 +56,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    # - name: Download gradle.properties
-    #   uses: actions/download-artifact@v4
-    #   with:
-    #     name: properties
-    #     path: ./
     - name: Download Build
       uses: actions/download-artifact@v4
       with:
@@ -98,11 +93,6 @@ jobs:
         signing.password=${{ secrets.GPG_PASSWORD }}
         signing.secretKeyRingFile=/home/runner/.gnupg/secring.gpg
         EOF
-    # - name: Download gradle.properties
-    #   uses: actions/download-artifact@v4
-    #   with:
-    #     name: properties
-    #     path: ./
     - name: Download Build
       uses: actions/download-artifact@v4
       with:
