@@ -36,11 +36,6 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    # - name: Upload gradle.properties
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: properties
-    #     path: gradle.properties
     - name: Upload Build
       uses: actions/upload-artifact@v4
       with:
