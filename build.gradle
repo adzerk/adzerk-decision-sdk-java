@@ -72,8 +72,8 @@ publishing {
                 : "https://oss.sonatype.org/service/local/staging/deploy/maven2/")
 
             credentials {
-                username = findProperty("nexusUsername") ?: System.getenv("NEXUS_USERNAME")
-                password = findProperty("nexusPassword") ?: System.getenv("NEXUS_PASSWORD")
+                username = System.getenv("NEXUS_USERNAME") ?: findProperty("nexusUsername")
+                password = System.getenv("NEXUS_PASSWORD") ?: findProperty("nexusPassword")
             }
         }
     }
@@ -133,4 +133,3 @@ dependencies {
 javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]
 }
-
