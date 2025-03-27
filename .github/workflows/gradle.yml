@@ -16,31 +16,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Import Signing Key
-      run: |
-        cat << EOF > ./key.gpg
-        ${{ secrets.GPG_KEY }}
-        EOF
-        gpg --import --batch ./key.gpg
-        gpg --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSWORD}} --export-secret-keys A47EDDB49D1CC789 > /home/runner/.gnupg/secring.gpg
-    - name: Generate Gradle Properties
-      run: |
-        cat << EOF > ./gradle.properties
-        nexusUsername=test
-        nexusPassword=placeholder
-        signing.keyId=9D1CC789
-        signing.password=${{ secrets.GPG_PASSWORD }}
-        signing.secretKeyRingFile=/home/runner/.gnupg/secring.gpg
-        EOF
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Upload gradle.properties
-      uses: actions/upload-artifact@v4
-      with:
-        name: properties
-        path: gradle.properties
     - name: Upload Build
       uses: actions/upload-artifact@v4
       with:
@@ -56,11 +35,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Download gradle.properties
-      uses: actions/download-artifact@v4
-      with:
-        name: properties
-        path: ./
     - name: Download Build
       uses: actions/download-artifact@v4
       with:
@@ -82,11 +56,22 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Download gradle.properties
-      uses: actions/download-artifact@v4
-      with:
-        name: properties
-        path: ./
+    - name: Import Signing Key
+      run: |
+        cat << EOF > ./key.gpg
+        ${{ secrets.GPG_KEY }}
+        EOF
+        gpg --import --batch ./key.gpg
+        gpg --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSWORD}} --export-secret-keys A47EDDB49D1CC789 > /home/runner/.gnupg/secring.gpg
+    - name: Generate Gradle Properties
+      run: |
+        cat << EOF > ./gradle.properties
+        _nexusUsername=test
+        _nexusPassword=placeholder
+        signing.keyId=9D1CC789
+        signing.password=${{ secrets.GPG_PASSWORD }}
+        signing.secretKeyRingFile=/home/runner/.gnupg/secring.gpg
+        EOF
     - name: Download Build
       uses: actions/download-artifact@v4
       with:
@@ -94,10 +79,12 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Update Version
-      run: sed -i -r "s/^version = '[0-9a-z.-]+'\$/version = '${GITHUB_REF##*/}-${GITHUB_SHA:0:8}'/g" build.gradle
+      run: sed -i -r "s/version = '[0-9a-z.-]+'\$/version = '${GITHUB_REF##*/}-${GITHUB_SHA:0:8}'/g" build.gradle
     - name: Publish package
       uses: gradle/gradle-build-action@v2
       with:
         arguments: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+        NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
