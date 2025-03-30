@@ -80,6 +80,7 @@ jobs:
       run: chmod +x gradlew
     - name: Update Version
       run: sed -i -r "s/version = '[0-9a-z.-]+'\$/version = '${GITHUB_REF##*/}-${GITHUB_SHA:0:8}'/g" build.gradle
+      if: github.event_name == 'push' && github.ref_type == 'branch'
     - name: Publish package
       uses: gradle/gradle-build-action@v2
       with:
