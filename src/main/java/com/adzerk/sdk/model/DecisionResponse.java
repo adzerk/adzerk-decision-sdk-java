@@ -22,37 +22,6 @@ public class DecisionResponse extends com.adzerk.sdk.generated.model.DecisionRes
 
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public Map<String, List<Decision>> getDecisions() {
-    Gson gson = new Gson();
-
-    HashMap<String, List<Decision>> result = new HashMap<String, List<Decision>>();
-
-    Type mapType = new TypeToken<HashMap<String, ?>>(){}.getType();
-    Type decisionType = new TypeToken<Decision>(){}.getType();
-    Type decisionListType = new TypeToken<ArrayList<Decision>>(){}.getType();
-
-    JsonObject mapJsonObject = gson.toJsonTree(super.getDecisions()).getAsJsonObject();
-    Map<String, ?> map = gson.fromJson(mapJsonObject, mapType);
-
-    for(String key : map.keySet()) {
-      JsonElement element = gson.toJsonTree(map.get(key));
-
-      if (element.isJsonObject()) {
-        JsonObject obj = element.getAsJsonObject();
-        Decision parsed = gson.fromJson(obj, decisionType);
-        result.put(key, Arrays.asList(parsed));
-      } else {
-        JsonArray obj = element.getAsJsonArray();
-        ArrayList<Decision> parsed = gson.fromJson(obj, decisionListType);
-        result.put(key, parsed);
-      }
-    }
-
-    return result;
-  }
-
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   public Map<String, ?> getExplain() {
     LinkedTreeMap<?, ?> explanation = (LinkedTreeMap<?, ?>) super.getExplain();
 
