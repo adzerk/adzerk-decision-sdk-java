@@ -15,6 +15,7 @@ package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adzerk.sdk.generated.model.SkipFilters;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +33,7 @@ import java.io.Serializable;
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -123,6 +124,10 @@ public class Placement implements Serializable {
   public static final String SERIALIZED_NAME_FLOOR_CPC = "floorCpc";
   @SerializedName(SERIALIZED_NAME_FLOOR_CPC)
   private Float floorCpc;
+
+  public static final String SERIALIZED_NAME_SKIP_FILTERS = "skipFilters";
+  @SerializedName(SERIALIZED_NAME_SKIP_FILTERS)
+  private SkipFilters skipFilters;
 
 
   public Placement divName(String divName) {
@@ -673,8 +678,31 @@ public class Placement implements Serializable {
   }
 
 
+  public Placement skipFilters(SkipFilters skipFilters) {
+    
+    this.skipFilters = skipFilters;
+    return this;
+  }
+
+   /**
+   * Get skipFilters
+   * @return skipFilters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SkipFilters getSkipFilters() {
+    return skipFilters;
+  }
+
+
+  public void setSkipFilters(SkipFilters skipFilters) {
+    this.skipFilters = skipFilters;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -703,14 +731,14 @@ public class Placement implements Serializable {
         Objects.equals(this.skipSelection, placement.skipSelection) &&
         Objects.equals(this.adQuery, placement.adQuery) &&
         Objects.equals(this.floorPrice, placement.floorPrice) &&
-        Objects.equals(this.floorCpc, placement.floorCpc);
+        Objects.equals(this.floorCpc, placement.floorCpc) &&
+        Objects.equals(this.skipFilters, placement.skipFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, ecpmPartitions, eventMultiplier, skipSelection, adQuery, floorPrice, floorCpc);
+    return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, ecpmPartitions, eventMultiplier, skipSelection, adQuery, floorPrice, floorCpc, skipFilters);
   }
-
 
   @Override
   public String toString() {
@@ -738,6 +766,7 @@ public class Placement implements Serializable {
     sb.append("    adQuery: ").append(toIndentedString(adQuery)).append("\n");
     sb.append("    floorPrice: ").append(toIndentedString(floorPrice)).append("\n");
     sb.append("    floorCpc: ").append(toIndentedString(floorCpc)).append("\n");
+    sb.append("    skipFilters: ").append(toIndentedString(skipFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -746,7 +775,7 @@ public class Placement implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
