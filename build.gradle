@@ -19,7 +19,7 @@ publishing {
 
             artifactId = 'adzerk-decision-sdk'
             group = 'com.adzerk'
-            version = '1.0.0-beta.14'
+            version = '1.0.0-beta.15'
 
             pom {
                 name = 'Adzerk Decision SDK'
@@ -34,9 +34,9 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'CrshOverride'
-                        name = 'Justin Niessner'
-                        email = 'engineering@adzerk.com'
+                        id = 'kevel'
+                        name = 'Kevel'
+                        email = 'engineering@kevel.com'
                     }
                 }
                 scm {
