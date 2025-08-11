@@ -14,10 +14,13 @@
 package com.adzerk.sdk.generated.auth;
 
 import com.adzerk.sdk.generated.Pair;
+import com.adzerk.sdk.generated.ApiException;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T14:42:50.054336-03:00[America/Argentina/Cordoba]", comments = "Generator version: 7.14.0")
 public interface Authentication {
     /**
      * Apply authentication settings to header and query params.
@@ -25,6 +28,10 @@ public interface Authentication {
      * @param queryParams List of query parameters
      * @param headerParams Map of header parameters
      * @param cookieParams Map of cookie parameters
+     * @param payload HTTP request body
+     * @param method HTTP method
+     * @param uri URI
+     * @throws ApiException if failed to update the parameters
      */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams);
+    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException;
 }

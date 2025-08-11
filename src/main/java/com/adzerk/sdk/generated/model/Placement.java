@@ -14,691 +14,652 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.adzerk.sdk.generated.model.SkipFilters;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * Placement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T14:42:50.054336-03:00[America/Argentina/Cordoba]", comments = "Generator version: 7.14.0")
 public class Placement implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_DIV_NAME = "divName";
   @SerializedName(SERIALIZED_NAME_DIV_NAME)
+  @javax.annotation.Nullable
   private String divName;
 
   public static final String SERIALIZED_NAME_NETWORK_ID = "networkId";
   @SerializedName(SERIALIZED_NAME_NETWORK_ID)
+  @javax.annotation.Nullable
   private Integer networkId;
 
   public static final String SERIALIZED_NAME_SITE_ID = "siteId";
   @SerializedName(SERIALIZED_NAME_SITE_ID)
+  @javax.annotation.Nullable
   private Integer siteId;
 
   public static final String SERIALIZED_NAME_AD_TYPES = "adTypes";
   @SerializedName(SERIALIZED_NAME_AD_TYPES)
-  private List<Integer> adTypes = null;
+  @javax.annotation.Nullable
+  private List<Integer> adTypes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ZONE_IDS = "zoneIds";
   @SerializedName(SERIALIZED_NAME_ZONE_IDS)
-  private List<Integer> zoneIds = null;
+  @javax.annotation.Nullable
+  private List<Integer> zoneIds;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
+  @javax.annotation.Nullable
   private Integer campaignId;
 
   public static final String SERIALIZED_NAME_FLIGHT_ID = "flightId";
   @SerializedName(SERIALIZED_NAME_FLIGHT_ID)
+  @javax.annotation.Nullable
   private Integer flightId;
 
   public static final String SERIALIZED_NAME_AD_ID = "adId";
   @SerializedName(SERIALIZED_NAME_AD_ID)
+  @javax.annotation.Nullable
   private Integer adId;
 
   public static final String SERIALIZED_NAME_CLICK_URL = "clickUrl";
   @SerializedName(SERIALIZED_NAME_CLICK_URL)
+  @javax.annotation.Nullable
   private String clickUrl;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  @javax.annotation.Nullable
   private Object properties;
 
   public static final String SERIALIZED_NAME_EVENT_IDS = "eventIds";
   @SerializedName(SERIALIZED_NAME_EVENT_IDS)
-  private List<Integer> eventIds = null;
+  @javax.annotation.Nullable
+  private List<Integer> eventIds;
 
   public static final String SERIALIZED_NAME_OVERRIDES = "overrides";
   @SerializedName(SERIALIZED_NAME_OVERRIDES)
+  @javax.annotation.Nullable
   private Object overrides;
 
   public static final String SERIALIZED_NAME_CONTENT_KEYS = "contentKeys";
   @SerializedName(SERIALIZED_NAME_CONTENT_KEYS)
-  private Map<String, String> contentKeys = null;
+  @javax.annotation.Nullable
+  private Map<String, String> contentKeys;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
+  @javax.annotation.Nullable
   private Integer count;
 
   public static final String SERIALIZED_NAME_PROPORTIONALITY = "proportionality";
   @SerializedName(SERIALIZED_NAME_PROPORTIONALITY)
+  @javax.annotation.Nullable
   private Boolean proportionality;
 
   public static final String SERIALIZED_NAME_ECPM_PARTITION = "ecpmPartition";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_ECPM_PARTITION)
+  @javax.annotation.Nullable
   private String ecpmPartition;
 
   public static final String SERIALIZED_NAME_ECPM_PARTITIONS = "ecpmPartitions";
   @SerializedName(SERIALIZED_NAME_ECPM_PARTITIONS)
-  private List<String> ecpmPartitions = null;
+  @javax.annotation.Nullable
+  private List<String> ecpmPartitions;
 
   public static final String SERIALIZED_NAME_EVENT_MULTIPLIER = "eventMultiplier";
   @SerializedName(SERIALIZED_NAME_EVENT_MULTIPLIER)
+  @javax.annotation.Nullable
   private Integer eventMultiplier;
 
   public static final String SERIALIZED_NAME_SKIP_SELECTION = "skipSelection";
   @SerializedName(SERIALIZED_NAME_SKIP_SELECTION)
+  @javax.annotation.Nullable
   private Boolean skipSelection;
 
   public static final String SERIALIZED_NAME_AD_QUERY = "adQuery";
   @SerializedName(SERIALIZED_NAME_AD_QUERY)
+  @javax.annotation.Nullable
   private Object adQuery;
 
   public static final String SERIALIZED_NAME_FLOOR_PRICE = "floorPrice";
   @SerializedName(SERIALIZED_NAME_FLOOR_PRICE)
+  @javax.annotation.Nullable
   private Float floorPrice;
 
   public static final String SERIALIZED_NAME_FLOOR_CPC = "floorCpc";
   @SerializedName(SERIALIZED_NAME_FLOOR_CPC)
+  @javax.annotation.Nullable
   private Float floorCpc;
 
   public static final String SERIALIZED_NAME_SKIP_FILTERS = "skipFilters";
   @SerializedName(SERIALIZED_NAME_SKIP_FILTERS)
+  @javax.annotation.Nullable
   private SkipFilters skipFilters;
 
+  public Placement() {
+  }
 
-  public Placement divName(String divName) {
-    
+  public Placement divName(@javax.annotation.Nullable String divName) {
     this.divName = divName;
     return this;
   }
 
-   /**
+  /**
    * A unique name for the placement defined by you
    * @return divName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique name for the placement defined by you")
-
   public String getDivName() {
     return divName;
   }
 
-
-  public void setDivName(String divName) {
+  public void setDivName(@javax.annotation.Nullable String divName) {
     this.divName = divName;
   }
 
 
-  public Placement networkId(Integer networkId) {
-    
+  public Placement networkId(@javax.annotation.Nullable Integer networkId) {
     this.networkId = networkId;
     return this;
   }
 
-   /**
+  /**
    * The numeric network id
    * @return networkId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numeric network id")
-
   public Integer getNetworkId() {
     return networkId;
   }
 
-
-  public void setNetworkId(Integer networkId) {
+  public void setNetworkId(@javax.annotation.Nullable Integer networkId) {
     this.networkId = networkId;
   }
 
 
-  public Placement siteId(Integer siteId) {
-    
+  public Placement siteId(@javax.annotation.Nullable Integer siteId) {
     this.siteId = siteId;
     return this;
   }
 
-   /**
+  /**
    * The numeric site id
    * @return siteId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The numeric site id")
-
   public Integer getSiteId() {
     return siteId;
   }
 
-
-  public void setSiteId(Integer siteId) {
+  public void setSiteId(@javax.annotation.Nullable Integer siteId) {
     this.siteId = siteId;
   }
 
 
-  public Placement adTypes(List<Integer> adTypes) {
-    
+  public Placement adTypes(@javax.annotation.Nullable List<Integer> adTypes) {
     this.adTypes = adTypes;
     return this;
   }
 
   public Placement addAdTypesItem(Integer adTypesItem) {
     if (this.adTypes == null) {
-      this.adTypes = new ArrayList<Integer>();
+      this.adTypes = new ArrayList<>();
     }
     this.adTypes.add(adTypesItem);
     return this;
   }
 
-   /**
+  /**
    * One or more integer ad types. More info [here](https://dev.adzerk.com/docs/ad-sizes)
    * @return adTypes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "One or more integer ad types. More info [here](https://dev.adzerk.com/docs/ad-sizes)")
-
   public List<Integer> getAdTypes() {
     return adTypes;
   }
 
-
-  public void setAdTypes(List<Integer> adTypes) {
+  public void setAdTypes(@javax.annotation.Nullable List<Integer> adTypes) {
     this.adTypes = adTypes;
   }
 
 
-  public Placement zoneIds(List<Integer> zoneIds) {
-    
+  public Placement zoneIds(@javax.annotation.Nullable List<Integer> zoneIds) {
     this.zoneIds = zoneIds;
     return this;
   }
 
   public Placement addZoneIdsItem(Integer zoneIdsItem) {
     if (this.zoneIds == null) {
-      this.zoneIds = new ArrayList<Integer>();
+      this.zoneIds = new ArrayList<>();
     }
     this.zoneIds.add(zoneIdsItem);
     return this;
   }
 
-   /**
+  /**
    * Zone IDs to use
    * @return zoneIds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Zone IDs to use")
-
   public List<Integer> getZoneIds() {
     return zoneIds;
   }
 
-
-  public void setZoneIds(List<Integer> zoneIds) {
+  public void setZoneIds(@javax.annotation.Nullable List<Integer> zoneIds) {
     this.zoneIds = zoneIds;
   }
 
 
-  public Placement campaignId(Integer campaignId) {
-    
+  public Placement campaignId(@javax.annotation.Nullable Integer campaignId) {
     this.campaignId = campaignId;
     return this;
   }
 
-   /**
+  /**
    * A numeric campaign id; if specified, only consider ads in that campaign
    * @return campaignId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A numeric campaign id; if specified, only consider ads in that campaign")
-
   public Integer getCampaignId() {
     return campaignId;
   }
 
-
-  public void setCampaignId(Integer campaignId) {
+  public void setCampaignId(@javax.annotation.Nullable Integer campaignId) {
     this.campaignId = campaignId;
   }
 
 
-  public Placement flightId(Integer flightId) {
-    
+  public Placement flightId(@javax.annotation.Nullable Integer flightId) {
     this.flightId = flightId;
     return this;
   }
 
-   /**
+  /**
    * A numeric ad (flight-creative map) id; if specified, only serve that ad if possible
    * @return flightId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A numeric ad (flight-creative map) id; if specified, only serve that ad if possible")
-
   public Integer getFlightId() {
     return flightId;
   }
 
-
-  public void setFlightId(Integer flightId) {
+  public void setFlightId(@javax.annotation.Nullable Integer flightId) {
     this.flightId = flightId;
   }
 
 
-  public Placement adId(Integer adId) {
-    
+  public Placement adId(@javax.annotation.Nullable Integer adId) {
     this.adId = adId;
     return this;
   }
 
-   /**
+  /**
    * A numeric ad (flight-creative map) id; if specified, only serve that ad if possible
    * @return adId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A numeric ad (flight-creative map) id; if specified, only serve that ad if possible")
-
   public Integer getAdId() {
     return adId;
   }
 
-
-  public void setAdId(Integer adId) {
+  public void setAdId(@javax.annotation.Nullable Integer adId) {
     this.adId = adId;
   }
 
 
-  public Placement clickUrl(String clickUrl) {
-    
+  public Placement clickUrl(@javax.annotation.Nullable String clickUrl) {
     this.clickUrl = clickUrl;
     return this;
   }
 
-   /**
+  /**
    * The ad&#39;s click-through URL
    * @return clickUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ad's click-through URL")
-
   public String getClickUrl() {
     return clickUrl;
   }
 
-
-  public void setClickUrl(String clickUrl) {
+  public void setClickUrl(@javax.annotation.Nullable String clickUrl) {
     this.clickUrl = clickUrl;
   }
 
 
-  public Placement properties(Object properties) {
-    
+  public Placement properties(@javax.annotation.Nullable Object properties) {
     this.properties = properties;
     return this;
   }
 
-   /**
+  /**
    * A map of key/value pairs used for [Custom Targeting](https://dev.adzerk.com/docs/custom-targeting)
    * @return properties
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A map of key/value pairs used for [Custom Targeting](https://dev.adzerk.com/docs/custom-targeting)")
-
   public Object getProperties() {
     return properties;
   }
 
-
-  public void setProperties(Object properties) {
+  public void setProperties(@javax.annotation.Nullable Object properties) {
     this.properties = properties;
   }
 
 
-  public Placement eventIds(List<Integer> eventIds) {
-    
+  public Placement eventIds(@javax.annotation.Nullable List<Integer> eventIds) {
     this.eventIds = eventIds;
     return this;
   }
 
   public Placement addEventIdsItem(Integer eventIdsItem) {
     if (this.eventIds == null) {
-      this.eventIds = new ArrayList<Integer>();
+      this.eventIds = new ArrayList<>();
     }
     this.eventIds.add(eventIdsItem);
     return this;
   }
 
-   /**
+  /**
    * An array of numeric event types. Requests tracking URLs for custom events. See here for [Event Tracking IDs](https://dev.adzerk.com/v1.0/docs/custom-event-tracking)
    * @return eventIds
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of numeric event types. Requests tracking URLs for custom events. See here for [Event Tracking IDs](https://dev.adzerk.com/v1.0/docs/custom-event-tracking)")
-
   public List<Integer> getEventIds() {
     return eventIds;
   }
 
-
-  public void setEventIds(List<Integer> eventIds) {
+  public void setEventIds(@javax.annotation.Nullable List<Integer> eventIds) {
     this.eventIds = eventIds;
   }
 
 
-  public Placement overrides(Object overrides) {
-    
+  public Placement overrides(@javax.annotation.Nullable Object overrides) {
     this.overrides = overrides;
     return this;
   }
 
-   /**
+  /**
    * An object that overrides values for an advertiser, campaign, flight or ad. Used especially for header bidding
    * @return overrides
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An object that overrides values for an advertiser, campaign, flight or ad. Used especially for header bidding")
-
   public Object getOverrides() {
     return overrides;
   }
 
-
-  public void setOverrides(Object overrides) {
+  public void setOverrides(@javax.annotation.Nullable Object overrides) {
     this.overrides = overrides;
   }
 
 
-  public Placement contentKeys(Map<String, String> contentKeys) {
-    
+  public Placement contentKeys(@javax.annotation.Nullable Map<String, String> contentKeys) {
     this.contentKeys = contentKeys;
     return this;
   }
 
   public Placement putContentKeysItem(String key, String contentKeysItem) {
     if (this.contentKeys == null) {
-      this.contentKeys = new HashMap<String, String>();
+      this.contentKeys = new HashMap<>();
     }
     this.contentKeys.put(key, contentKeysItem);
     return this;
   }
 
-   /**
+  /**
    * A map of key/value pairs used with [ContentDB](https://dev.adzerk.com/docs/contentdb-1). The format is &#x60;\&quot;contentKeys\&quot;: {\&quot;schema\&quot;: \&quot;contentKey\&quot;}&#x60;
    * @return contentKeys
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A map of key/value pairs used with [ContentDB](https://dev.adzerk.com/docs/contentdb-1). The format is `\"contentKeys\": {\"schema\": \"contentKey\"}`")
-
   public Map<String, String> getContentKeys() {
     return contentKeys;
   }
 
-
-  public void setContentKeys(Map<String, String> contentKeys) {
+  public void setContentKeys(@javax.annotation.Nullable Map<String, String> contentKeys) {
     this.contentKeys = contentKeys;
   }
 
 
-  public Placement count(Integer count) {
-    
+  public Placement count(@javax.annotation.Nullable Integer count) {
     this.count = count;
     return this;
   }
 
-   /**
+  /**
    * (BETA) The number of ads to return per placement. Integer between 1 and 20
    * @return count
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(BETA) The number of ads to return per placement. Integer between 1 and 20")
-
   public Integer getCount() {
     return count;
   }
 
-
-  public void setCount(Integer count) {
+  public void setCount(@javax.annotation.Nullable Integer count) {
     this.count = count;
   }
 
 
-  public Placement proportionality(Boolean proportionality) {
-    
+  public Placement proportionality(@javax.annotation.Nullable Boolean proportionality) {
     this.proportionality = proportionality;
     return this;
   }
 
-   /**
+  /**
    * (BETA) If true, fills ads in a multi-winner placement in proportion to the flight&#39;s goals
    * @return proportionality
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(BETA) If true, fills ads in a multi-winner placement in proportion to the flight's goals")
-
   public Boolean getProportionality() {
     return proportionality;
   }
 
-
-  public void setProportionality(Boolean proportionality) {
+  public void setProportionality(@javax.annotation.Nullable Boolean proportionality) {
     this.proportionality = proportionality;
   }
 
 
-  public Placement ecpmPartition(String ecpmPartition) {
-    
+  @Deprecated
+  public Placement ecpmPartition(@javax.annotation.Nullable String ecpmPartition) {
     this.ecpmPartition = ecpmPartition;
     return this;
   }
 
-   /**
+  /**
    * (BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions
    * @return ecpmPartition
-  **/
+   * @deprecated
+   */
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(BETA) The name of the eCPM Partition that should be used to source eCPM data for auctions")
-
   public String getEcpmPartition() {
     return ecpmPartition;
   }
 
-
-  public void setEcpmPartition(String ecpmPartition) {
+  @Deprecated
+  public void setEcpmPartition(@javax.annotation.Nullable String ecpmPartition) {
     this.ecpmPartition = ecpmPartition;
   }
 
 
-  public Placement ecpmPartitions(List<String> ecpmPartitions) {
-    
+  public Placement ecpmPartitions(@javax.annotation.Nullable List<String> ecpmPartitions) {
     this.ecpmPartitions = ecpmPartitions;
     return this;
   }
 
   public Placement addEcpmPartitionsItem(String ecpmPartitionsItem) {
     if (this.ecpmPartitions == null) {
-      this.ecpmPartitions = new ArrayList<String>();
+      this.ecpmPartitions = new ArrayList<>();
     }
     this.ecpmPartitions.add(ecpmPartitionsItem);
     return this;
   }
 
-   /**
+  /**
    * (BETA) The names of the eCPM Partitions that should be used to source eCPM data for auctions
    * @return ecpmPartitions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "(BETA) The names of the eCPM Partitions that should be used to source eCPM data for auctions")
-
   public List<String> getEcpmPartitions() {
     return ecpmPartitions;
   }
 
-
-  public void setEcpmPartitions(List<String> ecpmPartitions) {
+  public void setEcpmPartitions(@javax.annotation.Nullable List<String> ecpmPartitions) {
     this.ecpmPartitions = ecpmPartitions;
   }
 
 
-  public Placement eventMultiplier(Integer eventMultiplier) {
-    
+  public Placement eventMultiplier(@javax.annotation.Nullable Integer eventMultiplier) {
     this.eventMultiplier = eventMultiplier;
     return this;
   }
 
-   /**
+  /**
    * Get eventMultiplier
    * minimum: -100000000
    * maximum: 100000000
    * @return eventMultiplier
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getEventMultiplier() {
     return eventMultiplier;
   }
 
-
-  public void setEventMultiplier(Integer eventMultiplier) {
+  public void setEventMultiplier(@javax.annotation.Nullable Integer eventMultiplier) {
     this.eventMultiplier = eventMultiplier;
   }
 
 
-  public Placement skipSelection(Boolean skipSelection) {
-    
+  public Placement skipSelection(@javax.annotation.Nullable Boolean skipSelection) {
     this.skipSelection = skipSelection;
     return this;
   }
 
-   /**
+  /**
    * Get skipSelection
    * @return skipSelection
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getSkipSelection() {
     return skipSelection;
   }
 
-
-  public void setSkipSelection(Boolean skipSelection) {
+  public void setSkipSelection(@javax.annotation.Nullable Boolean skipSelection) {
     this.skipSelection = skipSelection;
   }
 
 
-  public Placement adQuery(Object adQuery) {
-    
+  public Placement adQuery(@javax.annotation.Nullable Object adQuery) {
     this.adQuery = adQuery;
     return this;
   }
 
-   /**
+  /**
    * Get adQuery
    * @return adQuery
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Object getAdQuery() {
     return adQuery;
   }
 
-
-  public void setAdQuery(Object adQuery) {
+  public void setAdQuery(@javax.annotation.Nullable Object adQuery) {
     this.adQuery = adQuery;
   }
 
 
-  public Placement floorPrice(Float floorPrice) {
-    
+  public Placement floorPrice(@javax.annotation.Nullable Float floorPrice) {
     this.floorPrice = floorPrice;
     return this;
   }
 
-   /**
+  /**
    * Get floorPrice
    * @return floorPrice
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getFloorPrice() {
     return floorPrice;
   }
 
-
-  public void setFloorPrice(Float floorPrice) {
+  public void setFloorPrice(@javax.annotation.Nullable Float floorPrice) {
     this.floorPrice = floorPrice;
   }
 
 
-  public Placement floorCpc(Float floorCpc) {
-    
+  public Placement floorCpc(@javax.annotation.Nullable Float floorCpc) {
     this.floorCpc = floorCpc;
     return this;
   }
 
-   /**
+  /**
    * Get floorCpc
    * @return floorCpc
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getFloorCpc() {
     return floorCpc;
   }
 
-
-  public void setFloorCpc(Float floorCpc) {
+  public void setFloorCpc(@javax.annotation.Nullable Float floorCpc) {
     this.floorCpc = floorCpc;
   }
 
 
-  public Placement skipFilters(SkipFilters skipFilters) {
-    
+  public Placement skipFilters(@javax.annotation.Nullable SkipFilters skipFilters) {
     this.skipFilters = skipFilters;
     return this;
   }
 
-   /**
+  /**
    * Get skipFilters
    * @return skipFilters
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public SkipFilters getSkipFilters() {
     return skipFilters;
   }
 
-
-  public void setSkipFilters(SkipFilters skipFilters) {
+  public void setSkipFilters(@javax.annotation.Nullable SkipFilters skipFilters) {
     this.skipFilters = skipFilters;
   }
+
 
 
   @Override
@@ -735,9 +696,20 @@ public class Placement implements Serializable {
         Objects.equals(this.skipFilters, placement.skipFilters);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(divName, networkId, siteId, adTypes, zoneIds, campaignId, flightId, adId, clickUrl, properties, eventIds, overrides, contentKeys, count, proportionality, ecpmPartition, ecpmPartitions, eventMultiplier, skipSelection, adQuery, floorPrice, floorCpc, skipFilters);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -782,5 +754,117 @@ public class Placement implements Serializable {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("divName", "networkId", "siteId", "adTypes", "zoneIds", "campaignId", "flightId", "adId", "clickUrl", "properties", "eventIds", "overrides", "contentKeys", "count", "proportionality", "ecpmPartition", "ecpmPartitions", "eventMultiplier", "skipSelection", "adQuery", "floorPrice", "floorCpc", "skipFilters"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(0);
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Placement
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Placement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Placement is not found in the empty JSON string", Placement.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!Placement.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Placement` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("divName") != null && !jsonObj.get("divName").isJsonNull()) && !jsonObj.get("divName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `divName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("divName").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("adTypes") != null && !jsonObj.get("adTypes").isJsonNull() && !jsonObj.get("adTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `adTypes` to be an array in the JSON string but got `%s`", jsonObj.get("adTypes").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("zoneIds") != null && !jsonObj.get("zoneIds").isJsonNull() && !jsonObj.get("zoneIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoneIds` to be an array in the JSON string but got `%s`", jsonObj.get("zoneIds").toString()));
+      }
+      if ((jsonObj.get("clickUrl") != null && !jsonObj.get("clickUrl").isJsonNull()) && !jsonObj.get("clickUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `clickUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clickUrl").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("eventIds") != null && !jsonObj.get("eventIds").isJsonNull() && !jsonObj.get("eventIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `eventIds` to be an array in the JSON string but got `%s`", jsonObj.get("eventIds").toString()));
+      }
+      if ((jsonObj.get("ecpmPartition") != null && !jsonObj.get("ecpmPartition").isJsonNull()) && !jsonObj.get("ecpmPartition").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ecpmPartition` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ecpmPartition").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ecpmPartitions") != null && !jsonObj.get("ecpmPartitions").isJsonNull() && !jsonObj.get("ecpmPartitions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ecpmPartitions` to be an array in the JSON string but got `%s`", jsonObj.get("ecpmPartitions").toString()));
+      }
+      // validate the optional field `skipFilters`
+      if (jsonObj.get("skipFilters") != null && !jsonObj.get("skipFilters").isJsonNull()) {
+        SkipFilters.validateJsonElement(jsonObj.get("skipFilters"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!Placement.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Placement' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<Placement> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Placement.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<Placement>() {
+           @Override
+           public void write(JsonWriter out, Placement value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public Placement read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of Placement given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Placement
+   * @throws IOException if the JSON string is invalid with respect to Placement
+   */
+  public static Placement fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Placement.class);
+  }
+
+  /**
+   * Convert an instance of Placement to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://e-23.adzerk.net*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getDecisions**](DecisionApi.md#getDecisions) | **POST** /api/v2 | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getDecisions**](DecisionApi.md#getDecisions) | **POST** /api/v2 |  |
 
 
-<a name="getDecisions"></a>
+<a id="getDecisions"></a>
 # **getDecisions**
 > DecisionResponse getDecisions(decisionRequest)
 
@@ -47,9 +47,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **decisionRequest** | [**DecisionRequest**](DecisionRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **decisionRequest** | [**DecisionRequest**](DecisionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -67,6 +67,6 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**200** | Successful decision request |  -  |
+| **400** | Bad Request |  -  |
+| **200** | Successful decision request |  -  |
 

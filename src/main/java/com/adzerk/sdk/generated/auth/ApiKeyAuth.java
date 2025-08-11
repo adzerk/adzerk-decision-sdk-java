@@ -13,12 +13,14 @@
 
 package com.adzerk.sdk.generated.auth;
 
+import com.adzerk.sdk.generated.ApiException;
 import com.adzerk.sdk.generated.Pair;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T14:42:50.054336-03:00[America/Argentina/Cordoba]", comments = "Generator version: 7.14.0")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -56,7 +58,8 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
+                           String payload, String method, URI uri) throws ApiException {
     if (apiKey == null) {
       return;
     }
