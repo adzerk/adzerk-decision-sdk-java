@@ -14,239 +14,239 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * SkipFilters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T14:42:50.054336-03:00[America/Argentina/Cordoba]", comments = "Generator version: 7.14.0")
 public class SkipFilters implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_DISTANCE = "distance";
   @SerializedName(SERIALIZED_NAME_DISTANCE)
+  @javax.annotation.Nullable
   private Boolean distance;
 
   public static final String SERIALIZED_NAME_FACET = "facet";
   @SerializedName(SERIALIZED_NAME_FACET)
+  @javax.annotation.Nullable
   private Boolean facet;
 
   public static final String SERIALIZED_NAME_GEODISTANCE = "geodistance";
   @SerializedName(SERIALIZED_NAME_GEODISTANCE)
+  @javax.annotation.Nullable
   private Boolean geodistance;
 
   public static final String SERIALIZED_NAME_GEOLOCATION = "geolocation";
   @SerializedName(SERIALIZED_NAME_GEOLOCATION)
+  @javax.annotation.Nullable
   private Boolean geolocation;
 
   public static final String SERIALIZED_NAME_KEYWORD = "keyword";
   @SerializedName(SERIALIZED_NAME_KEYWORD)
+  @javax.annotation.Nullable
   private Boolean keyword;
 
   public static final String SERIALIZED_NAME_LOCATION = "location";
   @SerializedName(SERIALIZED_NAME_LOCATION)
+  @javax.annotation.Nullable
   private Boolean location;
 
   public static final String SERIALIZED_NAME_PLACEMENT_LIMIT = "placementLimit";
   @SerializedName(SERIALIZED_NAME_PLACEMENT_LIMIT)
+  @javax.annotation.Nullable
   private Boolean placementLimit;
 
   public static final String SERIALIZED_NAME_SITE_ZONE = "siteZone";
   @SerializedName(SERIALIZED_NAME_SITE_ZONE)
+  @javax.annotation.Nullable
   private Boolean siteZone;
 
+  public SkipFilters() {
+  }
 
-  public SkipFilters distance(Boolean distance) {
-    
+  public SkipFilters distance(@javax.annotation.Nullable Boolean distance) {
     this.distance = distance;
     return this;
   }
 
-   /**
+  /**
    * Geodistance filter, which skips geodistance targeting if true.
    * @return distance
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Geodistance filter, which skips geodistance targeting if true.")
-
   public Boolean getDistance() {
     return distance;
   }
 
-
-  public void setDistance(Boolean distance) {
+  public void setDistance(@javax.annotation.Nullable Boolean distance) {
     this.distance = distance;
   }
 
 
-  public SkipFilters facet(Boolean facet) {
-    
+  public SkipFilters facet(@javax.annotation.Nullable Boolean facet) {
     this.facet = facet;
     return this;
   }
 
-   /**
+  /**
    * Facet targeting filter, which skips facet targeting if true.
    * @return facet
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Facet targeting filter, which skips facet targeting if true.")
-
   public Boolean getFacet() {
     return facet;
   }
 
-
-  public void setFacet(Boolean facet) {
+  public void setFacet(@javax.annotation.Nullable Boolean facet) {
     this.facet = facet;
   }
 
 
-  public SkipFilters geodistance(Boolean geodistance) {
-    
+  public SkipFilters geodistance(@javax.annotation.Nullable Boolean geodistance) {
     this.geodistance = geodistance;
     return this;
   }
 
-   /**
+  /**
    * Geodistance filter, which skips geodistance targeting if true.
    * @return geodistance
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Geodistance filter, which skips geodistance targeting if true.")
-
   public Boolean getGeodistance() {
     return geodistance;
   }
 
-
-  public void setGeodistance(Boolean geodistance) {
+  public void setGeodistance(@javax.annotation.Nullable Boolean geodistance) {
     this.geodistance = geodistance;
   }
 
 
-  public SkipFilters geolocation(Boolean geolocation) {
-    
+  public SkipFilters geolocation(@javax.annotation.Nullable Boolean geolocation) {
     this.geolocation = geolocation;
     return this;
   }
 
-   /**
+  /**
    * Geolocation filter, which skips location targeting if true.
    * @return geolocation
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Geolocation filter, which skips location targeting if true.")
-
   public Boolean getGeolocation() {
     return geolocation;
   }
 
-
-  public void setGeolocation(Boolean geolocation) {
+  public void setGeolocation(@javax.annotation.Nullable Boolean geolocation) {
     this.geolocation = geolocation;
   }
 
 
-  public SkipFilters keyword(Boolean keyword) {
-    
+  public SkipFilters keyword(@javax.annotation.Nullable Boolean keyword) {
     this.keyword = keyword;
     return this;
   }
 
-   /**
+  /**
    * Keyword limit filter, which skips all (ad and/or flight) keyword targeting if true.
    * @return keyword
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Keyword limit filter, which skips all (ad and/or flight) keyword targeting if true.")
-
   public Boolean getKeyword() {
     return keyword;
   }
 
-
-  public void setKeyword(Boolean keyword) {
+  public void setKeyword(@javax.annotation.Nullable Boolean keyword) {
     this.keyword = keyword;
   }
 
 
-  public SkipFilters location(Boolean location) {
-    
+  public SkipFilters location(@javax.annotation.Nullable Boolean location) {
     this.location = location;
     return this;
   }
 
-   /**
+  /**
    * Geolocation filter, which skips location targeting if true.
    * @return location
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Geolocation filter, which skips location targeting if true.")
-
   public Boolean getLocation() {
     return location;
   }
 
-
-  public void setLocation(Boolean location) {
+  public void setLocation(@javax.annotation.Nullable Boolean location) {
     this.location = location;
   }
 
 
-  public SkipFilters placementLimit(Boolean placementLimit) {
-    
+  public SkipFilters placementLimit(@javax.annotation.Nullable Boolean placementLimit) {
     this.placementLimit = placementLimit;
     return this;
   }
 
-   /**
+  /**
    * Placement limit filter, where no advertiser placement limit if true.
    * @return placementLimit
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Placement limit filter, where no advertiser placement limit if true.")
-
   public Boolean getPlacementLimit() {
     return placementLimit;
   }
 
-
-  public void setPlacementLimit(Boolean placementLimit) {
+  public void setPlacementLimit(@javax.annotation.Nullable Boolean placementLimit) {
     this.placementLimit = placementLimit;
   }
 
 
-  public SkipFilters siteZone(Boolean siteZone) {
-    
+  public SkipFilters siteZone(@javax.annotation.Nullable Boolean siteZone) {
     this.siteZone = siteZone;
     return this;
   }
 
-   /**
+  /**
    * Site/zone limit filter, which skips site/zone targeting if true.
    * @return siteZone
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Site/zone limit filter, which skips site/zone targeting if true.")
-
   public Boolean getSiteZone() {
     return siteZone;
   }
 
-
-  public void setSiteZone(Boolean siteZone) {
+  public void setSiteZone(@javax.annotation.Nullable Boolean siteZone) {
     this.siteZone = siteZone;
   }
+
 
 
   @Override
@@ -300,5 +300,88 @@ public class SkipFilters implements Serializable {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("distance", "facet", "geodistance", "geolocation", "keyword", "location", "placementLimit", "siteZone"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(0);
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SkipFilters
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SkipFilters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SkipFilters is not found in the empty JSON string", SkipFilters.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!SkipFilters.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SkipFilters` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!SkipFilters.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SkipFilters' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<SkipFilters> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SkipFilters.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<SkipFilters>() {
+           @Override
+           public void write(JsonWriter out, SkipFilters value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public SkipFilters read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of SkipFilters given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SkipFilters
+   * @throws IOException if the JSON string is invalid with respect to SkipFilters
+   */
+  public static SkipFilters fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SkipFilters.class);
+  }
+
+  /**
+   * Convert an instance of SkipFilters to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

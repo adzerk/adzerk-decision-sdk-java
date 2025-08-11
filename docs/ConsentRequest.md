@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**userKey** | **String** |  |  [optional]
-**consent** | **Object** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**userKey** | **String** |  |  [optional] |
+|**consent** | **Object** |  |  [optional] |
 
 
 ## Implemented Interfaces
