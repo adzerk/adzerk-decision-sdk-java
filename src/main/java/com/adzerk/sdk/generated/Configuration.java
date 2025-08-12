@@ -13,9 +13,11 @@
 
 package com.adzerk.sdk.generated;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
 public class Configuration {
-    private static ApiClient defaultApiClient = new ApiClient();
+    public static final String VERSION = "1.0";
+
+    private static volatile ApiClient defaultApiClient = new ApiClient();
 
     /**
      * Get the default API client, which would be used when creating API

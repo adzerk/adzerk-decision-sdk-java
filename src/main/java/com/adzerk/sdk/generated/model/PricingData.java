@@ -14,158 +14,167 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * PricingData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
 public class PricingData implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
+  @javax.annotation.Nullable
   private Float price;
 
   public static final String SERIALIZED_NAME_CLEAR_PRICE = "clearPrice";
   @SerializedName(SERIALIZED_NAME_CLEAR_PRICE)
+  @javax.annotation.Nullable
   private Float clearPrice;
 
   public static final String SERIALIZED_NAME_REVENUE = "revenue";
   @SerializedName(SERIALIZED_NAME_REVENUE)
+  @javax.annotation.Nullable
   private Float revenue;
 
   public static final String SERIALIZED_NAME_RATE_TYPE = "rateType";
   @SerializedName(SERIALIZED_NAME_RATE_TYPE)
+  @javax.annotation.Nullable
   private Integer rateType;
 
   public static final String SERIALIZED_NAME_E_C_P_M = "eCPM";
   @SerializedName(SERIALIZED_NAME_E_C_P_M)
+  @javax.annotation.Nullable
   private Float eCPM;
 
+  public PricingData() {
+  }
 
-  public PricingData price(Float price) {
-    
+  public PricingData price(@javax.annotation.Nullable Float price) {
     this.price = price;
     return this;
   }
 
-   /**
+  /**
    * Get price
    * @return price
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getPrice() {
     return price;
   }
 
-
-  public void setPrice(Float price) {
+  public void setPrice(@javax.annotation.Nullable Float price) {
     this.price = price;
   }
 
 
-  public PricingData clearPrice(Float clearPrice) {
-    
+  public PricingData clearPrice(@javax.annotation.Nullable Float clearPrice) {
     this.clearPrice = clearPrice;
     return this;
   }
 
-   /**
+  /**
    * Get clearPrice
    * @return clearPrice
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getClearPrice() {
     return clearPrice;
   }
 
-
-  public void setClearPrice(Float clearPrice) {
+  public void setClearPrice(@javax.annotation.Nullable Float clearPrice) {
     this.clearPrice = clearPrice;
   }
 
 
-  public PricingData revenue(Float revenue) {
-    
+  public PricingData revenue(@javax.annotation.Nullable Float revenue) {
     this.revenue = revenue;
     return this;
   }
 
-   /**
+  /**
    * Get revenue
    * @return revenue
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getRevenue() {
     return revenue;
   }
 
-
-  public void setRevenue(Float revenue) {
+  public void setRevenue(@javax.annotation.Nullable Float revenue) {
     this.revenue = revenue;
   }
 
 
-  public PricingData rateType(Integer rateType) {
-    
+  public PricingData rateType(@javax.annotation.Nullable Integer rateType) {
     this.rateType = rateType;
     return this;
   }
 
-   /**
+  /**
    * Get rateType
    * @return rateType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getRateType() {
     return rateType;
   }
 
-
-  public void setRateType(Integer rateType) {
+  public void setRateType(@javax.annotation.Nullable Integer rateType) {
     this.rateType = rateType;
   }
 
 
-  public PricingData eCPM(Float eCPM) {
-    
+  public PricingData eCPM(@javax.annotation.Nullable Float eCPM) {
     this.eCPM = eCPM;
     return this;
   }
 
-   /**
+  /**
    * Get eCPM
    * @return eCPM
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float geteCPM() {
     return eCPM;
   }
 
-
-  public void seteCPM(Float eCPM) {
+  public void seteCPM(@javax.annotation.Nullable Float eCPM) {
     this.eCPM = eCPM;
   }
+
 
 
   @Override
@@ -213,5 +222,93 @@ public class PricingData implements Serializable {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("price");
+    openapiFields.add("clearPrice");
+    openapiFields.add("revenue");
+    openapiFields.add("rateType");
+    openapiFields.add("eCPM");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PricingData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PricingData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PricingData is not found in the empty JSON string", PricingData.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!PricingData.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!PricingData.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PricingData' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<PricingData> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PricingData.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<PricingData>() {
+           @Override
+           public void write(JsonWriter out, PricingData value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public PricingData read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of PricingData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PricingData
+   * @throws IOException if the JSON string is invalid with respect to PricingData
+   */
+  public static PricingData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PricingData.class);
+  }
+
+  /**
+   * Convert an instance of PricingData to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

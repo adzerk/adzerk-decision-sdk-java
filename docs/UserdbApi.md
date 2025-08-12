@@ -2,20 +2,20 @@
 
 All URIs are relative to *https://e-23.adzerk.net*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addCustomProperties**](UserdbApi.md#addCustomProperties) | **POST** /udb/{networkId}/custom | 
-[**addInterests**](UserdbApi.md#addInterests) | **GET** /udb/{networkId}/interest/i.gif | 
-[**addRetargetingSegment**](UserdbApi.md#addRetargetingSegment) | **GET** /udb/{networkId}/rt/{advertiserId}/{retargetingSegmentId}/i.gif | 
-[**forget**](UserdbApi.md#forget) | **DELETE** /udb/{networkId} | 
-[**gdprConsent**](UserdbApi.md#gdprConsent) | **POST** /udb/{networkId}/consent | 
-[**ipOverride**](UserdbApi.md#ipOverride) | **GET** /udb/{networkId}/ip/i.gif | 
-[**matchUser**](UserdbApi.md#matchUser) | **GET** /udb/{networkId}/sync/i.gif | 
-[**optOut**](UserdbApi.md#optOut) | **GET** /udb/{networkId}/optout/i.gif | 
-[**read**](UserdbApi.md#read) | **GET** /udb/{networkId}/read | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**addCustomProperties**](UserdbApi.md#addCustomProperties) | **POST** /udb/{networkId}/custom |  |
+| [**addInterests**](UserdbApi.md#addInterests) | **GET** /udb/{networkId}/interest/i.gif |  |
+| [**addRetargetingSegment**](UserdbApi.md#addRetargetingSegment) | **GET** /udb/{networkId}/rt/{advertiserId}/{retargetingSegmentId}/i.gif |  |
+| [**forget**](UserdbApi.md#forget) | **DELETE** /udb/{networkId} |  |
+| [**gdprConsent**](UserdbApi.md#gdprConsent) | **POST** /udb/{networkId}/consent |  |
+| [**ipOverride**](UserdbApi.md#ipOverride) | **GET** /udb/{networkId}/ip/i.gif |  |
+| [**matchUser**](UserdbApi.md#matchUser) | **GET** /udb/{networkId}/sync/i.gif |  |
+| [**optOut**](UserdbApi.md#optOut) | **GET** /udb/{networkId}/optout/i.gif |  |
+| [**read**](UserdbApi.md#read) | **GET** /udb/{networkId}/read |  |
 
 
-<a name="addCustomProperties"></a>
+<a id="addCustomProperties"></a>
 # **addCustomProperties**
 > File addCustomProperties(networkId, userKey, body)
 
@@ -64,11 +64,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
- **body** | **Object**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
+| **body** | **Object**|  | [optional] |
 
 ### Return type
 
@@ -86,9 +86,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+| **200** | Success |  -  |
 
-<a name="addInterests"></a>
+<a id="addInterests"></a>
 # **addInterests**
 > File addInterests(networkId, userKey, interest)
 
@@ -130,11 +130,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
- **interest** | **String**| Comma Seperated list of interests |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
+| **interest** | **String**| Comma Seperated list of interests | |
 
 ### Return type
 
@@ -152,9 +152,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+| **200** | Success |  -  |
 
-<a name="addRetargetingSegment"></a>
+<a id="addRetargetingSegment"></a>
 # **addRetargetingSegment**
 > File addRetargetingSegment(networkId, advertiserId, retargetingSegmentId, userKey)
 
@@ -197,12 +197,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **advertiserId** | **Integer**| The Advertiser&#39;s ID |
- **retargetingSegmentId** | **Integer**| The Segment&#39;s ID |
- **userKey** | **String**| The User&#39;s UserDB Key |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **advertiserId** | **Integer**| The Advertiser&#39;s ID | |
+| **retargetingSegmentId** | **Integer**| The Segment&#39;s ID | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
 
 ### Return type
 
@@ -220,9 +220,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+| **200** | Success |  -  |
 
-<a name="forget"></a>
+<a id="forget"></a>
 # **forget**
 > forget(networkId, userKey)
 
@@ -269,10 +269,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
 
 ### Return type
 
@@ -290,9 +290,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+| **200** | Success |  -  |
 
-<a name="gdprConsent"></a>
+<a id="gdprConsent"></a>
 # **gdprConsent**
 > File gdprConsent(networkId, consentRequest)
 
@@ -340,10 +340,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **consentRequest** | [**ConsentRequest**](ConsentRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **consentRequest** | [**ConsentRequest**](ConsentRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -361,9 +361,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+| **200** | Success |  -  |
 
-<a name="ipOverride"></a>
+<a id="ipOverride"></a>
 # **ipOverride**
 > File ipOverride(networkId, userKey, ip)
 
@@ -405,11 +405,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
- **ip** | **String**| This is the IP to exclude |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
+| **ip** | **String**| This is the IP to exclude | |
 
 ### Return type
 
@@ -427,9 +427,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The updated UserDB record |  -  |
+| **200** | The updated UserDB record |  -  |
 
-<a name="matchUser"></a>
+<a id="matchUser"></a>
 # **matchUser**
 > File matchUser(networkId, userKey, partnerId, userId)
 
@@ -472,12 +472,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
- **partnerId** | **Integer**| The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. |
- **userId** | **Integer**| This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
+| **partnerId** | **Integer**| The ID of the RTB provider in Adzerk. Contact Support if you don&#39;t have the ID. | |
+| **userId** | **Integer**| This is the UserID the individual RTB provider has of the user. This is NOT the UserDB userkey. | |
 
 ### Return type
 
@@ -495,9 +495,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+| **200** | Success |  -  |
 
-<a name="optOut"></a>
+<a id="optOut"></a>
 # **optOut**
 > File optOut(networkId, userKey)
 
@@ -538,10 +538,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
 
 ### Return type
 
@@ -559,9 +559,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Sucess |  -  |
+| **200** | Sucess |  -  |
 
-<a name="read"></a>
+<a id="read"></a>
 # **read**
 > Object read(networkId, userKey)
 
@@ -602,10 +602,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **networkId** | **Integer**| Your Network Id |
- **userKey** | **String**| The User&#39;s UserDB Key |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **networkId** | **Integer**| Your Network Id | |
+| **userKey** | **String**| The User&#39;s UserDB Key | |
 
 ### Return type
 
@@ -623,5 +623,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The UserDB record |  -  |
+| **200** | The UserDB record |  -  |
 

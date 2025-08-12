@@ -14,158 +14,167 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * Content
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
 public class Content implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_TEMPLATE = "template";
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  @javax.annotation.Nullable
   private String template;
 
   public static final String SERIALIZED_NAME_CUSTOM_TEMPLATE = "customTemplate";
   @SerializedName(SERIALIZED_NAME_CUSTOM_TEMPLATE)
+  @javax.annotation.Nullable
   private String customTemplate;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
+  @javax.annotation.Nullable
   private Object data;
 
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
+  @javax.annotation.Nullable
   private String body;
 
+  public Content() {
+  }
 
-  public Content type(String type) {
-    
+  public Content type(@javax.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getType() {
     return type;
   }
 
-
-  public void setType(String type) {
+  public void setType(@javax.annotation.Nullable String type) {
     this.type = type;
   }
 
 
-  public Content template(String template) {
-    
+  public Content template(@javax.annotation.Nullable String template) {
     this.template = template;
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getTemplate() {
     return template;
   }
 
-
-  public void setTemplate(String template) {
+  public void setTemplate(@javax.annotation.Nullable String template) {
     this.template = template;
   }
 
 
-  public Content customTemplate(String customTemplate) {
-    
+  public Content customTemplate(@javax.annotation.Nullable String customTemplate) {
     this.customTemplate = customTemplate;
     return this;
   }
 
-   /**
+  /**
    * Get customTemplate
    * @return customTemplate
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getCustomTemplate() {
     return customTemplate;
   }
 
-
-  public void setCustomTemplate(String customTemplate) {
+  public void setCustomTemplate(@javax.annotation.Nullable String customTemplate) {
     this.customTemplate = customTemplate;
   }
 
 
-  public Content data(Object data) {
-    
+  public Content data(@javax.annotation.Nullable Object data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Object getData() {
     return data;
   }
 
-
-  public void setData(Object data) {
+  public void setData(@javax.annotation.Nullable Object data) {
     this.data = data;
   }
 
 
-  public Content body(String body) {
-    
+  public Content body(@javax.annotation.Nullable String body) {
     this.body = body;
     return this;
   }
 
-   /**
+  /**
    * Get body
    * @return body
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getBody() {
     return body;
   }
 
-
-  public void setBody(String body) {
+  public void setBody(@javax.annotation.Nullable String body) {
     this.body = body;
   }
+
 
 
   @Override
@@ -213,5 +222,105 @@ public class Content implements Serializable {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("type");
+    openapiFields.add("template");
+    openapiFields.add("customTemplate");
+    openapiFields.add("data");
+    openapiFields.add("body");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Content
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Content.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Content is not found in the empty JSON string", Content.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!Content.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Content` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) && !jsonObj.get("template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template").toString()));
+      }
+      if ((jsonObj.get("customTemplate") != null && !jsonObj.get("customTemplate").isJsonNull()) && !jsonObj.get("customTemplate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customTemplate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customTemplate").toString()));
+      }
+      if ((jsonObj.get("body") != null && !jsonObj.get("body").isJsonNull()) && !jsonObj.get("body").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!Content.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Content' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<Content> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Content.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<Content>() {
+           @Override
+           public void write(JsonWriter out, Content value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public Content read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of Content given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Content
+   * @throws IOException if the JSON string is invalid with respect to Content
+   */
+  public static Content fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Content.class);
+  }
+
+  /**
+   * Convert an instance of Content to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

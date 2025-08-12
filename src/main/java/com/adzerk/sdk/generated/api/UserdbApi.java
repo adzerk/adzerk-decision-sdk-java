@@ -38,6 +38,8 @@ import java.util.Map;
 
 public class UserdbApi {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public UserdbApi() {
         this(Configuration.getDefaultApiClient());
@@ -55,6 +57,22 @@ public class UserdbApi {
         this.localVarApiClient = apiClient;
     }
 
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
+    }
+
     /**
      * Build call for addCustomProperties
      * @param networkId Your Network Id (required)
@@ -64,17 +82,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addCustomPropertiesCall(Integer networkId, String userKey, Object body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/custom"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -98,28 +130,27 @@ public class UserdbApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addCustomPropertiesValidateBeforeCall(Integer networkId, String userKey, Object body, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addCustomProperties(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling addCustomProperties(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = addCustomPropertiesCall(networkId, userKey, body, _callback);
-        return localVarCall;
+        return addCustomPropertiesCall(networkId, userKey, body, _callback);
 
     }
 
@@ -132,7 +163,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -151,7 +183,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -172,7 +205,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -193,17 +227,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addInterestsCall(Integer networkId, String userKey, String interest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/interest/i.gif"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -228,36 +276,34 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addInterestsValidateBeforeCall(Integer networkId, String userKey, String interest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addInterests(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling addInterests(Async)");
         }
-        
+
         // verify the required parameter 'interest' is set
         if (interest == null) {
             throw new ApiException("Missing the required parameter 'interest' when calling addInterests(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = addInterestsCall(networkId, userKey, interest, _callback);
-        return localVarCall;
+        return addInterestsCall(networkId, userKey, interest, _callback);
 
     }
 
@@ -270,7 +316,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -289,7 +336,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -310,7 +358,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -332,19 +381,33 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addRetargetingSegmentCall(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/rt/{advertiserId}/{retargetingSegmentId}/i.gif"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()))
-            .replaceAll("\\{" + "advertiserId" + "\\}", localVarApiClient.escapeString(advertiserId.toString()))
-            .replaceAll("\\{" + "retargetingSegmentId" + "\\}", localVarApiClient.escapeString(retargetingSegmentId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()))
+            .replace("{" + "advertiserId" + "}", localVarApiClient.escapeString(advertiserId.toString()))
+            .replace("{" + "retargetingSegmentId" + "}", localVarApiClient.escapeString(retargetingSegmentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -365,41 +428,39 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addRetargetingSegmentValidateBeforeCall(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addRetargetingSegment(Async)");
         }
-        
+
         // verify the required parameter 'advertiserId' is set
         if (advertiserId == null) {
             throw new ApiException("Missing the required parameter 'advertiserId' when calling addRetargetingSegment(Async)");
         }
-        
+
         // verify the required parameter 'retargetingSegmentId' is set
         if (retargetingSegmentId == null) {
             throw new ApiException("Missing the required parameter 'retargetingSegmentId' when calling addRetargetingSegment(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling addRetargetingSegment(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = addRetargetingSegmentCall(networkId, advertiserId, retargetingSegmentId, userKey, _callback);
-        return localVarCall;
+        return addRetargetingSegmentCall(networkId, advertiserId, retargetingSegmentId, userKey, _callback);
 
     }
 
@@ -413,7 +474,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -433,7 +495,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -455,7 +518,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -475,17 +539,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call forgetCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -498,7 +576,6 @@ public class UserdbApi {
         }
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -506,31 +583,29 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call forgetValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling forget(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling forget(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = forgetCall(networkId, userKey, _callback);
-        return localVarCall;
+        return forgetCall(networkId, userKey, _callback);
 
     }
 
@@ -541,7 +616,8 @@ public class UserdbApi {
      * @param userKey The User&#39;s UserDB Key (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -558,7 +634,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -577,7 +654,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -596,17 +674,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call gdprConsentCall(Integer networkId, ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = consentRequest;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/consent"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -626,23 +718,22 @@ public class UserdbApi {
             "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call gdprConsentValidateBeforeCall(Integer networkId, ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling gdprConsent(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = gdprConsentCall(networkId, consentRequest, _callback);
-        return localVarCall;
+        return gdprConsentCall(networkId, consentRequest, _callback);
 
     }
 
@@ -654,7 +745,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -672,7 +764,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -692,7 +785,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -713,17 +807,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call ipOverrideCall(Integer networkId, String userKey, String ip, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/ip/i.gif"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -748,36 +856,34 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call ipOverrideValidateBeforeCall(Integer networkId, String userKey, String ip, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling ipOverride(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling ipOverride(Async)");
         }
-        
+
         // verify the required parameter 'ip' is set
         if (ip == null) {
             throw new ApiException("Missing the required parameter 'ip' when calling ipOverride(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = ipOverrideCall(networkId, userKey, ip, _callback);
-        return localVarCall;
+        return ipOverrideCall(networkId, userKey, ip, _callback);
 
     }
 
@@ -790,7 +896,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
@@ -809,7 +916,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
@@ -830,7 +938,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
@@ -852,17 +961,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call matchUserCall(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/sync/i.gif"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -891,41 +1014,39 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call matchUserValidateBeforeCall(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling matchUser(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling matchUser(Async)");
         }
-        
+
         // verify the required parameter 'partnerId' is set
         if (partnerId == null) {
             throw new ApiException("Missing the required parameter 'partnerId' when calling matchUser(Async)");
         }
-        
+
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling matchUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = matchUserCall(networkId, userKey, partnerId, userId, _callback);
-        return localVarCall;
+        return matchUserCall(networkId, userKey, partnerId, userId, _callback);
 
     }
 
@@ -939,7 +1060,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -959,7 +1081,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -981,7 +1104,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
@@ -1001,17 +1125,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call optOutCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/optout/i.gif"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1032,31 +1170,29 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call optOutValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling optOut(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling optOut(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = optOutCall(networkId, userKey, _callback);
-        return localVarCall;
+        return optOutCall(networkId, userKey, _callback);
 
     }
 
@@ -1068,7 +1204,8 @@ public class UserdbApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
@@ -1086,7 +1223,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
@@ -1106,7 +1244,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
@@ -1126,17 +1265,31 @@ public class UserdbApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call readCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/udb/{networkId}/read"
-            .replaceAll("\\{" + "networkId" + "\\}", localVarApiClient.escapeString(networkId.toString()));
+            .replace("{" + "networkId" + "}", localVarApiClient.escapeString(networkId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1157,31 +1310,29 @@ public class UserdbApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling read(Async)");
         }
-        
+
         // verify the required parameter 'userKey' is set
         if (userKey == null) {
             throw new ApiException("Missing the required parameter 'userKey' when calling read(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readCall(networkId, userKey, _callback);
-        return localVarCall;
+        return readCall(networkId, userKey, _callback);
 
     }
 
@@ -1193,7 +1344,8 @@ public class UserdbApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
@@ -1211,7 +1363,8 @@ public class UserdbApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
@@ -1231,7 +1384,8 @@ public class UserdbApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>

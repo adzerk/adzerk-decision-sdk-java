@@ -14,7 +14,6 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.adzerk.sdk.generated.model.Placement;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
@@ -22,552 +21,530 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
 public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_PLACEMENTS = "placements";
   @SerializedName(SERIALIZED_NAME_PLACEMENTS)
-  private List<Placement> placements = new ArrayList<Placement>();
+  @javax.annotation.Nonnull
+  private List<Placement> placements = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @javax.annotation.Nullable
   private User user;
 
   public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
   @SerializedName(SERIALIZED_NAME_KEYWORDS)
-  private List<String> keywords = null;
+  @javax.annotation.Nullable
+  private List<String> keywords;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nullable
   private String url;
 
   public static final String SERIALIZED_NAME_REFERRER = "referrer";
   @SerializedName(SERIALIZED_NAME_REFERRER)
+  @javax.annotation.Nullable
   private String referrer;
 
   public static final String SERIALIZED_NAME_IP = "ip";
   @SerializedName(SERIALIZED_NAME_IP)
+  @javax.annotation.Nullable
   private String ip;
 
   public static final String SERIALIZED_NAME_BLOCKED_CREATIVES = "blockedCreatives";
   @SerializedName(SERIALIZED_NAME_BLOCKED_CREATIVES)
-  private List<Integer> blockedCreatives = null;
+  @javax.annotation.Nullable
+  private List<Integer> blockedCreatives;
 
   public static final String SERIALIZED_NAME_IS_MOBILE = "isMobile";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_MOBILE)
+  @javax.annotation.Nullable
   private Boolean isMobile;
 
   public static final String SERIALIZED_NAME_INCLUDE_PRICING_DATA = "includePricingData";
   @SerializedName(SERIALIZED_NAME_INCLUDE_PRICING_DATA)
+  @javax.annotation.Nullable
   private Boolean includePricingData;
 
   public static final String SERIALIZED_NAME_NOTRACK = "notrack";
   @SerializedName(SERIALIZED_NAME_NOTRACK)
+  @javax.annotation.Nullable
   private Boolean notrack;
 
   public static final String SERIALIZED_NAME_ENABLE_BOT_FILTERING = "enableBotFiltering";
   @SerializedName(SERIALIZED_NAME_ENABLE_BOT_FILTERING)
+  @javax.annotation.Nullable
   private Boolean enableBotFiltering;
 
   public static final String SERIALIZED_NAME_ENABLE_USER_D_B_I_P = "enableUserDBIP";
   @SerializedName(SERIALIZED_NAME_ENABLE_USER_D_B_I_P)
+  @javax.annotation.Nullable
   private Boolean enableUserDBIP;
 
   public static final String SERIALIZED_NAME_CONSENT = "consent";
   @SerializedName(SERIALIZED_NAME_CONSENT)
+  @javax.annotation.Nullable
   private Object consent;
 
   public static final String SERIALIZED_NAME_DEVICE_I_D = "deviceID";
   @SerializedName(SERIALIZED_NAME_DEVICE_I_D)
+  @javax.annotation.Nullable
   private String deviceID;
 
   public static final String SERIALIZED_NAME_PARALLEL = "parallel";
   @SerializedName(SERIALIZED_NAME_PARALLEL)
+  @javax.annotation.Nullable
   private Boolean parallel;
 
   public static final String SERIALIZED_NAME_INTENDED_LATITUDE = "intendedLatitude";
   @SerializedName(SERIALIZED_NAME_INTENDED_LATITUDE)
+  @javax.annotation.Nullable
   private Float intendedLatitude;
 
   public static final String SERIALIZED_NAME_INTENDED_LONGITUDE = "intendedLongitude";
   @SerializedName(SERIALIZED_NAME_INTENDED_LONGITUDE)
+  @javax.annotation.Nullable
   private Float intendedLongitude;
 
   public static final String SERIALIZED_NAME_RADIUS = "radius";
   @SerializedName(SERIALIZED_NAME_RADIUS)
+  @javax.annotation.Nullable
   private Float radius;
 
   public static final String SERIALIZED_NAME_INCLUDE_MATCHED_POINTS = "includeMatchedPoints";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MATCHED_POINTS)
+  @javax.annotation.Nullable
   private Boolean includeMatchedPoints;
 
+  public DecisionRequest() {
+  }
 
-  public DecisionRequest placements(List<Placement> placements) {
-    
+  public DecisionRequest placements(@javax.annotation.Nonnull List<Placement> placements) {
     this.placements = placements;
     return this;
   }
 
   public DecisionRequest addPlacementsItem(Placement placementsItem) {
+    if (this.placements == null) {
+      this.placements = new ArrayList<>();
+    }
     this.placements.add(placementsItem);
     return this;
   }
 
-   /**
+  /**
    * One or more Placement objects
    * @return placements
-  **/
-  @ApiModelProperty(required = true, value = "One or more Placement objects")
-
+   */
+  @javax.annotation.Nonnull
   public List<Placement> getPlacements() {
     return placements;
   }
 
-
-  public void setPlacements(List<Placement> placements) {
+  public void setPlacements(@javax.annotation.Nonnull List<Placement> placements) {
     this.placements = placements;
   }
 
 
-  public DecisionRequest user(User user) {
-    
+  public DecisionRequest user(@javax.annotation.Nullable User user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public User getUser() {
     return user;
   }
 
-
-  public void setUser(User user) {
+  public void setUser(@javax.annotation.Nullable User user) {
     this.user = user;
   }
 
 
-  public DecisionRequest keywords(List<String> keywords) {
-    
+  public DecisionRequest keywords(@javax.annotation.Nullable List<String> keywords) {
     this.keywords = keywords;
     return this;
   }
 
   public DecisionRequest addKeywordsItem(String keywordsItem) {
     if (this.keywords == null) {
-      this.keywords = new ArrayList<String>();
+      this.keywords = new ArrayList<>();
     }
     this.keywords.add(keywordsItem);
     return this;
   }
 
-   /**
+  /**
    * Keywords for keyword Targeting. Such as &#x60;\&quot;keywords\&quot;: [\&quot;foo\&quot;, \&quot;bar\&quot;, \&quot;baz\&quot;]&#x60;.
    * @return keywords
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Keywords for keyword Targeting. Such as `\"keywords\": [\"foo\", \"bar\", \"baz\"]`.")
-
   public List<String> getKeywords() {
     return keywords;
   }
 
-
-  public void setKeywords(List<String> keywords) {
+  public void setKeywords(@javax.annotation.Nullable List<String> keywords) {
     this.keywords = keywords;
   }
 
 
-  public DecisionRequest url(String url) {
-    
+  public DecisionRequest url(@javax.annotation.Nullable String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * The current page URL
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The current page URL")
-
   public String getUrl() {
     return url;
   }
 
-
-  public void setUrl(String url) {
+  public void setUrl(@javax.annotation.Nullable String url) {
     this.url = url;
   }
 
 
-  public DecisionRequest referrer(String referrer) {
-    
+  public DecisionRequest referrer(@javax.annotation.Nullable String referrer) {
     this.referrer = referrer;
     return this;
   }
 
-   /**
+  /**
    * The referrer URL
    * @return referrer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The referrer URL")
-
   public String getReferrer() {
     return referrer;
   }
 
-
-  public void setReferrer(String referrer) {
+  public void setReferrer(@javax.annotation.Nullable String referrer) {
     this.referrer = referrer;
   }
 
 
-  public DecisionRequest ip(String ip) {
-    
+  public DecisionRequest ip(@javax.annotation.Nullable String ip) {
     this.ip = ip;
     return this;
   }
 
-   /**
+  /**
    * The IP address. Required for [Geo-Targeting](https://dev.adzerk.com/docs/geo-location)
    * @return ip
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The IP address. Required for [Geo-Targeting](https://dev.adzerk.com/docs/geo-location)")
-
   public String getIp() {
     return ip;
   }
 
-
-  public void setIp(String ip) {
+  public void setIp(@javax.annotation.Nullable String ip) {
     this.ip = ip;
   }
 
 
-  public DecisionRequest blockedCreatives(List<Integer> blockedCreatives) {
-    
+  public DecisionRequest blockedCreatives(@javax.annotation.Nullable List<Integer> blockedCreatives) {
     this.blockedCreatives = blockedCreatives;
     return this;
   }
 
   public DecisionRequest addBlockedCreativesItem(Integer blockedCreativesItem) {
     if (this.blockedCreatives == null) {
-      this.blockedCreatives = new ArrayList<Integer>();
+      this.blockedCreatives = new ArrayList<>();
     }
     this.blockedCreatives.add(blockedCreativesItem);
     return this;
   }
 
-   /**
+  /**
    * Numeric creative ids to disregard for ad selection
    * @return blockedCreatives
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Numeric creative ids to disregard for ad selection")
-
   public List<Integer> getBlockedCreatives() {
     return blockedCreatives;
   }
 
-
-  public void setBlockedCreatives(List<Integer> blockedCreatives) {
+  public void setBlockedCreatives(@javax.annotation.Nullable List<Integer> blockedCreatives) {
     this.blockedCreatives = blockedCreatives;
   }
 
 
-  public DecisionRequest isMobile(Boolean isMobile) {
-    
+  @Deprecated
+  public DecisionRequest isMobile(@javax.annotation.Nullable Boolean isMobile) {
     this.isMobile = isMobile;
     return this;
   }
 
-   /**
+  /**
    * If true, only ads containing a single image will be returned
    * @return isMobile
-  **/
+   * @deprecated
+   */
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, only ads containing a single image will be returned")
-
   public Boolean getIsMobile() {
     return isMobile;
   }
 
-
-  public void setIsMobile(Boolean isMobile) {
+  @Deprecated
+  public void setIsMobile(@javax.annotation.Nullable Boolean isMobile) {
     this.isMobile = isMobile;
   }
 
 
-  public DecisionRequest includePricingData(Boolean includePricingData) {
-    
+  public DecisionRequest includePricingData(@javax.annotation.Nullable Boolean includePricingData) {
     this.includePricingData = includePricingData;
     return this;
   }
 
-   /**
+  /**
    * If true, return pricing data for the decision in the response
    * @return includePricingData
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, return pricing data for the decision in the response")
-
   public Boolean getIncludePricingData() {
     return includePricingData;
   }
 
-
-  public void setIncludePricingData(Boolean includePricingData) {
+  public void setIncludePricingData(@javax.annotation.Nullable Boolean includePricingData) {
     this.includePricingData = includePricingData;
   }
 
 
-  public DecisionRequest notrack(Boolean notrack) {
-    
+  public DecisionRequest notrack(@javax.annotation.Nullable Boolean notrack) {
     this.notrack = notrack;
     return this;
   }
 
-   /**
+  /**
    * If true, only return ads that are set to honor Do Not Track
    * @return notrack
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, only return ads that are set to honor Do Not Track")
-
   public Boolean getNotrack() {
     return notrack;
   }
 
-
-  public void setNotrack(Boolean notrack) {
+  public void setNotrack(@javax.annotation.Nullable Boolean notrack) {
     this.notrack = notrack;
   }
 
 
-  public DecisionRequest enableBotFiltering(Boolean enableBotFiltering) {
-    
+  public DecisionRequest enableBotFiltering(@javax.annotation.Nullable Boolean enableBotFiltering) {
     this.enableBotFiltering = enableBotFiltering;
     return this;
   }
 
-   /**
+  /**
    * If making a client-side request, set to true. Defaults to false to ensure a server isn&#39;t seen as a bot. See [here](https://dev.adzerk.com/docs/tracking-overview#section-bot-filtering) for more info
    * @return enableBotFiltering
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If making a client-side request, set to true. Defaults to false to ensure a server isn't seen as a bot. See [here](https://dev.adzerk.com/docs/tracking-overview#section-bot-filtering) for more info")
-
   public Boolean getEnableBotFiltering() {
     return enableBotFiltering;
   }
 
-
-  public void setEnableBotFiltering(Boolean enableBotFiltering) {
+  public void setEnableBotFiltering(@javax.annotation.Nullable Boolean enableBotFiltering) {
     this.enableBotFiltering = enableBotFiltering;
   }
 
 
-  public DecisionRequest enableUserDBIP(Boolean enableUserDBIP) {
-    
+  public DecisionRequest enableUserDBIP(@javax.annotation.Nullable Boolean enableUserDBIP) {
     this.enableUserDBIP = enableUserDBIP;
     return this;
   }
 
-   /**
+  /**
    * If true, override the IP address of the request with the IP address supplied on the UserKey. If no IP address is found on the UserKey, this will fall back to the IP address on the request. Requires UserDB
    * @return enableUserDBIP
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If true, override the IP address of the request with the IP address supplied on the UserKey. If no IP address is found on the UserKey, this will fall back to the IP address on the request. Requires UserDB")
-
   public Boolean getEnableUserDBIP() {
     return enableUserDBIP;
   }
 
-
-  public void setEnableUserDBIP(Boolean enableUserDBIP) {
+  public void setEnableUserDBIP(@javax.annotation.Nullable Boolean enableUserDBIP) {
     this.enableUserDBIP = enableUserDBIP;
   }
 
 
-  public DecisionRequest consent(Object consent) {
-    
+  public DecisionRequest consent(@javax.annotation.Nullable Object consent) {
     this.consent = consent;
     return this;
   }
 
-   /**
+  /**
    * Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.
    * @return consent
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Object that sets the data consent preferences. Other consent settings are available in the GDPR settings documentation.")
-
   public Object getConsent() {
     return consent;
   }
 
-
-  public void setConsent(Object consent) {
+  public void setConsent(@javax.annotation.Nullable Object consent) {
     this.consent = consent;
   }
 
 
-  public DecisionRequest deviceID(String deviceID) {
-    
+  public DecisionRequest deviceID(@javax.annotation.Nullable String deviceID) {
     this.deviceID = deviceID;
     return this;
   }
 
-   /**
+  /**
    * RTB requests only - sets an Identifier for Advertisers (IFA or IDFA)
    * @return deviceID
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "RTB requests only - sets an Identifier for Advertisers (IFA or IDFA)")
-
   public String getDeviceID() {
     return deviceID;
   }
 
-
-  public void setDeviceID(String deviceID) {
+  public void setDeviceID(@javax.annotation.Nullable String deviceID) {
     this.deviceID = deviceID;
   }
 
 
-  public DecisionRequest parallel(Boolean parallel) {
-    
+  public DecisionRequest parallel(@javax.annotation.Nullable Boolean parallel) {
     this.parallel = parallel;
     return this;
   }
 
-   /**
+  /**
    * Get parallel
    * @return parallel
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getParallel() {
     return parallel;
   }
 
-
-  public void setParallel(Boolean parallel) {
+  public void setParallel(@javax.annotation.Nullable Boolean parallel) {
     this.parallel = parallel;
   }
 
 
-  public DecisionRequest intendedLatitude(Float intendedLatitude) {
-    
+  public DecisionRequest intendedLatitude(@javax.annotation.Nullable Float intendedLatitude) {
     this.intendedLatitude = intendedLatitude;
     return this;
   }
 
-   /**
+  /**
    * Get intendedLatitude
    * @return intendedLatitude
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getIntendedLatitude() {
     return intendedLatitude;
   }
 
-
-  public void setIntendedLatitude(Float intendedLatitude) {
+  public void setIntendedLatitude(@javax.annotation.Nullable Float intendedLatitude) {
     this.intendedLatitude = intendedLatitude;
   }
 
 
-  public DecisionRequest intendedLongitude(Float intendedLongitude) {
-    
+  public DecisionRequest intendedLongitude(@javax.annotation.Nullable Float intendedLongitude) {
     this.intendedLongitude = intendedLongitude;
     return this;
   }
 
-   /**
+  /**
    * Get intendedLongitude
    * @return intendedLongitude
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getIntendedLongitude() {
     return intendedLongitude;
   }
 
-
-  public void setIntendedLongitude(Float intendedLongitude) {
+  public void setIntendedLongitude(@javax.annotation.Nullable Float intendedLongitude) {
     this.intendedLongitude = intendedLongitude;
   }
 
 
-  public DecisionRequest radius(Float radius) {
-    
+  public DecisionRequest radius(@javax.annotation.Nullable Float radius) {
     this.radius = radius;
     return this;
   }
 
-   /**
+  /**
    * Get radius
    * @return radius
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Float getRadius() {
     return radius;
   }
 
-
-  public void setRadius(Float radius) {
+  public void setRadius(@javax.annotation.Nullable Float radius) {
     this.radius = radius;
   }
 
 
-  public DecisionRequest includeMatchedPoints(Boolean includeMatchedPoints) {
-    
+  public DecisionRequest includeMatchedPoints(@javax.annotation.Nullable Boolean includeMatchedPoints) {
     this.includeMatchedPoints = includeMatchedPoints;
     return this;
   }
 
-   /**
+  /**
    * Get includeMatchedPoints
    * @return includeMatchedPoints
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Boolean getIncludeMatchedPoints() {
     return includeMatchedPoints;
   }
 
-
-  public void setIncludeMatchedPoints(Boolean includeMatchedPoints) {
+  public void setIncludeMatchedPoints(@javax.annotation.Nullable Boolean includeMatchedPoints) {
     this.includeMatchedPoints = includeMatchedPoints;
   }
+
 
 
   @Override
@@ -600,9 +577,20 @@ public class DecisionRequest implements Serializable {
         Objects.equals(this.includeMatchedPoints, decisionRequest.includeMatchedPoints);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, radius, includeMatchedPoints);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -643,5 +631,149 @@ public class DecisionRequest implements Serializable {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("placements");
+    openapiFields.add("user");
+    openapiFields.add("keywords");
+    openapiFields.add("url");
+    openapiFields.add("referrer");
+    openapiFields.add("ip");
+    openapiFields.add("blockedCreatives");
+    openapiFields.add("isMobile");
+    openapiFields.add("includePricingData");
+    openapiFields.add("notrack");
+    openapiFields.add("enableBotFiltering");
+    openapiFields.add("enableUserDBIP");
+    openapiFields.add("consent");
+    openapiFields.add("deviceID");
+    openapiFields.add("parallel");
+    openapiFields.add("intendedLatitude");
+    openapiFields.add("intendedLongitude");
+    openapiFields.add("radius");
+    openapiFields.add("includeMatchedPoints");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("placements");
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DecisionRequest
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!DecisionRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DecisionRequest is not found in the empty JSON string", DecisionRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!DecisionRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DecisionRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : DecisionRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the json data is an array
+      if (!jsonObj.get("placements").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `placements` to be an array in the JSON string but got `%s`", jsonObj.get("placements").toString()));
+      }
+
+      JsonArray jsonArrayplacements = jsonObj.getAsJsonArray("placements");
+      // validate the required field `placements` (array)
+      for (int i = 0; i < jsonArrayplacements.size(); i++) {
+        Placement.validateJsonElement(jsonArrayplacements.get(i));
+      };
+      // validate the optional field `user`
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
+        User.validateJsonElement(jsonObj.get("user"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("keywords") != null && !jsonObj.get("keywords").isJsonNull() && !jsonObj.get("keywords").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `keywords` to be an array in the JSON string but got `%s`", jsonObj.get("keywords").toString()));
+      }
+      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if ((jsonObj.get("referrer") != null && !jsonObj.get("referrer").isJsonNull()) && !jsonObj.get("referrer").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referrer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referrer").toString()));
+      }
+      if ((jsonObj.get("ip") != null && !jsonObj.get("ip").isJsonNull()) && !jsonObj.get("ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("blockedCreatives") != null && !jsonObj.get("blockedCreatives").isJsonNull() && !jsonObj.get("blockedCreatives").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `blockedCreatives` to be an array in the JSON string but got `%s`", jsonObj.get("blockedCreatives").toString()));
+      }
+      if ((jsonObj.get("deviceID") != null && !jsonObj.get("deviceID").isJsonNull()) && !jsonObj.get("deviceID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `deviceID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceID").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!DecisionRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DecisionRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<DecisionRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DecisionRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<DecisionRequest>() {
+           @Override
+           public void write(JsonWriter out, DecisionRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public DecisionRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of DecisionRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DecisionRequest
+   * @throws IOException if the JSON string is invalid with respect to DecisionRequest
+   */
+  public static DecisionRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DecisionRequest.class);
+  }
+
+  /**
+   * Convert an instance of DecisionRequest to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -1,3 +1,4 @@
+.github/workflows/maven.yml
 .gitignore
 .openapi-generator-ignore
 .travis.yml
@@ -11,6 +12,7 @@ docs/Decision.md
 docs/DecisionApi.md
 docs/DecisionRequest.md
 docs/DecisionResponse.md
+docs/DecisionResponseDecisionsValue.md
 docs/Event.md
 docs/MatchedPoint.md
 docs/Placement.md
@@ -46,11 +48,13 @@ src/main/java/com/adzerk/sdk/generated/auth/ApiKeyAuth.java
 src/main/java/com/adzerk/sdk/generated/auth/Authentication.java
 src/main/java/com/adzerk/sdk/generated/auth/HttpBasicAuth.java
 src/main/java/com/adzerk/sdk/generated/auth/HttpBearerAuth.java
+src/main/java/com/adzerk/sdk/generated/model/AbstractOpenApiSchema.java
 src/main/java/com/adzerk/sdk/generated/model/ConsentRequest.java
 src/main/java/com/adzerk/sdk/generated/model/Content.java
 src/main/java/com/adzerk/sdk/generated/model/Decision.java
 src/main/java/com/adzerk/sdk/generated/model/DecisionRequest.java
 src/main/java/com/adzerk/sdk/generated/model/DecisionResponse.java
+src/main/java/com/adzerk/sdk/generated/model/DecisionResponseDecisionsValue.java
 src/main/java/com/adzerk/sdk/generated/model/Event.java
 src/main/java/com/adzerk/sdk/generated/model/MatchedPoint.java
 src/main/java/com/adzerk/sdk/generated/model/Placement.java
@@ -62,6 +66,7 @@ src/test/java/com/adzerk/sdk/generated/api/UserdbApiTest.java
 src/test/java/com/adzerk/sdk/generated/model/ConsentRequestTest.java
 src/test/java/com/adzerk/sdk/generated/model/ContentTest.java
 src/test/java/com/adzerk/sdk/generated/model/DecisionRequestTest.java
+src/test/java/com/adzerk/sdk/generated/model/DecisionResponseDecisionsValueTest.java
 src/test/java/com/adzerk/sdk/generated/model/DecisionResponseTest.java
 src/test/java/com/adzerk/sdk/generated/model/DecisionTest.java
 src/test/java/com/adzerk/sdk/generated/model/EventTest.java

@@ -14,7 +14,6 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.adzerk.sdk.generated.model.Content;
 import com.adzerk.sdk.generated.model.Event;
 import com.adzerk.sdk.generated.model.MatchedPoint;
@@ -24,368 +23,357 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * Decision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
 public class Decision implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_AD_ID = "adId";
   @SerializedName(SERIALIZED_NAME_AD_ID)
+  @javax.annotation.Nullable
   private Integer adId;
 
   public static final String SERIALIZED_NAME_ADVERTISER_ID = "advertiserId";
   @SerializedName(SERIALIZED_NAME_ADVERTISER_ID)
+  @javax.annotation.Nullable
   private Integer advertiserId;
 
   public static final String SERIALIZED_NAME_CREATIVE_ID = "creativeId";
   @SerializedName(SERIALIZED_NAME_CREATIVE_ID)
+  @javax.annotation.Nullable
   private Integer creativeId;
 
   public static final String SERIALIZED_NAME_FLIGHT_ID = "flightId";
   @SerializedName(SERIALIZED_NAME_FLIGHT_ID)
+  @javax.annotation.Nullable
   private Integer flightId;
 
   public static final String SERIALIZED_NAME_CAMPAIGN_ID = "campaignId";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN_ID)
+  @javax.annotation.Nullable
   private Integer campaignId;
 
   public static final String SERIALIZED_NAME_PRIORITY_ID = "priorityId";
   @SerializedName(SERIALIZED_NAME_PRIORITY_ID)
+  @javax.annotation.Nullable
   private Integer priorityId;
 
   public static final String SERIALIZED_NAME_CLICK_URL = "clickUrl";
   @SerializedName(SERIALIZED_NAME_CLICK_URL)
+  @javax.annotation.Nullable
   private URI clickUrl;
 
   public static final String SERIALIZED_NAME_CONTENTS = "contents";
   @SerializedName(SERIALIZED_NAME_CONTENTS)
-  private List<Content> contents = null;
+  @javax.annotation.Nullable
+  private List<Content> contents = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IMPRESSION_URL = "impressionUrl";
   @SerializedName(SERIALIZED_NAME_IMPRESSION_URL)
+  @javax.annotation.Nullable
   private URI impressionUrl;
 
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
-  private List<Event> events = null;
+  @javax.annotation.Nullable
+  private List<Event> events = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MATCHED_POINTS = "matchedPoints";
   @SerializedName(SERIALIZED_NAME_MATCHED_POINTS)
-  private List<MatchedPoint> matchedPoints = null;
+  @javax.annotation.Nullable
+  private List<MatchedPoint> matchedPoints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRICING = "pricing";
   @SerializedName(SERIALIZED_NAME_PRICING)
+  @javax.annotation.Nullable
   private PricingData pricing;
 
+  public Decision() {
+  }
 
-  public Decision adId(Integer adId) {
-    
+  public Decision adId(@javax.annotation.Nullable Integer adId) {
     this.adId = adId;
     return this;
   }
 
-   /**
+  /**
    * Get adId
    * @return adId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getAdId() {
     return adId;
   }
 
-
-  public void setAdId(Integer adId) {
+  public void setAdId(@javax.annotation.Nullable Integer adId) {
     this.adId = adId;
   }
 
 
-  public Decision advertiserId(Integer advertiserId) {
-    
+  public Decision advertiserId(@javax.annotation.Nullable Integer advertiserId) {
     this.advertiserId = advertiserId;
     return this;
   }
 
-   /**
+  /**
    * Get advertiserId
    * @return advertiserId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getAdvertiserId() {
     return advertiserId;
   }
 
-
-  public void setAdvertiserId(Integer advertiserId) {
+  public void setAdvertiserId(@javax.annotation.Nullable Integer advertiserId) {
     this.advertiserId = advertiserId;
   }
 
 
-  public Decision creativeId(Integer creativeId) {
-    
+  public Decision creativeId(@javax.annotation.Nullable Integer creativeId) {
     this.creativeId = creativeId;
     return this;
   }
 
-   /**
+  /**
    * Get creativeId
    * @return creativeId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getCreativeId() {
     return creativeId;
   }
 
-
-  public void setCreativeId(Integer creativeId) {
+  public void setCreativeId(@javax.annotation.Nullable Integer creativeId) {
     this.creativeId = creativeId;
   }
 
 
-  public Decision flightId(Integer flightId) {
-    
+  public Decision flightId(@javax.annotation.Nullable Integer flightId) {
     this.flightId = flightId;
     return this;
   }
 
-   /**
+  /**
    * Get flightId
    * @return flightId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getFlightId() {
     return flightId;
   }
 
-
-  public void setFlightId(Integer flightId) {
+  public void setFlightId(@javax.annotation.Nullable Integer flightId) {
     this.flightId = flightId;
   }
 
 
-  public Decision campaignId(Integer campaignId) {
-    
+  public Decision campaignId(@javax.annotation.Nullable Integer campaignId) {
     this.campaignId = campaignId;
     return this;
   }
 
-   /**
+  /**
    * Get campaignId
    * @return campaignId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getCampaignId() {
     return campaignId;
   }
 
-
-  public void setCampaignId(Integer campaignId) {
+  public void setCampaignId(@javax.annotation.Nullable Integer campaignId) {
     this.campaignId = campaignId;
   }
 
 
-  public Decision priorityId(Integer priorityId) {
-    
+  public Decision priorityId(@javax.annotation.Nullable Integer priorityId) {
     this.priorityId = priorityId;
     return this;
   }
 
-   /**
+  /**
    * Get priorityId
    * @return priorityId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Integer getPriorityId() {
     return priorityId;
   }
 
-
-  public void setPriorityId(Integer priorityId) {
+  public void setPriorityId(@javax.annotation.Nullable Integer priorityId) {
     this.priorityId = priorityId;
   }
 
 
-  public Decision clickUrl(URI clickUrl) {
-    
+  public Decision clickUrl(@javax.annotation.Nullable URI clickUrl) {
     this.clickUrl = clickUrl;
     return this;
   }
 
-   /**
+  /**
    * Get clickUrl
    * @return clickUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public URI getClickUrl() {
     return clickUrl;
   }
 
-
-  public void setClickUrl(URI clickUrl) {
+  public void setClickUrl(@javax.annotation.Nullable URI clickUrl) {
     this.clickUrl = clickUrl;
   }
 
 
-  public Decision contents(List<Content> contents) {
-    
+  public Decision contents(@javax.annotation.Nullable List<Content> contents) {
     this.contents = contents;
     return this;
   }
 
   public Decision addContentsItem(Content contentsItem) {
     if (this.contents == null) {
-      this.contents = new ArrayList<Content>();
+      this.contents = new ArrayList<>();
     }
     this.contents.add(contentsItem);
     return this;
   }
 
-   /**
+  /**
    * Get contents
    * @return contents
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<Content> getContents() {
     return contents;
   }
 
-
-  public void setContents(List<Content> contents) {
+  public void setContents(@javax.annotation.Nullable List<Content> contents) {
     this.contents = contents;
   }
 
 
-  public Decision impressionUrl(URI impressionUrl) {
-    
+  public Decision impressionUrl(@javax.annotation.Nullable URI impressionUrl) {
     this.impressionUrl = impressionUrl;
     return this;
   }
 
-   /**
+  /**
    * Get impressionUrl
    * @return impressionUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public URI getImpressionUrl() {
     return impressionUrl;
   }
 
-
-  public void setImpressionUrl(URI impressionUrl) {
+  public void setImpressionUrl(@javax.annotation.Nullable URI impressionUrl) {
     this.impressionUrl = impressionUrl;
   }
 
 
-  public Decision events(List<Event> events) {
-    
+  public Decision events(@javax.annotation.Nullable List<Event> events) {
     this.events = events;
     return this;
   }
 
   public Decision addEventsItem(Event eventsItem) {
     if (this.events == null) {
-      this.events = new ArrayList<Event>();
+      this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
     return this;
   }
 
-   /**
+  /**
    * Get events
    * @return events
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<Event> getEvents() {
     return events;
   }
 
-
-  public void setEvents(List<Event> events) {
+  public void setEvents(@javax.annotation.Nullable List<Event> events) {
     this.events = events;
   }
 
 
-  public Decision matchedPoints(List<MatchedPoint> matchedPoints) {
-    
+  public Decision matchedPoints(@javax.annotation.Nullable List<MatchedPoint> matchedPoints) {
     this.matchedPoints = matchedPoints;
     return this;
   }
 
   public Decision addMatchedPointsItem(MatchedPoint matchedPointsItem) {
     if (this.matchedPoints == null) {
-      this.matchedPoints = new ArrayList<MatchedPoint>();
+      this.matchedPoints = new ArrayList<>();
     }
     this.matchedPoints.add(matchedPointsItem);
     return this;
   }
 
-   /**
+  /**
    * Get matchedPoints
    * @return matchedPoints
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<MatchedPoint> getMatchedPoints() {
     return matchedPoints;
   }
 
-
-  public void setMatchedPoints(List<MatchedPoint> matchedPoints) {
+  public void setMatchedPoints(@javax.annotation.Nullable List<MatchedPoint> matchedPoints) {
     this.matchedPoints = matchedPoints;
   }
 
 
-  public Decision pricing(PricingData pricing) {
-    
+  public Decision pricing(@javax.annotation.Nullable PricingData pricing) {
     this.pricing = pricing;
     return this;
   }
 
-   /**
+  /**
    * Get pricing
    * @return pricing
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PricingData getPricing() {
     return pricing;
   }
 
-
-  public void setPricing(PricingData pricing) {
+  public void setPricing(@javax.annotation.Nullable PricingData pricing) {
     this.pricing = pricing;
   }
+
 
 
   @Override
@@ -447,5 +435,152 @@ public class Decision implements Serializable {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("adId");
+    openapiFields.add("advertiserId");
+    openapiFields.add("creativeId");
+    openapiFields.add("flightId");
+    openapiFields.add("campaignId");
+    openapiFields.add("priorityId");
+    openapiFields.add("clickUrl");
+    openapiFields.add("contents");
+    openapiFields.add("impressionUrl");
+    openapiFields.add("events");
+    openapiFields.add("matchedPoints");
+    openapiFields.add("pricing");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Decision
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Decision.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Decision is not found in the empty JSON string", Decision.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!Decision.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Decision` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("clickUrl") != null && !jsonObj.get("clickUrl").isJsonNull()) && !jsonObj.get("clickUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `clickUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clickUrl").toString()));
+      }
+      if (jsonObj.get("contents") != null && !jsonObj.get("contents").isJsonNull()) {
+        JsonArray jsonArraycontents = jsonObj.getAsJsonArray("contents");
+        if (jsonArraycontents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("contents").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `contents` to be an array in the JSON string but got `%s`", jsonObj.get("contents").toString()));
+          }
+
+          // validate the optional field `contents` (array)
+          for (int i = 0; i < jsonArraycontents.size(); i++) {
+            Content.validateJsonElement(jsonArraycontents.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("impressionUrl") != null && !jsonObj.get("impressionUrl").isJsonNull()) && !jsonObj.get("impressionUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `impressionUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("impressionUrl").toString()));
+      }
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            Event.validateJsonElement(jsonArrayevents.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("matchedPoints") != null && !jsonObj.get("matchedPoints").isJsonNull()) {
+        JsonArray jsonArraymatchedPoints = jsonObj.getAsJsonArray("matchedPoints");
+        if (jsonArraymatchedPoints != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("matchedPoints").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `matchedPoints` to be an array in the JSON string but got `%s`", jsonObj.get("matchedPoints").toString()));
+          }
+
+          // validate the optional field `matchedPoints` (array)
+          for (int i = 0; i < jsonArraymatchedPoints.size(); i++) {
+            MatchedPoint.validateJsonElement(jsonArraymatchedPoints.get(i));
+          };
+        }
+      }
+      // validate the optional field `pricing`
+      if (jsonObj.get("pricing") != null && !jsonObj.get("pricing").isJsonNull()) {
+        PricingData.validateJsonElement(jsonObj.get("pricing"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!Decision.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Decision' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<Decision> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Decision.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<Decision>() {
+           @Override
+           public void write(JsonWriter out, Decision value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public Decision read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of Decision given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Decision
+   * @throws IOException if the JSON string is invalid with respect to Decision
+   */
+  public static Decision fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Decision.class);
+  }
+
+  /**
+   * Convert an instance of Decision to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

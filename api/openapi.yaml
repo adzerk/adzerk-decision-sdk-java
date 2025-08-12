@@ -1,0 +1,1049 @@
+openapi: 3.0.1
+info:
+  description: Adzerk Decision API
+  title: Adzerk Decision API
+  version: "1.0"
+servers:
+- url: "{protocol}://e-{networkId}.adzerk.net"
+  variables:
+    protocol:
+      default: https
+      enum:
+      - http
+      - https
+    networkId:
+      default: "23"
+      description: Your Adzerk Network Id
+tags:
+- description: Adzerk Decision API Endpoint
+  name: decision
+- description: Adzerk UserDB
+  name: userdb
+paths:
+  /api/v2:
+    post:
+      description: Request Decision(s)
+      operationId: getDecisions
+      requestBody:
+        content:
+          application/json:
+            examples:
+              "0":
+                value: "{\"placements\": [{ \"divName\": \"header\", \"networkId\"\
+                  : 23, \"siteId\": 667480, \"adTypes\": [5] }] }"
+              "1":
+                value: "{\"placements\": [{ \"divName\": \"header\", \"networkId\"\
+                  : 23, \"siteId\": 667480, \"adTypes\": [5] }], \"user\": { \"key\"\
+                  : \"ABC123\" } }"
+              "2":
+                value: "{\"placements\": [{ \"divName\": \"header\", \"networkId\"\
+                  : 23, \"siteId\": 667480, \"adTypes\": [5], \"count\": 5 }], \"\
+                  user\": { \"key\": \"ABC123\" } }"
+              "3":
+                value: "{\"placements\": [{ \"divName\": \"header\", \"networkId\"\
+                  : 23, \"siteId\": 667480, \"adTypes\": [5], \"count\": 5 }], \"\
+                  user\": { \"key\": \"ABC123\" }, \"includePricingData\": true }"
+              "4":
+                value: "{\"placements\": [{ \"divName\": \"header\", \"networkId\"\
+                  : 23, \"siteId\": 667480, \"adTypes\": [5], \"eventIds\": [1, 2],\
+                  \ \"count\": 5}], \"user\": { \"key\": \"ABC123\" }, \"includePricingData\"\
+                  : true }"
+            schema:
+              $ref: '#/components/schemas/DecisionRequest'
+      responses:
+        "400":
+          description: Bad Request
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecisionResponse'
+          description: Successful decision request
+      tags:
+      - decision
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /udb/{networkId}/custom:
+    post:
+      description: Add Custom Properties to a User
+      operationId: addCustomProperties
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: Success
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - userdb
+      x-content-type: application/json
+      x-accepts:
+      - image/gif
+  /udb/{networkId}/interest/i.gif:
+    get:
+      description: Add Interests to a User
+      operationId: addInterests
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Comma Seperated list of interests
+        explode: true
+        in: query
+        name: interest
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: Success
+      tags:
+      - userdb
+      x-accepts:
+      - image/gif
+  /udb/{networkId}/rt/{advertiserId}/{retargetingSegmentId}/i.gif:
+    get:
+      description: Add User to a Retargeting Segment
+      operationId: addRetargetingSegment
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The Advertiser's ID
+        explode: false
+        in: path
+        name: advertiserId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The Segment's ID
+        explode: false
+        in: path
+        name: retargetingSegmentId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: Success
+      tags:
+      - userdb
+      x-accepts:
+      - image/gif
+  /udb/{networkId}/optout/i.gif:
+    get:
+      description: Opt-Out a User
+      operationId: optOut
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: Sucess
+      tags:
+      - userdb
+      x-accepts:
+      - image/gif
+  /udb/{networkId}/read:
+    get:
+      description: Read a User's UserDB Record
+      operationId: read
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: The UserDB record
+      tags:
+      - userdb
+      x-accepts:
+      - application/json
+  /udb/{networkId}/ip/i.gif:
+    get:
+      description: IP Address Override
+      operationId: ipOverride
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: This is the IP to exclude
+        explode: true
+        in: query
+        name: ip
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: The updated UserDB record
+      tags:
+      - userdb
+      x-accepts:
+      - image/gif
+  /udb/{networkId}:
+    delete:
+      description: Forget User
+      operationId: forget
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - userdb
+      x-accepts:
+      - application/json
+  /udb/{networkId}/consent:
+    post:
+      description: GDPR Consent
+      operationId: gdprConsent
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequest'
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: Success
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - userdb
+      x-content-type: application/json
+      x-accepts:
+      - image/gif
+  /udb/{networkId}/sync/i.gif:
+    get:
+      description: User Matching
+      operationId: matchUser
+      parameters:
+      - description: Your Network Id
+        explode: false
+        in: path
+        name: networkId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The User's UserDB Key
+        explode: true
+        in: query
+        name: userKey
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: The ID of the RTB provider in Adzerk. Contact Support if you
+          don't have the ID.
+        explode: true
+        in: query
+        name: partnerId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: This is the UserID the individual RTB provider has of the user.
+          This is NOT the UserDB userkey.
+        explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            image/gif:
+              schema:
+                format: binary
+                type: string
+          description: Success
+      tags:
+      - userdb
+      x-accepts:
+      - image/gif
+components:
+  schemas:
+    DecisionRequest:
+      example:
+        intendedLongitude: 1.4894159
+        keywords:
+        - keywords
+        - keywords
+        notrack: true
+        intendedLatitude: 1.0246457
+        enableUserDBIP: true
+        ip: ip
+        placements:
+        - clickUrl: clickUrl
+          floorPrice: 4.145608
+          divName: divName
+          contentKeys:
+            key: contentKeys
+          campaignId: 5
+          count: 3
+          adQuery: "{}"
+          flightId: 2
+          overrides: "{}"
+          ecpmPartition: ecpmPartition
+          eventIds:
+          - 9
+          - 9
+          adTypes:
+          - 1
+          - 1
+          skipFilters:
+            siteZone: true
+            distance: true
+            placementLimit: true
+            location: true
+            keyword: true
+            facet: true
+            geodistance: true
+            geolocation: true
+          proportionality: true
+          zoneIds:
+          - 5
+          - 5
+          adId: 7
+          eventMultiplier: -59457539
+          skipSelection: true
+          siteId: 6
+          floorCpc: 7.386282
+          networkId: 0
+          ecpmPartitions:
+          - ecpmPartitions
+          - ecpmPartitions
+          properties: "{}"
+        - clickUrl: clickUrl
+          floorPrice: 4.145608
+          divName: divName
+          contentKeys:
+            key: contentKeys
+          campaignId: 5
+          count: 3
+          adQuery: "{}"
+          flightId: 2
+          overrides: "{}"
+          ecpmPartition: ecpmPartition
+          eventIds:
+          - 9
+          - 9
+          adTypes:
+          - 1
+          - 1
+          skipFilters:
+            siteZone: true
+            distance: true
+            placementLimit: true
+            location: true
+            keyword: true
+            facet: true
+            geodistance: true
+            geolocation: true
+          proportionality: true
+          zoneIds:
+          - 5
+          - 5
+          adId: 7
+          eventMultiplier: -59457539
+          skipSelection: true
+          siteId: 6
+          floorCpc: 7.386282
+          networkId: 0
+          ecpmPartitions:
+          - ecpmPartitions
+          - ecpmPartitions
+          properties: "{}"
+        consent: "{}"
+        deviceID: deviceID
+        url: url
+        includeMatchedPoints: true
+        referrer: referrer
+        parallel: true
+        includePricingData: true
+        isMobile: true
+        radius: 6.846853
+        user:
+          key: key
+        enableBotFiltering: true
+        blockedCreatives:
+        - 1
+        - 1
+      properties:
+        placements:
+          description: One or more Placement objects
+          items:
+            $ref: '#/components/schemas/Placement'
+          type: array
+        user:
+          $ref: '#/components/schemas/User'
+        keywords:
+          description: "Keywords for keyword Targeting. Such as `\"keywords\": [\"\
+            foo\", \"bar\", \"baz\"]`."
+          items:
+            type: string
+          nullable: true
+          type: array
+        url:
+          description: The current page URL
+          nullable: true
+          type: string
+        referrer:
+          description: The referrer URL
+          nullable: true
+          type: string
+        ip:
+          description: "The IP address. Required for [Geo-Targeting](https://dev.adzerk.com/docs/geo-location)"
+          nullable: true
+          type: string
+        blockedCreatives:
+          description: Numeric creative ids to disregard for ad selection
+          items:
+            type: integer
+          nullable: true
+          type: array
+        isMobile:
+          deprecated: true
+          description: "If true, only ads containing a single image will be returned"
+          nullable: true
+          type: boolean
+        includePricingData:
+          description: "If true, return pricing data for the decision in the response"
+          nullable: true
+          type: boolean
+        notrack:
+          description: "If true, only return ads that are set to honor Do Not Track"
+          nullable: true
+          type: boolean
+        enableBotFiltering:
+          description: "If making a client-side request, set to true. Defaults to\
+            \ false to ensure a server isn't seen as a bot. See [here](https://dev.adzerk.com/docs/tracking-overview#section-bot-filtering)\
+            \ for more info"
+          nullable: true
+          type: boolean
+        enableUserDBIP:
+          description: "If true, override the IP address of the request with the IP\
+            \ address supplied on the UserKey. If no IP address is found on the UserKey,\
+            \ this will fall back to the IP address on the request. Requires UserDB"
+          nullable: true
+          type: boolean
+        consent:
+          description: Object that sets the data consent preferences. Other consent
+            settings are available in the GDPR settings documentation.
+          nullable: true
+          type: object
+        deviceID:
+          description: RTB requests only - sets an Identifier for Advertisers (IFA
+            or IDFA)
+          nullable: true
+          type: string
+        parallel:
+          nullable: true
+          type: boolean
+        intendedLatitude:
+          format: float
+          nullable: true
+          type: number
+        intendedLongitude:
+          format: float
+          nullable: true
+          type: number
+        radius:
+          format: float
+          nullable: true
+          type: number
+        includeMatchedPoints:
+          nullable: true
+          type: boolean
+      required:
+      - placements
+      type: object
+    Placement:
+      example:
+        clickUrl: clickUrl
+        floorPrice: 4.145608
+        divName: divName
+        contentKeys:
+          key: contentKeys
+        campaignId: 5
+        count: 3
+        adQuery: "{}"
+        flightId: 2
+        overrides: "{}"
+        ecpmPartition: ecpmPartition
+        eventIds:
+        - 9
+        - 9
+        adTypes:
+        - 1
+        - 1
+        skipFilters:
+          siteZone: true
+          distance: true
+          placementLimit: true
+          location: true
+          keyword: true
+          facet: true
+          geodistance: true
+          geolocation: true
+        proportionality: true
+        zoneIds:
+        - 5
+        - 5
+        adId: 7
+        eventMultiplier: -59457539
+        skipSelection: true
+        siteId: 6
+        floorCpc: 7.386282
+        networkId: 0
+        ecpmPartitions:
+        - ecpmPartitions
+        - ecpmPartitions
+        properties: "{}"
+      properties:
+        divName:
+          description: A unique name for the placement defined by you
+          type: string
+        networkId:
+          description: The numeric network id
+          format: int32
+          type: integer
+        siteId:
+          description: The numeric site id
+          format: int32
+          type: integer
+        adTypes:
+          description: "One or more integer ad types. More info [here](https://dev.adzerk.com/docs/ad-sizes)"
+          items:
+            type: integer
+          type: array
+        zoneIds:
+          description: Zone IDs to use
+          items:
+            type: integer
+          nullable: true
+          type: array
+        campaignId:
+          description: "A numeric campaign id; if specified, only consider ads in\
+            \ that campaign"
+          format: int32
+          nullable: true
+          type: integer
+        flightId:
+          description: "A numeric ad (flight-creative map) id; if specified, only\
+            \ serve that ad if possible"
+          format: int32
+          nullable: true
+          type: integer
+        adId:
+          description: "A numeric ad (flight-creative map) id; if specified, only\
+            \ serve that ad if possible"
+          format: int32
+          nullable: true
+          type: integer
+        clickUrl:
+          description: The ad's click-through URL
+          nullable: true
+          type: string
+        properties:
+          description: "A map of key/value pairs used for [Custom Targeting](https://dev.adzerk.com/docs/custom-targeting)"
+          nullable: true
+          type: object
+        eventIds:
+          description: "An array of numeric event types. Requests tracking URLs for\
+            \ custom events. See here for [Event Tracking IDs](https://dev.adzerk.com/v1.0/docs/custom-event-tracking)"
+          items:
+            type: integer
+          nullable: true
+          type: array
+        overrides:
+          description: "An object that overrides values for an advertiser, campaign,\
+            \ flight or ad. Used especially for header bidding"
+          nullable: true
+          type: object
+        contentKeys:
+          additionalProperties:
+            type: string
+          description: "A map of key/value pairs used with [ContentDB](https://dev.adzerk.com/docs/contentdb-1).\
+            \ The format is `\"contentKeys\": {\"schema\": \"contentKey\"}`"
+          nullable: true
+          type: object
+        count:
+          description: (BETA) The number of ads to return per placement. Integer between
+            1 and 20
+          format: int32
+          nullable: true
+          type: integer
+        proportionality:
+          description: "(BETA) If true, fills ads in a multi-winner placement in proportion\
+            \ to the flight's goals"
+          nullable: true
+          type: boolean
+        ecpmPartition:
+          deprecated: true
+          description: (BETA) The name of the eCPM Partition that should be used to
+            source eCPM data for auctions
+          nullable: true
+          type: string
+        ecpmPartitions:
+          description: (BETA) The names of the eCPM Partitions that should be used
+            to source eCPM data for auctions
+          items:
+            type: string
+          nullable: true
+          type: array
+        eventMultiplier:
+          format: int32
+          maximum: 100000000
+          minimum: -100000000
+          nullable: true
+          type: integer
+        skipSelection:
+          nullable: true
+          type: boolean
+        adQuery:
+          nullable: true
+          type: object
+        floorPrice:
+          format: float
+          nullable: true
+          type: number
+        floorCpc:
+          format: float
+          nullable: true
+          type: number
+        skipFilters:
+          $ref: '#/components/schemas/SkipFilters'
+      type: object
+    User:
+      description: "Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)"
+      example:
+        key: key
+      properties:
+        key:
+          description: The UserKey used for UserDB Targeting
+          type: string
+      type: object
+    Decision:
+      example:
+        clickUrl: https://openapi-generator.tech
+        matchedPoints:
+        - lon: lon
+          lat: lat
+        - lon: lon
+          lat: lat
+        adId: 0
+        contents:
+        - template: template
+          data: "{}"
+          type: type
+          body: body
+          customTemplate: customTemplate
+        - template: template
+          data: "{}"
+          type: type
+          body: body
+          customTemplate: customTemplate
+        impressionUrl: https://openapi-generator.tech
+        campaignId: 5
+        flightId: 5
+        creativeId: 1
+        events:
+        - id: 7
+          url: https://openapi-generator.tech
+        - id: 7
+          url: https://openapi-generator.tech
+        pricing:
+          clearPrice: 3.6160767
+          rateType: 4
+          revenue: 2.027123
+          eCPM: 7.386282
+          price: 9.301444
+        advertiserId: 6
+        priorityId: 2
+      properties:
+        adId:
+          type: integer
+        advertiserId:
+          type: integer
+        creativeId:
+          type: integer
+        flightId:
+          type: integer
+        campaignId:
+          type: integer
+        priorityId:
+          type: integer
+        clickUrl:
+          format: uri
+          type: string
+        contents:
+          items:
+            $ref: '#/components/schemas/Content'
+          type: array
+        impressionUrl:
+          format: uri
+          type: string
+        events:
+          items:
+            $ref: '#/components/schemas/Event'
+          type: array
+        matchedPoints:
+          items:
+            $ref: '#/components/schemas/MatchedPoint'
+          type: array
+        pricing:
+          $ref: '#/components/schemas/PricingData'
+      type: object
+    Event:
+      example:
+        id: 7
+        url: https://openapi-generator.tech
+      properties:
+        id:
+          format: int32
+          type: integer
+        url:
+          format: uri
+          type: string
+      type: object
+    Content:
+      example:
+        template: template
+        data: "{}"
+        type: type
+        body: body
+        customTemplate: customTemplate
+      properties:
+        type:
+          type: string
+        template:
+          type: string
+        customTemplate:
+          type: string
+        data:
+          type: object
+        body:
+          type: string
+      type: object
+    PricingData:
+      example:
+        clearPrice: 3.6160767
+        rateType: 4
+        revenue: 2.027123
+        eCPM: 7.386282
+        price: 9.301444
+      properties:
+        price:
+          format: float
+          type: number
+        clearPrice:
+          format: float
+          type: number
+        revenue:
+          format: float
+          type: number
+        rateType:
+          type: integer
+        eCPM:
+          format: float
+          type: number
+      type: object
+    DecisionResponse:
+      example:
+        explain: "{}"
+        decisions:
+          key:
+            clickUrl: https://openapi-generator.tech
+            matchedPoints:
+            - lon: lon
+              lat: lat
+            - lon: lon
+              lat: lat
+            adId: 0
+            contents:
+            - template: template
+              data: "{}"
+              type: type
+              body: body
+              customTemplate: customTemplate
+            - template: template
+              data: "{}"
+              type: type
+              body: body
+              customTemplate: customTemplate
+            impressionUrl: https://openapi-generator.tech
+            campaignId: 5
+            flightId: 5
+            creativeId: 1
+            events:
+            - id: 7
+              url: https://openapi-generator.tech
+            - id: 7
+              url: https://openapi-generator.tech
+            pricing:
+              clearPrice: 3.6160767
+              rateType: 4
+              revenue: 2.027123
+              eCPM: 7.386282
+              price: 9.301444
+            advertiserId: 6
+            priorityId: 2
+        user:
+          key: key
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        decisions:
+          additionalProperties:
+            $ref: '#/components/schemas/DecisionResponse_decisions_value'
+          description: Single decision format with dynamic string key
+          type: object
+        explain:
+          type: object
+      type: object
+    ConsentRequest:
+      example:
+        consent: "{}"
+        userKey: userKey
+      properties:
+        userKey:
+          type: string
+        consent:
+          type: object
+      type: object
+    MatchedPoint:
+      example:
+        lon: lon
+        lat: lat
+      properties:
+        lat:
+          type: string
+        lon:
+          type: string
+      type: object
+    GeoDistanceSkipFilter:
+      description: "Geodistance filter, which skips geodistance targeting if true."
+      type: boolean
+    GeoLocationSkipFilter:
+      description: "Geolocation filter, which skips location targeting if true."
+      type: boolean
+    SkipFilters:
+      example:
+        siteZone: true
+        distance: true
+        placementLimit: true
+        location: true
+        keyword: true
+        facet: true
+        geodistance: true
+        geolocation: true
+      properties:
+        distance:
+          description: "Geodistance filter, which skips geodistance targeting if true."
+          type: boolean
+        facet:
+          description: "Facet targeting filter, which skips facet targeting if true."
+          type: boolean
+        geodistance:
+          description: "Geodistance filter, which skips geodistance targeting if true."
+          type: boolean
+        geolocation:
+          description: "Geolocation filter, which skips location targeting if true."
+          type: boolean
+        keyword:
+          description: "Keyword limit filter, which skips all (ad and/or flight) keyword\
+            \ targeting if true."
+          type: boolean
+        location:
+          description: "Geolocation filter, which skips location targeting if true."
+          type: boolean
+        placementLimit:
+          description: "Placement limit filter, where no advertiser placement limit\
+            \ if true."
+          type: boolean
+        siteZone:
+          description: "Site/zone limit filter, which skips site/zone targeting if\
+            \ true."
+          type: boolean
+      type: object
+    DecisionResponse_decisions_value:
+      anyOf:
+      - $ref: '#/components/schemas/Decision'
+      - description: Array of decision objects
+        items:
+          $ref: '#/components/schemas/Decision'
+        type: array
+  securitySchemes:
+    ApiKeyAuth:
+      in: header
+      name: X-Adzerk-ApiKey
+      type: apiKey
+
