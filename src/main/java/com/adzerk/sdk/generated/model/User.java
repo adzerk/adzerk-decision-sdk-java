@@ -49,7 +49,7 @@ import com.adzerk.sdk.generated.JSON;
 /**
  * Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
 public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -124,11 +124,10 @@ public class User implements Serializable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("key");
+    openapiFields = new HashSet<String>(Arrays.asList("key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**

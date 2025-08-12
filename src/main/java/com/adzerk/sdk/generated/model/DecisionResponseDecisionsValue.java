@@ -66,7 +66,7 @@ import com.google.gson.JsonParseException;
 
 import com.adzerk.sdk.generated.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
 public class DecisionResponseDecisionsValue extends AbstractOpenApiSchema implements Serializable {
     private static final Logger log = Logger.getLogger(DecisionResponseDecisionsValue.class.getName());
 

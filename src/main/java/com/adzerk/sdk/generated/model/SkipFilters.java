@@ -49,7 +49,7 @@ import com.adzerk.sdk.generated.JSON;
 /**
  * SkipFilters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
 public class SkipFilters implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -306,18 +306,10 @@ public class SkipFilters implements Serializable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("distance");
-    openapiFields.add("facet");
-    openapiFields.add("geodistance");
-    openapiFields.add("geolocation");
-    openapiFields.add("keyword");
-    openapiFields.add("location");
-    openapiFields.add("placementLimit");
-    openapiFields.add("siteZone");
+    openapiFields = new HashSet<String>(Arrays.asList("distance", "facet", "geodistance", "geolocation", "keyword", "location", "placementLimit", "siteZone"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**

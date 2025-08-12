@@ -54,7 +54,7 @@ import com.adzerk.sdk.generated.JSON;
 /**
  * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
 public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -637,30 +637,10 @@ public class DecisionRequest implements Serializable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("placements");
-    openapiFields.add("user");
-    openapiFields.add("keywords");
-    openapiFields.add("url");
-    openapiFields.add("referrer");
-    openapiFields.add("ip");
-    openapiFields.add("blockedCreatives");
-    openapiFields.add("isMobile");
-    openapiFields.add("includePricingData");
-    openapiFields.add("notrack");
-    openapiFields.add("enableBotFiltering");
-    openapiFields.add("enableUserDBIP");
-    openapiFields.add("consent");
-    openapiFields.add("deviceID");
-    openapiFields.add("parallel");
-    openapiFields.add("intendedLatitude");
-    openapiFields.add("intendedLongitude");
-    openapiFields.add("radius");
-    openapiFields.add("includeMatchedPoints");
+    openapiFields = new HashSet<String>(Arrays.asList("placements", "user", "keywords", "url", "referrer", "ip", "blockedCreatives", "isMobile", "includePricingData", "notrack", "enableBotFiltering", "enableUserDBIP", "consent", "deviceID", "parallel", "intendedLatitude", "intendedLongitude", "radius", "includeMatchedPoints"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("placements");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("placements"));
   }
 
   /**

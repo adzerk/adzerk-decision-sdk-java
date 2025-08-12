@@ -47,60 +47,36 @@ import java.util.Set;
 import com.adzerk.sdk.generated.JSON;
 
 /**
- * ConsentRequest
+ * CandidateRetrieval
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
-public class ConsentRequest implements Serializable {
+public class CandidateRetrieval implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_USER_KEY = "userKey";
-  @SerializedName(SERIALIZED_NAME_USER_KEY)
+  public static final String SERIALIZED_NAME_CANDIDATES_FOUND_COUNT = "candidatesFoundCount";
+  @SerializedName(SERIALIZED_NAME_CANDIDATES_FOUND_COUNT)
   @javax.annotation.Nullable
-  private String userKey;
+  private Integer candidatesFoundCount;
 
-  public static final String SERIALIZED_NAME_CONSENT = "consent";
-  @SerializedName(SERIALIZED_NAME_CONSENT)
-  @javax.annotation.Nullable
-  private Object consent;
-
-  public ConsentRequest() {
+  public CandidateRetrieval() {
   }
 
-  public ConsentRequest userKey(@javax.annotation.Nullable String userKey) {
-    this.userKey = userKey;
+  public CandidateRetrieval candidatesFoundCount(@javax.annotation.Nullable Integer candidatesFoundCount) {
+    this.candidatesFoundCount = candidatesFoundCount;
     return this;
   }
 
   /**
-   * Get userKey
-   * @return userKey
+   * Get candidatesFoundCount
+   * @return candidatesFoundCount
    */
   @javax.annotation.Nullable
-  public String getUserKey() {
-    return userKey;
+  public Integer getCandidatesFoundCount() {
+    return candidatesFoundCount;
   }
 
-  public void setUserKey(@javax.annotation.Nullable String userKey) {
-    this.userKey = userKey;
-  }
-
-
-  public ConsentRequest consent(@javax.annotation.Nullable Object consent) {
-    this.consent = consent;
-    return this;
-  }
-
-  /**
-   * Get consent
-   * @return consent
-   */
-  @javax.annotation.Nullable
-  public Object getConsent() {
-    return consent;
-  }
-
-  public void setConsent(@javax.annotation.Nullable Object consent) {
-    this.consent = consent;
+  public void setCandidatesFoundCount(@javax.annotation.Nullable Integer candidatesFoundCount) {
+    this.candidatesFoundCount = candidatesFoundCount;
   }
 
 
@@ -113,22 +89,20 @@ public class ConsentRequest implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConsentRequest consentRequest = (ConsentRequest) o;
-    return Objects.equals(this.userKey, consentRequest.userKey) &&
-        Objects.equals(this.consent, consentRequest.consent);
+    CandidateRetrieval candidateRetrieval = (CandidateRetrieval) o;
+    return Objects.equals(this.candidatesFoundCount, candidateRetrieval.candidatesFoundCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userKey, consent);
+    return Objects.hash(candidatesFoundCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConsentRequest {\n");
-    sb.append("    userKey: ").append(toIndentedString(userKey)).append("\n");
-    sb.append("    consent: ").append(toIndentedString(consent)).append("\n");
+    sb.append("class CandidateRetrieval {\n");
+    sb.append("    candidatesFoundCount: ").append(toIndentedString(candidatesFoundCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,7 +124,7 @@ public class ConsentRequest implements Serializable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("userKey", "consent"));
+    openapiFields = new HashSet<String>(Arrays.asList("candidatesFoundCount"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -160,48 +134,45 @@ public class ConsentRequest implements Serializable {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConsentRequest
+   * @throws IOException if the JSON Element is invalid with respect to CandidateRetrieval
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ConsentRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ConsentRequest is not found in the empty JSON string", ConsentRequest.openapiRequiredFields.toString()));
+        if (!CandidateRetrieval.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CandidateRetrieval is not found in the empty JSON string", CandidateRetrieval.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ConsentRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConsentRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!CandidateRetrieval.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CandidateRetrieval` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("userKey") != null && !jsonObj.get("userKey").isJsonNull()) && !jsonObj.get("userKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userKey").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConsentRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConsentRequest' and its subtypes
+       if (!CandidateRetrieval.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CandidateRetrieval' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConsentRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConsentRequest.class));
+       final TypeAdapter<CandidateRetrieval> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CandidateRetrieval.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ConsentRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CandidateRetrieval>() {
            @Override
-           public void write(JsonWriter out, ConsentRequest value) throws IOException {
+           public void write(JsonWriter out, CandidateRetrieval value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ConsentRequest read(JsonReader in) throws IOException {
+           public CandidateRetrieval read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -212,18 +183,18 @@ public class ConsentRequest implements Serializable {
   }
 
   /**
-   * Create an instance of ConsentRequest given an JSON string
+   * Create an instance of CandidateRetrieval given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ConsentRequest
-   * @throws IOException if the JSON string is invalid with respect to ConsentRequest
+   * @return An instance of CandidateRetrieval
+   * @throws IOException if the JSON string is invalid with respect to CandidateRetrieval
    */
-  public static ConsentRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConsentRequest.class);
+  public static CandidateRetrieval fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CandidateRetrieval.class);
   }
 
   /**
-   * Convert an instance of ConsentRequest to an JSON string
+   * Convert an instance of CandidateRetrieval to an JSON string
    *
    * @return JSON string
    */

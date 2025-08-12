@@ -88,7 +88,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addCustomPropertiesCall(Integer networkId, String userKey, Object body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addCustomPropertiesCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nullable Object body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -139,7 +139,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addCustomPropertiesValidateBeforeCall(Integer networkId, String userKey, Object body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addCustomPropertiesValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nullable Object body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addCustomProperties(Async)");
@@ -169,7 +169,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public File addCustomProperties(Integer networkId, String userKey, Object body) throws ApiException {
+    public File addCustomProperties(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nullable Object body) throws ApiException {
         ApiResponse<File> localVarResp = addCustomPropertiesWithHttpInfo(networkId, userKey, body);
         return localVarResp.getData();
     }
@@ -189,7 +189,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> addCustomPropertiesWithHttpInfo(Integer networkId, String userKey, Object body) throws ApiException {
+    public ApiResponse<File> addCustomPropertiesWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nullable Object body) throws ApiException {
         okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(networkId, userKey, body, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -211,7 +211,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addCustomPropertiesAsync(Integer networkId, String userKey, Object body, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call addCustomPropertiesAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nullable Object body, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addCustomPropertiesValidateBeforeCall(networkId, userKey, body, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -233,7 +233,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addInterestsCall(Integer networkId, String userKey, String interest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addInterestsCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String interest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -287,7 +287,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addInterestsValidateBeforeCall(Integer networkId, String userKey, String interest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addInterestsValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String interest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addInterests(Async)");
@@ -322,7 +322,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public File addInterests(Integer networkId, String userKey, String interest) throws ApiException {
+    public File addInterests(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String interest) throws ApiException {
         ApiResponse<File> localVarResp = addInterestsWithHttpInfo(networkId, userKey, interest);
         return localVarResp.getData();
     }
@@ -342,7 +342,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> addInterestsWithHttpInfo(Integer networkId, String userKey, String interest) throws ApiException {
+    public ApiResponse<File> addInterestsWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String interest) throws ApiException {
         okhttp3.Call localVarCall = addInterestsValidateBeforeCall(networkId, userKey, interest, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -364,7 +364,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addInterestsAsync(Integer networkId, String userKey, String interest, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call addInterestsAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String interest, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addInterestsValidateBeforeCall(networkId, userKey, interest, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -387,7 +387,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addRetargetingSegmentCall(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addRetargetingSegmentCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull Integer advertiserId, @javax.annotation.Nonnull Integer retargetingSegmentId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -439,7 +439,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addRetargetingSegmentValidateBeforeCall(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addRetargetingSegmentValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull Integer advertiserId, @javax.annotation.Nonnull Integer retargetingSegmentId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling addRetargetingSegment(Async)");
@@ -480,7 +480,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public File addRetargetingSegment(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
+    public File addRetargetingSegment(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull Integer advertiserId, @javax.annotation.Nonnull Integer retargetingSegmentId, @javax.annotation.Nonnull String userKey) throws ApiException {
         ApiResponse<File> localVarResp = addRetargetingSegmentWithHttpInfo(networkId, advertiserId, retargetingSegmentId, userKey);
         return localVarResp.getData();
     }
@@ -501,7 +501,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> addRetargetingSegmentWithHttpInfo(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey) throws ApiException {
+    public ApiResponse<File> addRetargetingSegmentWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull Integer advertiserId, @javax.annotation.Nonnull Integer retargetingSegmentId, @javax.annotation.Nonnull String userKey) throws ApiException {
         okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(networkId, advertiserId, retargetingSegmentId, userKey, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -524,7 +524,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addRetargetingSegmentAsync(Integer networkId, Integer advertiserId, Integer retargetingSegmentId, String userKey, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call addRetargetingSegmentAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull Integer advertiserId, @javax.annotation.Nonnull Integer retargetingSegmentId, @javax.annotation.Nonnull String userKey, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addRetargetingSegmentValidateBeforeCall(networkId, advertiserId, retargetingSegmentId, userKey, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -545,7 +545,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call forgetCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call forgetCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -594,7 +594,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call forgetValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call forgetValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling forget(Async)");
@@ -622,7 +622,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public void forget(Integer networkId, String userKey) throws ApiException {
+    public void forget(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey) throws ApiException {
         forgetWithHttpInfo(networkId, userKey);
     }
 
@@ -640,7 +640,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> forgetWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+    public ApiResponse<Void> forgetWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey) throws ApiException {
         okhttp3.Call localVarCall = forgetValidateBeforeCall(networkId, userKey, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -660,7 +660,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call forgetAsync(Integer networkId, String userKey, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call forgetAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = forgetValidateBeforeCall(networkId, userKey, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -680,7 +680,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gdprConsentCall(Integer networkId, ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gdprConsentCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nullable ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,7 +727,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gdprConsentValidateBeforeCall(Integer networkId, ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call gdprConsentValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nullable ConsentRequest consentRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling gdprConsent(Async)");
@@ -751,7 +751,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public File gdprConsent(Integer networkId, ConsentRequest consentRequest) throws ApiException {
+    public File gdprConsent(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nullable ConsentRequest consentRequest) throws ApiException {
         ApiResponse<File> localVarResp = gdprConsentWithHttpInfo(networkId, consentRequest);
         return localVarResp.getData();
     }
@@ -770,7 +770,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> gdprConsentWithHttpInfo(Integer networkId, ConsentRequest consentRequest) throws ApiException {
+    public ApiResponse<File> gdprConsentWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nullable ConsentRequest consentRequest) throws ApiException {
         okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, consentRequest, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -791,7 +791,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gdprConsentAsync(Integer networkId, ConsentRequest consentRequest, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call gdprConsentAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nullable ConsentRequest consentRequest, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gdprConsentValidateBeforeCall(networkId, consentRequest, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -813,7 +813,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ipOverrideCall(Integer networkId, String userKey, String ip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ipOverrideCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String ip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -867,7 +867,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ipOverrideValidateBeforeCall(Integer networkId, String userKey, String ip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ipOverrideValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String ip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling ipOverride(Async)");
@@ -902,7 +902,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public File ipOverride(Integer networkId, String userKey, String ip) throws ApiException {
+    public File ipOverride(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String ip) throws ApiException {
         ApiResponse<File> localVarResp = ipOverrideWithHttpInfo(networkId, userKey, ip);
         return localVarResp.getData();
     }
@@ -922,7 +922,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> ipOverrideWithHttpInfo(Integer networkId, String userKey, String ip) throws ApiException {
+    public ApiResponse<File> ipOverrideWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String ip) throws ApiException {
         okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, userKey, ip, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -944,7 +944,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The updated UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ipOverrideAsync(Integer networkId, String userKey, String ip, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call ipOverrideAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull String ip, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = ipOverrideValidateBeforeCall(networkId, userKey, ip, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -967,7 +967,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call matchUserCall(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call matchUserCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull Integer partnerId, @javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1025,7 +1025,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call matchUserValidateBeforeCall(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call matchUserValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull Integer partnerId, @javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling matchUser(Async)");
@@ -1066,7 +1066,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public File matchUser(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
+    public File matchUser(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull Integer partnerId, @javax.annotation.Nonnull Integer userId) throws ApiException {
         ApiResponse<File> localVarResp = matchUserWithHttpInfo(networkId, userKey, partnerId, userId);
         return localVarResp.getData();
     }
@@ -1087,7 +1087,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> matchUserWithHttpInfo(Integer networkId, String userKey, Integer partnerId, Integer userId) throws ApiException {
+    public ApiResponse<File> matchUserWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull Integer partnerId, @javax.annotation.Nonnull Integer userId) throws ApiException {
         okhttp3.Call localVarCall = matchUserValidateBeforeCall(networkId, userKey, partnerId, userId, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1110,7 +1110,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call matchUserAsync(Integer networkId, String userKey, Integer partnerId, Integer userId, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call matchUserAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, @javax.annotation.Nonnull Integer partnerId, @javax.annotation.Nonnull Integer userId, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = matchUserValidateBeforeCall(networkId, userKey, partnerId, userId, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -1131,7 +1131,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optOutCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call optOutCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1181,7 +1181,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call optOutValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call optOutValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling optOut(Async)");
@@ -1210,7 +1210,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public File optOut(Integer networkId, String userKey) throws ApiException {
+    public File optOut(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey) throws ApiException {
         ApiResponse<File> localVarResp = optOutWithHttpInfo(networkId, userKey);
         return localVarResp.getData();
     }
@@ -1229,7 +1229,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> optOutWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+    public ApiResponse<File> optOutWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey) throws ApiException {
         okhttp3.Call localVarCall = optOutValidateBeforeCall(networkId, userKey, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1250,7 +1250,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> Sucess </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optOutAsync(Integer networkId, String userKey, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call optOutAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = optOutValidateBeforeCall(networkId, userKey, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -1271,7 +1271,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call readCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1321,7 +1321,7 @@ public class UserdbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readValidateBeforeCall(Integer networkId, String userKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readValidateBeforeCall(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkId' is set
         if (networkId == null) {
             throw new ApiException("Missing the required parameter 'networkId' when calling read(Async)");
@@ -1350,7 +1350,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public Object read(Integer networkId, String userKey) throws ApiException {
+    public Object read(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey) throws ApiException {
         ApiResponse<Object> localVarResp = readWithHttpInfo(networkId, userKey);
         return localVarResp.getData();
     }
@@ -1369,7 +1369,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> readWithHttpInfo(Integer networkId, String userKey) throws ApiException {
+    public ApiResponse<Object> readWithHttpInfo(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey) throws ApiException {
         okhttp3.Call localVarCall = readValidateBeforeCall(networkId, userKey, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1390,7 +1390,7 @@ public class UserdbApi {
         <tr><td> 200 </td><td> The UserDB record </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readAsync(Integer networkId, String userKey, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call readAsync(@javax.annotation.Nonnull Integer networkId, @javax.annotation.Nonnull String userKey, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readValidateBeforeCall(networkId, userKey, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();

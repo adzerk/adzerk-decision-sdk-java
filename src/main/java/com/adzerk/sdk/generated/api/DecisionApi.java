@@ -87,7 +87,7 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecisionsCall(DecisionRequest decisionRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDecisionsCall(@javax.annotation.Nullable DecisionRequest decisionRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,7 +133,7 @@ public class DecisionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDecisionsValidateBeforeCall(DecisionRequest decisionRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDecisionsValidateBeforeCall(@javax.annotation.Nullable DecisionRequest decisionRequest, final ApiCallback _callback) throws ApiException {
         return getDecisionsCall(decisionRequest, _callback);
 
     }
@@ -152,7 +152,7 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public DecisionResponse getDecisions(DecisionRequest decisionRequest) throws ApiException {
+    public DecisionResponse getDecisions(@javax.annotation.Nullable DecisionRequest decisionRequest) throws ApiException {
         ApiResponse<DecisionResponse> localVarResp = getDecisionsWithHttpInfo(decisionRequest);
         return localVarResp.getData();
     }
@@ -171,7 +171,7 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DecisionResponse> getDecisionsWithHttpInfo(DecisionRequest decisionRequest) throws ApiException {
+    public ApiResponse<DecisionResponse> getDecisionsWithHttpInfo(@javax.annotation.Nullable DecisionRequest decisionRequest) throws ApiException {
         okhttp3.Call localVarCall = getDecisionsValidateBeforeCall(decisionRequest, null);
         Type localVarReturnType = new TypeToken<DecisionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -192,7 +192,7 @@ public class DecisionApi {
         <tr><td> 200 </td><td> Successful decision request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecisionsAsync(DecisionRequest decisionRequest, final ApiCallback<DecisionResponse> _callback) throws ApiException {
+    public okhttp3.Call getDecisionsAsync(@javax.annotation.Nullable DecisionRequest decisionRequest, final ApiCallback<DecisionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDecisionsValidateBeforeCall(decisionRequest, _callback);
         Type localVarReturnType = new TypeToken<DecisionResponse>(){}.getType();

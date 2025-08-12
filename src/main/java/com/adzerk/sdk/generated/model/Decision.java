@@ -56,7 +56,7 @@ import com.adzerk.sdk.generated.JSON;
 /**
  * Decision
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
 public class Decision implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -441,22 +441,10 @@ public class Decision implements Serializable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("adId");
-    openapiFields.add("advertiserId");
-    openapiFields.add("creativeId");
-    openapiFields.add("flightId");
-    openapiFields.add("campaignId");
-    openapiFields.add("priorityId");
-    openapiFields.add("clickUrl");
-    openapiFields.add("contents");
-    openapiFields.add("impressionUrl");
-    openapiFields.add("events");
-    openapiFields.add("matchedPoints");
-    openapiFields.add("pricing");
+    openapiFields = new HashSet<String>(Arrays.asList("adId", "advertiserId", "creativeId", "flightId", "campaignId", "priorityId", "clickUrl", "contents", "impressionUrl", "events", "matchedPoints", "pricing"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**

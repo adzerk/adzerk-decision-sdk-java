@@ -14,6 +14,7 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
+import com.adzerk.sdk.generated.model.CandidateRetrieval;
 import com.adzerk.sdk.generated.model.DecisionResponseDecisionsValue;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
@@ -53,7 +54,7 @@ import com.adzerk.sdk.generated.JSON;
 /**
  * DecisionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-11T20:55:27.270024+01:00[Europe/London]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-12T09:56:41.047269+01:00[Europe/London]", comments = "Generator version: 7.14.0")
 public class DecisionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,6 +72,11 @@ public class DecisionResponse implements Serializable {
   @SerializedName(SERIALIZED_NAME_EXPLAIN)
   @javax.annotation.Nullable
   private Object explain;
+
+  public static final String SERIALIZED_NAME_CANDIDATE_RETRIEVAL = "candidateRetrieval";
+  @SerializedName(SERIALIZED_NAME_CANDIDATE_RETRIEVAL)
+  @javax.annotation.Nullable
+  private Map<String, CandidateRetrieval> candidateRetrieval = new HashMap<>();
 
   public DecisionResponse() {
   }
@@ -140,6 +146,33 @@ public class DecisionResponse implements Serializable {
   }
 
 
+  public DecisionResponse candidateRetrieval(@javax.annotation.Nullable Map<String, CandidateRetrieval> candidateRetrieval) {
+    this.candidateRetrieval = candidateRetrieval;
+    return this;
+  }
+
+  public DecisionResponse putCandidateRetrievalItem(String key, CandidateRetrieval candidateRetrievalItem) {
+    if (this.candidateRetrieval == null) {
+      this.candidateRetrieval = new HashMap<>();
+    }
+    this.candidateRetrieval.put(key, candidateRetrievalItem);
+    return this;
+  }
+
+  /**
+   * Get candidateRetrieval
+   * @return candidateRetrieval
+   */
+  @javax.annotation.Nullable
+  public Map<String, CandidateRetrieval> getCandidateRetrieval() {
+    return candidateRetrieval;
+  }
+
+  public void setCandidateRetrieval(@javax.annotation.Nullable Map<String, CandidateRetrieval> candidateRetrieval) {
+    this.candidateRetrieval = candidateRetrieval;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -152,12 +185,13 @@ public class DecisionResponse implements Serializable {
     DecisionResponse decisionResponse = (DecisionResponse) o;
     return Objects.equals(this.user, decisionResponse.user) &&
         Objects.equals(this.decisions, decisionResponse.decisions) &&
-        Objects.equals(this.explain, decisionResponse.explain);
+        Objects.equals(this.explain, decisionResponse.explain) &&
+        Objects.equals(this.candidateRetrieval, decisionResponse.candidateRetrieval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, decisions, explain);
+    return Objects.hash(user, decisions, explain, candidateRetrieval);
   }
 
   @Override
@@ -167,6 +201,7 @@ public class DecisionResponse implements Serializable {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    decisions: ").append(toIndentedString(decisions)).append("\n");
     sb.append("    explain: ").append(toIndentedString(explain)).append("\n");
+    sb.append("    candidateRetrieval: ").append(toIndentedString(candidateRetrieval)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -188,13 +223,10 @@ public class DecisionResponse implements Serializable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("user");
-    openapiFields.add("decisions");
-    openapiFields.add("explain");
+    openapiFields = new HashSet<String>(Arrays.asList("user", "decisions", "explain", "candidateRetrieval"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
