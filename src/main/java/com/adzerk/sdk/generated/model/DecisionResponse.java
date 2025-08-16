@@ -14,109 +14,159 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
+import com.adzerk.sdk.generated.model.DecisionResponseDecisionsValue;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * DecisionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-16T20:15:30.057879Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class DecisionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @javax.annotation.Nullable
   private User user;
 
   public static final String SERIALIZED_NAME_DECISIONS = "decisions";
   @SerializedName(SERIALIZED_NAME_DECISIONS)
-  private Object decisions;
+  @javax.annotation.Nullable
+  private Map<String, DecisionResponseDecisionsValue> decisions = new HashMap<>();
 
   public static final String SERIALIZED_NAME_EXPLAIN = "explain";
   @SerializedName(SERIALIZED_NAME_EXPLAIN)
+  @javax.annotation.Nullable
   private Object explain;
 
+  public static final String SERIALIZED_NAME_CANDIDATE_RETRIEVAL = "candidateRetrieval";
+  @SerializedName(SERIALIZED_NAME_CANDIDATE_RETRIEVAL)
+  @javax.annotation.Nullable
+  private Object candidateRetrieval;
 
-  public DecisionResponse user(User user) {
-    
+  public DecisionResponse() {
+  }
+
+  public DecisionResponse user(@javax.annotation.Nullable User user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public User getUser() {
     return user;
   }
 
-
-  public void setUser(User user) {
+  public void setUser(@javax.annotation.Nullable User user) {
     this.user = user;
   }
 
 
-  public DecisionResponse decisions(Object decisions) {
-    
+  public DecisionResponse decisions(@javax.annotation.Nullable Map<String, DecisionResponseDecisionsValue> decisions) {
     this.decisions = decisions;
     return this;
   }
 
-   /**
-   * Get decisions
-   * @return decisions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  public DecisionResponse putDecisionsItem(String key, DecisionResponseDecisionsValue decisionsItem) {
+    if (this.decisions == null) {
+      this.decisions = new HashMap<>();
+    }
+    this.decisions.put(key, decisionsItem);
+    return this;
+  }
 
-  public Object getDecisions() {
+  /**
+   * Single decision format with dynamic string key
+   * @return decisions
+   */
+  @javax.annotation.Nullable
+  public Map<String, DecisionResponseDecisionsValue> getDecisions() {
     return decisions;
   }
 
-
-  public void setDecisions(Object decisions) {
+  public void setDecisions(@javax.annotation.Nullable Map<String, DecisionResponseDecisionsValue> decisions) {
     this.decisions = decisions;
   }
 
 
-  public DecisionResponse explain(Object explain) {
-    
+  public DecisionResponse explain(@javax.annotation.Nullable Object explain) {
     this.explain = explain;
     return this;
   }
 
-   /**
+  /**
    * Get explain
    * @return explain
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public Object getExplain() {
     return explain;
   }
 
-
-  public void setExplain(Object explain) {
+  public void setExplain(@javax.annotation.Nullable Object explain) {
     this.explain = explain;
   }
 
 
+  public DecisionResponse candidateRetrieval(@javax.annotation.Nullable Object candidateRetrieval) {
+    this.candidateRetrieval = candidateRetrieval;
+    return this;
+  }
+
+  /**
+   * Get candidateRetrieval
+   * @return candidateRetrieval
+   */
+  @javax.annotation.Nullable
+  public Object getCandidateRetrieval() {
+    return candidateRetrieval;
+  }
+
+  public void setCandidateRetrieval(@javax.annotation.Nullable Object candidateRetrieval) {
+    this.candidateRetrieval = candidateRetrieval;
+  }
+
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -126,14 +176,14 @@ public class DecisionResponse implements Serializable {
     DecisionResponse decisionResponse = (DecisionResponse) o;
     return Objects.equals(this.user, decisionResponse.user) &&
         Objects.equals(this.decisions, decisionResponse.decisions) &&
-        Objects.equals(this.explain, decisionResponse.explain);
+        Objects.equals(this.explain, decisionResponse.explain) &&
+        Objects.equals(this.candidateRetrieval, decisionResponse.candidateRetrieval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, decisions, explain);
+    return Objects.hash(user, decisions, explain, candidateRetrieval);
   }
-
 
   @Override
   public String toString() {
@@ -142,6 +192,7 @@ public class DecisionResponse implements Serializable {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    decisions: ").append(toIndentedString(decisions)).append("\n");
     sb.append("    explain: ").append(toIndentedString(explain)).append("\n");
+    sb.append("    candidateRetrieval: ").append(toIndentedString(candidateRetrieval)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,12 +201,99 @@ public class DecisionResponse implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("user", "decisions", "explain", "candidateRetrieval"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(0);
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DecisionResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!DecisionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DecisionResponse is not found in the empty JSON string", DecisionResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!DecisionResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DecisionResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `user`
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
+        User.validateJsonElement(jsonObj.get("user"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!DecisionResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DecisionResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<DecisionResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DecisionResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<DecisionResponse>() {
+           @Override
+           public void write(JsonWriter out, DecisionResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public DecisionResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of DecisionResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DecisionResponse
+   * @throws IOException if the JSON string is invalid with respect to DecisionResponse
+   */
+  public static DecisionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DecisionResponse.class);
+  }
+
+  /**
+   * Convert an instance of DecisionResponse to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

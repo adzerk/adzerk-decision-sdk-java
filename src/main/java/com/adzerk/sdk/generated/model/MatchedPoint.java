@@ -14,81 +14,99 @@
 package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.adzerk.sdk.generated.JSON;
 
 /**
  * MatchedPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-16T20:15:30.057879Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class MatchedPoint implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_LAT = "lat";
   @SerializedName(SERIALIZED_NAME_LAT)
+  @javax.annotation.Nullable
   private String lat;
 
   public static final String SERIALIZED_NAME_LON = "lon";
   @SerializedName(SERIALIZED_NAME_LON)
+  @javax.annotation.Nullable
   private String lon;
 
+  public MatchedPoint() {
+  }
 
-  public MatchedPoint lat(String lat) {
-    
+  public MatchedPoint lat(@javax.annotation.Nullable String lat) {
     this.lat = lat;
     return this;
   }
 
-   /**
+  /**
    * Get lat
    * @return lat
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLat() {
     return lat;
   }
 
-
-  public void setLat(String lat) {
+  public void setLat(@javax.annotation.Nullable String lat) {
     this.lat = lat;
   }
 
 
-  public MatchedPoint lon(String lon) {
-    
+  public MatchedPoint lon(@javax.annotation.Nullable String lon) {
     this.lon = lon;
     return this;
   }
 
-   /**
+  /**
    * Get lon
    * @return lon
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getLon() {
     return lon;
   }
 
-
-  public void setLon(String lon) {
+  public void setLon(@javax.annotation.Nullable String lon) {
     this.lon = lon;
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -105,7 +123,6 @@ public class MatchedPoint implements Serializable {
     return Objects.hash(lat, lon);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -120,12 +137,101 @@ public class MatchedPoint implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("lat", "lon"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(0);
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to MatchedPoint
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MatchedPoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MatchedPoint is not found in the empty JSON string", MatchedPoint.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MatchedPoint.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MatchedPoint` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("lat") != null && !jsonObj.get("lat").isJsonNull()) && !jsonObj.get("lat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lat").toString()));
+      }
+      if ((jsonObj.get("lon") != null && !jsonObj.get("lon").isJsonNull()) && !jsonObj.get("lon").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lon` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lon").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MatchedPoint.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MatchedPoint' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MatchedPoint> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MatchedPoint.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MatchedPoint>() {
+           @Override
+           public void write(JsonWriter out, MatchedPoint value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MatchedPoint read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of MatchedPoint given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MatchedPoint
+   * @throws IOException if the JSON string is invalid with respect to MatchedPoint
+   */
+  public static MatchedPoint fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MatchedPoint.class);
+  }
+
+  /**
+   * Convert an instance of MatchedPoint to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
