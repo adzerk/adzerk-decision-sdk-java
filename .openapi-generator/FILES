@@ -1,9 +1,5 @@
-.gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
-api/openapi.yaml
-build.gradle
 build.sbt
 docs/ConsentRequest.md
 docs/Content.md
@@ -15,7 +11,6 @@ docs/Event.md
 docs/MatchedPoint.md
 docs/Placement.md
 docs/PricingData.md
-docs/SkipFilters.md
 docs/User.md
 docs/UserdbApi.md
 git_push.sh
@@ -55,18 +50,4 @@ src/main/java/com/adzerk/sdk/generated/model/Event.java
 src/main/java/com/adzerk/sdk/generated/model/MatchedPoint.java
 src/main/java/com/adzerk/sdk/generated/model/Placement.java
 src/main/java/com/adzerk/sdk/generated/model/PricingData.java
-src/main/java/com/adzerk/sdk/generated/model/SkipFilters.java
 src/main/java/com/adzerk/sdk/generated/model/User.java
-src/test/java/com/adzerk/sdk/generated/api/DecisionApiTest.java
-src/test/java/com/adzerk/sdk/generated/api/UserdbApiTest.java
-src/test/java/com/adzerk/sdk/generated/model/ConsentRequestTest.java
-src/test/java/com/adzerk/sdk/generated/model/ContentTest.java
-src/test/java/com/adzerk/sdk/generated/model/DecisionRequestTest.java
-src/test/java/com/adzerk/sdk/generated/model/DecisionResponseTest.java
-src/test/java/com/adzerk/sdk/generated/model/DecisionTest.java
-src/test/java/com/adzerk/sdk/generated/model/EventTest.java
-src/test/java/com/adzerk/sdk/generated/model/MatchedPointTest.java
-src/test/java/com/adzerk/sdk/generated/model/PlacementTest.java
-src/test/java/com/adzerk/sdk/generated/model/PricingDataTest.java
-src/test/java/com/adzerk/sdk/generated/model/SkipFiltersTest.java
-src/test/java/com/adzerk/sdk/generated/model/UserTest.java

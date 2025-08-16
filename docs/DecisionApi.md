@@ -30,7 +30,7 @@ public class Example {
     defaultClient.setBasePath("https://e-23.adzerk.net");
 
     DecisionApi apiInstance = new DecisionApi(defaultClient);
-    DecisionRequest decisionRequest = new DecisionRequest(); // DecisionRequest | 
+    DecisionRequest decisionRequest = {"placements": [{ "divName": "header", "networkId": 23, "siteId": 667480, "adTypes": [5] }] }; // DecisionRequest | 
     try {
       DecisionResponse result = apiInstance.getDecisions(decisionRequest);
       System.out.println(result);

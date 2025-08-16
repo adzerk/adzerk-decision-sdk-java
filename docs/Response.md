@@ -1,6 +1,6 @@
 
 
-# DecisionResponse
+# Response
 
 ## Properties
 
@@ -10,9 +10,5 @@ Name | Type | Description | Notes
 **decisions** | [**Object**](.md) |  |  [optional]
 **explain** | [**Object**](.md) |  |  [optional]
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

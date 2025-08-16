@@ -29,7 +29,7 @@ import java.io.Serializable;
  * Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)
  */
 @ApiModel(description = "Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
 public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +62,7 @@ public class User implements Serializable {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -78,6 +78,7 @@ public class User implements Serializable {
     return Objects.hash(key);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -91,7 +92,7 @@ public class User implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

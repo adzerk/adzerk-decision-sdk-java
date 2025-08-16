@@ -1,17 +1,13 @@
 
 
-# ConsentRequest
+# GdprConsent
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userKey** | **String** |  |  [optional]
-**consent** | [**Object**](.md) |  |  [optional]
+**consent** | [**Consent**](Consent.md) |  |  [optional]
 
-
-## Implemented Interfaces
-
-* Serializable
 
 

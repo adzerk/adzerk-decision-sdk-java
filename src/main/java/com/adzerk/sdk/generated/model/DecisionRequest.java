@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
 public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -571,7 +571,7 @@ public class DecisionRequest implements Serializable {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -605,6 +605,7 @@ public class DecisionRequest implements Serializable {
     return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, radius, includeMatchedPoints);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -636,7 +637,7 @@ public class DecisionRequest implements Serializable {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

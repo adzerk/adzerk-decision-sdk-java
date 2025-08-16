@@ -1,13 +1,13 @@
 
 
-# Event
+# RequestLocation
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  |  [optional]
-**url** | [**URI**](URI.md) |  |  [optional]
+**latitude** | **String** |  |  [optional]
+**longitude** | **String** |  |  [optional]
 
 
 ## Implemented Interfaces

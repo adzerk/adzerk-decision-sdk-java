@@ -2,7 +2,6 @@
 
 # Decision
 
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,9 +12,9 @@ Name | Type | Description | Notes
 **flightId** | **Integer** |  |  [optional]
 **campaignId** | **Integer** |  |  [optional]
 **priorityId** | **Integer** |  |  [optional]
-**clickUrl** | **URI** |  |  [optional]
+**clickUrl** | [**URI**](URI.md) |  |  [optional]
 **contents** | [**List&lt;Content&gt;**](Content.md) |  |  [optional]
-**impressionUrl** | **URI** |  |  [optional]
+**impressionUrl** | [**URI**](URI.md) |  |  [optional]
 **events** | [**List&lt;Event&gt;**](Event.md) |  |  [optional]
 **matchedPoints** | [**List&lt;MatchedPoint&gt;**](MatchedPoint.md) |  |  [optional]
 **pricing** | [**PricingData**](PricingData.md) |  |  [optional]

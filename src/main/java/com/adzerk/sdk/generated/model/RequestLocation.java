@@ -26,64 +26,64 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * ConsentRequest
+ * RequestLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-10T07:56:36.651701-06:00[America/Chicago]")
-public class ConsentRequest implements Serializable {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-16T14:55:19.451-04:00[America/New_York]")
+public class RequestLocation implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_USER_KEY = "userKey";
-  @SerializedName(SERIALIZED_NAME_USER_KEY)
-  private String userKey;
+  public static final String SERIALIZED_NAME_LATITUDE = "latitude";
+  @SerializedName(SERIALIZED_NAME_LATITUDE)
+  private String latitude;
 
-  public static final String SERIALIZED_NAME_CONSENT = "consent";
-  @SerializedName(SERIALIZED_NAME_CONSENT)
-  private Object consent;
+  public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
+  @SerializedName(SERIALIZED_NAME_LONGITUDE)
+  private String longitude;
 
 
-  public ConsentRequest userKey(String userKey) {
+  public RequestLocation latitude(String latitude) {
     
-    this.userKey = userKey;
+    this.latitude = latitude;
     return this;
   }
 
    /**
-   * Get userKey
-   * @return userKey
+   * Get latitude
+   * @return latitude
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getUserKey() {
-    return userKey;
+  public String getLatitude() {
+    return latitude;
   }
 
 
-  public void setUserKey(String userKey) {
-    this.userKey = userKey;
+  public void setLatitude(String latitude) {
+    this.latitude = latitude;
   }
 
 
-  public ConsentRequest consent(Object consent) {
+  public RequestLocation longitude(String longitude) {
     
-    this.consent = consent;
+    this.longitude = longitude;
     return this;
   }
 
    /**
-   * Get consent
-   * @return consent
+   * Get longitude
+   * @return longitude
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getConsent() {
-    return consent;
+  public String getLongitude() {
+    return longitude;
   }
 
 
-  public void setConsent(Object consent) {
-    this.consent = consent;
+  public void setLongitude(String longitude) {
+    this.longitude = longitude;
   }
 
 
@@ -95,23 +95,23 @@ public class ConsentRequest implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConsentRequest consentRequest = (ConsentRequest) o;
-    return Objects.equals(this.userKey, consentRequest.userKey) &&
-        Objects.equals(this.consent, consentRequest.consent);
+    RequestLocation requestLocation = (RequestLocation) o;
+    return Objects.equals(this.latitude, requestLocation.latitude) &&
+        Objects.equals(this.longitude, requestLocation.longitude);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userKey, consent);
+    return Objects.hash(latitude, longitude);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConsentRequest {\n");
-    sb.append("    userKey: ").append(toIndentedString(userKey)).append("\n");
-    sb.append("    consent: ").append(toIndentedString(consent)).append("\n");
+    sb.append("class RequestLocation {\n");
+    sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
+    sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("}");
     return sb.toString();
   }
