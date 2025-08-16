@@ -103,18 +103,13 @@ task execute(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
 }
 
-task javadocJar(type: Jar) {
-    archiveClassifier.set('javadoc')
-    from javadoc
-}
-
 task sourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
+    archives sourcesJar
 }
 
 dependencies {
@@ -122,14 +117,18 @@ dependencies {
     implementation "com.google.code.findbugs:jsr305:3.0.2"
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'io.gsonfire:gson-fire:1.8.4'
-    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'io.gsonfire:gson-fire:1.9.0'
+    implementation 'jakarta.ws.rs:jakarta.ws.rs-api:2.1.6'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+    implementation 'org.apache.commons:commons-lang3:3.17.0'
+    implementation "jakarta.annotation:jakarta.annotation-api:1.3.5"
     implementation 'org.threeten:threetenbp:1.4.3'
-    implementation 'javax.annotation:javax.annotation-api:1.3.2'
     implementation 'org.slf4j:slf4j-api:2.0.17'
     implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testImplementation 'org.mockito:mockito-core:3.12.4'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
 }
 
 javadoc {
