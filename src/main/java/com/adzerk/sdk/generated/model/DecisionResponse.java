@@ -15,7 +15,6 @@ package com.adzerk.sdk.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adzerk.sdk.generated.model.Decision;
 import com.adzerk.sdk.generated.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -25,15 +24,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.io.Serializable;
 
 /**
  * DecisionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T04:47:08.783685028Z[Etc/UTC]")
 public class DecisionResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -43,7 +39,7 @@ public class DecisionResponse implements Serializable {
 
   public static final String SERIALIZED_NAME_DECISIONS = "decisions";
   @SerializedName(SERIALIZED_NAME_DECISIONS)
-  private Map<String, Decision> decisions = null;
+  private Object decisions;
 
   public static final String SERIALIZED_NAME_EXPLAIN = "explain";
   @SerializedName(SERIALIZED_NAME_EXPLAIN)
@@ -73,17 +69,9 @@ public class DecisionResponse implements Serializable {
   }
 
 
-  public DecisionResponse decisions(Map<String, Decision> decisions) {
+  public DecisionResponse decisions(Object decisions) {
     
     this.decisions = decisions;
-    return this;
-  }
-
-  public DecisionResponse putDecisionsItem(String key, Decision decisionsItem) {
-    if (this.decisions == null) {
-      this.decisions = new HashMap<String, Decision>();
-    }
-    this.decisions.put(key, decisionsItem);
     return this;
   }
 
@@ -94,12 +82,12 @@ public class DecisionResponse implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Map<String, Decision> getDecisions() {
+  public Object getDecisions() {
     return decisions;
   }
 
 
-  public void setDecisions(Map<String, Decision> decisions) {
+  public void setDecisions(Object decisions) {
     this.decisions = decisions;
   }
 

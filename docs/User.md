@@ -9,6 +9,7 @@ Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **String** | The UserKey used for UserDB Targeting |  [optional]
+**group** | **Integer** | The assigned cohort for the User |  [optional]
 
 
 ## Implemented Interfaces

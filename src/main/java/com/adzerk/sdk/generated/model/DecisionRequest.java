@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * DecisionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T04:47:08.783685028Z[Etc/UTC]")
 public class DecisionRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -111,6 +111,10 @@ public class DecisionRequest implements Serializable {
   public static final String SERIALIZED_NAME_INCLUDE_MATCHED_POINTS = "includeMatchedPoints";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MATCHED_POINTS)
   private Boolean includeMatchedPoints;
+
+  public static final String SERIALIZED_NAME_SEARCH_TERM = "searchTerm";
+  @SerializedName(SERIALIZED_NAME_SEARCH_TERM)
+  private String searchTerm;
 
 
   public DecisionRequest placements(List<Placement> placements) {
@@ -570,6 +574,29 @@ public class DecisionRequest implements Serializable {
   }
 
 
+  public DecisionRequest searchTerm(String searchTerm) {
+    
+    this.searchTerm = searchTerm;
+    return this;
+  }
+
+   /**
+   * A way to target ads based on shopper search terms
+   * @return searchTerm
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A way to target ads based on shopper search terms")
+
+  public String getSearchTerm() {
+    return searchTerm;
+  }
+
+
+  public void setSearchTerm(String searchTerm) {
+    this.searchTerm = searchTerm;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -597,12 +624,13 @@ public class DecisionRequest implements Serializable {
         Objects.equals(this.intendedLatitude, decisionRequest.intendedLatitude) &&
         Objects.equals(this.intendedLongitude, decisionRequest.intendedLongitude) &&
         Objects.equals(this.radius, decisionRequest.radius) &&
-        Objects.equals(this.includeMatchedPoints, decisionRequest.includeMatchedPoints);
+        Objects.equals(this.includeMatchedPoints, decisionRequest.includeMatchedPoints) &&
+        Objects.equals(this.searchTerm, decisionRequest.searchTerm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, radius, includeMatchedPoints);
+    return Objects.hash(placements, user, keywords, url, referrer, ip, blockedCreatives, isMobile, includePricingData, notrack, enableBotFiltering, enableUserDBIP, consent, deviceID, parallel, intendedLatitude, intendedLongitude, radius, includeMatchedPoints, searchTerm);
   }
 
   @Override
@@ -628,6 +656,7 @@ public class DecisionRequest implements Serializable {
     sb.append("    intendedLongitude: ").append(toIndentedString(intendedLongitude)).append("\n");
     sb.append("    radius: ").append(toIndentedString(radius)).append("\n");
     sb.append("    includeMatchedPoints: ").append(toIndentedString(includeMatchedPoints)).append("\n");
+    sb.append("    searchTerm: ").append(toIndentedString(searchTerm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

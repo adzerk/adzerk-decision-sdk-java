@@ -29,13 +29,17 @@ import java.io.Serializable;
  * Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)
  */
 @ApiModel(description = "Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-16T01:15:27.717Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T04:47:08.783685028Z[Etc/UTC]")
 public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
+
+  public static final String SERIALIZED_NAME_GROUP = "group";
+  @SerializedName(SERIALIZED_NAME_GROUP)
+  private Integer group;
 
 
   public User key(String key) {
@@ -61,6 +65,29 @@ public class User implements Serializable {
   }
 
 
+  public User group(Integer group) {
+    
+    this.group = group;
+    return this;
+  }
+
+   /**
+   * The assigned cohort for the User
+   * @return group
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The assigned cohort for the User")
+
+  public Integer getGroup() {
+    return group;
+  }
+
+
+  public void setGroup(Integer group) {
+    this.group = group;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -70,12 +97,13 @@ public class User implements Serializable {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.key, user.key);
+    return Objects.equals(this.key, user.key) &&
+        Objects.equals(this.group, user.group);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(key, group);
   }
 
   @Override
@@ -83,6 +111,7 @@ public class User implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }

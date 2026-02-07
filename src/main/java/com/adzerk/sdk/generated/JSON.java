@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
-import com.google.gson.Strictness;
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
@@ -35,20 +35,13 @@ import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.ParsePosition;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.TimeZone;
 
 public class JSON {
-    private static final DateFormat ISO8601DateFormat;
-    static {
-        ISO8601DateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.US);
-        ISO8601DateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-    }
-
     private Gson gson;
     private boolean isLenientOnJson = false;
     private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
@@ -146,7 +139,8 @@ public class JSON {
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
-                jsonReader.setStrictness(Strictness.LENIENT);
+                // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
+                jsonReader.setLenient(true);
                 return gson.fromJson(jsonReader, returnType);
             } else {
                 return gson.fromJson(body, returnType);
@@ -331,7 +325,7 @@ public class JSON {
                         if (dateFormat != null) {
                             return new java.sql.Date(dateFormat.parse(date).getTime());
                         }
-                        return new java.sql.Date(ISO8601DateFormat.parse(date).getTime());
+                        return new java.sql.Date(ISO8601Utils.parse(date, new ParsePosition(0)).getTime());
                     } catch (ParseException e) {
                         throw new JsonParseException(e);
                     }
@@ -366,7 +360,7 @@ public class JSON {
                 if (dateFormat != null) {
                     value = dateFormat.format(date);
                 } else {
-                    value = ISO8601DateFormat.format(date);
+                    value = ISO8601Utils.format(date, true);
                 }
                 out.value(value);
             }
@@ -385,7 +379,7 @@ public class JSON {
                             if (dateFormat != null) {
                                 return dateFormat.parse(date);
                             }
-                            return ISO8601DateFormat.parse(date);
+                            return ISO8601Utils.parse(date, new ParsePosition(0));
                         } catch (ParseException e) {
                             throw new JsonParseException(e);
                         }
