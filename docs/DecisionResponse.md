@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user** | [**User**](User.md) |  |  [optional]
-**decisions** | [**Map&lt;String, Decision&gt;**](Decision.md) |  |  [optional]
+**decisions** | **Object** |  |  [optional]
 **explain** | **Object** |  |  [optional]
 
 

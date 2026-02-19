@@ -19,7 +19,7 @@ publishing {
 
             artifactId = 'adzerk-decision-sdk'
             group = 'com.adzerk'
-            version = '1.0.0-beta.15'
+            version = '1.0.0-beta.16'
 
             pom {
                 name = 'Adzerk Decision SDK'
@@ -118,18 +118,18 @@ artifacts {
 }
 
 dependencies {
-    implementation 'io.swagger:swagger-annotations:1.5.22'
+    implementation 'io.swagger:swagger-annotations:1.6.16'
     implementation "com.google.code.findbugs:jsr305:3.0.2"
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'io.gsonfire:gson-fire:1.8.4'
-    implementation 'org.apache.commons:commons-lang3:3.10'
-    implementation 'org.threeten:threetenbp:1.4.3'
+    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'io.gsonfire:gson-fire:1.9.0'
+    implementation 'org.apache.commons:commons-lang3:3.17.0'
+    implementation 'org.threeten:threetenbp:1.7.2'
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
     implementation 'org.slf4j:slf4j-api:2.0.17'
-    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
-    testImplementation 'junit:junit:4.13.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.24.3'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 javadoc {

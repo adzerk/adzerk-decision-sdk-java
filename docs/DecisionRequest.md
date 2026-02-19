@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **intendedLongitude** | **Float** |  |  [optional]
 **radius** | **Float** |  |  [optional]
 **includeMatchedPoints** | **Boolean** |  |  [optional]
+**searchTerm** | **String** | A way to target ads based on shopper search terms |  [optional]
 
 
 ## Implemented Interfaces
