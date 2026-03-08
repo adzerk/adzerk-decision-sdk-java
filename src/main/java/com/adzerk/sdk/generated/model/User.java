@@ -23,13 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
  * Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)
  */
 @ApiModel(description = "Object containing the UserKey used for [UserDB targeting](https://dev.adzerk.com/docs/userdb-1)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-07T04:47:08.783685028Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-08T14:52:10.310679358-05:00[America/Chicago]")
 public class User implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -40,6 +42,10 @@ public class User implements Serializable {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
   private Integer group;
+
+  public static final String SERIALIZED_NAME_SEGMENTS = "segments";
+  @SerializedName(SERIALIZED_NAME_SEGMENTS)
+  private List<Integer> segments = null;
 
 
   public User key(String key) {
@@ -88,6 +94,37 @@ public class User implements Serializable {
   }
 
 
+  public User segments(List<Integer> segments) {
+    
+    this.segments = segments;
+    return this;
+  }
+
+  public User addSegmentsItem(Integer segmentsItem) {
+    if (this.segments == null) {
+      this.segments = new ArrayList<Integer>();
+    }
+    this.segments.add(segmentsItem);
+    return this;
+  }
+
+   /**
+   * Array of Segment Ids that will override any set on the UserDB record for the User
+   * @return segments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of Segment Ids that will override any set on the UserDB record for the User")
+
+  public List<Integer> getSegments() {
+    return segments;
+  }
+
+
+  public void setSegments(List<Integer> segments) {
+    this.segments = segments;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,12 +135,13 @@ public class User implements Serializable {
     }
     User user = (User) o;
     return Objects.equals(this.key, user.key) &&
-        Objects.equals(this.group, user.group);
+        Objects.equals(this.group, user.group) &&
+        Objects.equals(this.segments, user.segments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, group);
+    return Objects.hash(key, group, segments);
   }
 
   @Override
@@ -112,6 +150,7 @@ public class User implements Serializable {
     sb.append("class User {\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    segments: ").append(toIndentedString(segments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
